@@ -13,6 +13,9 @@
     <Reference Include="Funcionario">
       <HintPath>..\Funcionario\bin\Debug\net6.0\Funcionario.dll</HintPath>
     </Reference>
+    <Reference Include="Pessoa">
+      <HintPath>..\Pessoa.cs\bin\Debug\net6.0\Pessoa.dll</HintPath>
+    </Reference>
     <Reference Include="Utente">
       <HintPath>..\Utente\bin\Debug\net6.0\Utente.dll</HintPath>
     </Reference>
