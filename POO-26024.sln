@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Diretor", "Diretor\Diretor.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UCCI", "UCCI\UCCI.csproj", "{B4A70162-A2E2-4AF8-B6E0-4865B5B574D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pessoa", "Pessoa.cs\Pessoa.csproj", "{3E9C738C-1DEE-4590-9ED0-BFD9AF233EEC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pessoa", "Pessoa.cs\Pessoa.csproj", "{3E9C738C-1DEE-4590-9ED0-BFD9AF233EEC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
