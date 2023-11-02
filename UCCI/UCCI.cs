@@ -1,7 +1,7 @@
 ﻿using System;
-using Diretor;
-using Utente;
-using Funcionario;
+using DIRETOR;
+using UTENTE;
+using FUNCIONARIO;
 
 namespace UCCI
 {

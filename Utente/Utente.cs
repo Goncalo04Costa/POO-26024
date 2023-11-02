@@ -1,4 +1,4 @@
-﻿namespace Utente
+﻿namespace UTENTE
 {
     public class Utente
     {

@@ -1,7 +1,6 @@
 ﻿using System.Diagnostics.Contracts;
 
-namespace Funcionario
-{
+namespace FUNCIONARIO { 
     class Enfermeiro : Funcionario
     {
         #region Atributos

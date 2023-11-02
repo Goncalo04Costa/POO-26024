@@ -1,4 +1,4 @@
-﻿namespace Diretor
+﻿namespace DIRETOR
 {
     public class Diretor
     {

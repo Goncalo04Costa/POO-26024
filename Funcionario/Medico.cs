@@ -1,8 +1,4 @@
-﻿using Funcionario;
-using System.Diagnostics.Contracts;
-
-namespace Funcionario
-{
+﻿namespace FUNCIONARIO { 
     class Medico : Funcionario
     {
 

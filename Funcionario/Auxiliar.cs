@@ -1,4 +1,4 @@
-﻿namespace Funcionario
+﻿namespace FUNCIONARIO
 {
     internal class Auxiliar : Funcionario
     {
