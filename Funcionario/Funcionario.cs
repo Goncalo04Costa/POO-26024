@@ -1,7 +1,7 @@
 ﻿using PESSOA;
 namespace FUNCIONARIO
 {
-    public class Funcionario
+    public class Funcionario : Pessoa
     {
         #region Atributos
         int codigo;

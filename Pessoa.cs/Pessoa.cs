@@ -4,9 +4,11 @@
     {
         #region Atributos
         string nome;
+        string apelido;
         int idade;
         int NIF;
         int SNS;
+        int contacto;
         #endregion
 
         #region Metodos
