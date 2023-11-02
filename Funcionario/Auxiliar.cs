@@ -1,5 +1,8 @@
-﻿using PESSOA;
-namespace FUNCIONARIO
+﻿
+using PESSOA;
+using System.Runtime.Intrinsics.Arm;
+
+namespace Funcionario
 {
     internal class Auxiliar : Funcionario
     {
@@ -15,6 +18,13 @@ namespace FUNCIONARIO
         {
             codigoAuxiliar = 0;
             condicao = "";
+        }
+
+        public Auxiliar(int codigoAuxiliar, string condicao)
+
+        {
+            this.codigoAuxiliar = codigoAuxiliar;
+            this.condicao = condicao;
         }
         #endregion
 
@@ -32,15 +42,16 @@ namespace FUNCIONARIO
         }
         #endregion
 
+
         #region Operadores
         public static bool operator ==(Auxiliar a1, Auxiliar a2)
         {
-            if ((a1.Nome == a2.Nome) && (a1.codigoAuxiliar == a2.codigoAuxiliar) && (a1.Contacto == a2.Contacto))
+            if ((a1.Nome == a2.Nome) && (a1.Apelido == a2.Apelido) && (a1.Contacto == a2.Contacto) && (a1.Idade == a2.Idade) && (a1.Nif == a2.Nif) && (a1.Sns == a2.Sns) && (a1.codigoAuxiliar == a2.codigoAuxiliar) && (a1.condicao == a2.condicao))
                 return true;
             return false;
         }
 
-        public static bool operator !=(Auxiliar a1, Auxiliar a2)
+        public static bool operator !=(Auxiliar a1,Auxiliar a2)
         {
 
             if (a1 == a2)
@@ -68,6 +79,11 @@ namespace FUNCIONARIO
                 }
             }
             return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
         #endregion
 

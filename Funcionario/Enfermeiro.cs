@@ -1,6 +1,7 @@
 ﻿using PESSOA;
 
-namespace FUNCIONARIO { 
+namespace Funcionario { 
+   
     class Enfermeiro : Funcionario
     {
         #region Atributos
@@ -15,6 +16,13 @@ namespace FUNCIONARIO {
         {
             codigoEnfermeiro = 0;
             condicao = "";
+        }
+
+        public Enfermeiro(int codigoEnfermeiro, string condicao)
+
+        {
+            this.codigoEnfermeiro = codigoEnfermeiro;
+            this.condicao = condicao;
         }
         #endregion
 
@@ -34,7 +42,7 @@ namespace FUNCIONARIO {
         #region Operadores
         public static bool operator ==(Enfermeiro e1, Enfermeiro e2)
         {
-            if ((e1.Nome == e2.Nome) && (e1.codigoEnfermeiro == e2.codigoEnfermeiro) && (e1.Contacto == e2.Contacto))
+            if ((e1.Nome == e2.Nome) && (e1.codigoEnfermeiro == e2.codigoEnfermeiro) && (e1.Sns == e2.Sns) && (e1.Nif == e2.Nif))
                 return true;
             return false;
         }
@@ -67,6 +75,11 @@ namespace FUNCIONARIO {
                 }
             }
             return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
         #endregion
 

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Funcionario", "Funcionario\Funcionario.csproj", "{C8623B50-4634-4F9E-A901-B99648672134}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Funcionário", "Funcionario\Funcionário.csproj", "{C8623B50-4634-4F9E-A901-B99648672134}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utente", "Utente\Utente.csproj", "{384DABBB-A020-4E63-BE58-82DA29F478EC}"
 EndProject

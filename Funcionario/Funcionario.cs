@@ -1,87 +1,78 @@
-﻿using PESSOA;
-namespace FUNCIONARIO
+﻿
+using PESSOA;
+
+namespace Funcionario
 {
-    public class Funcionario : Pessoa
+     class Funcionario : Pessoa
     {
         #region Atributos
         int codigo;
-        string nome;
-         int contacto;
-        
+        DateTime dataentrada;
+        string cargo;
         #endregion
 
         #region Metodos
 
         #region Construtores
-        /// <summary>
-        /// Construtor padrão da classe Funcionario.
-        /// Inicializa os atributos com valores padrão.
-        /// </summary>
-        public Funcionario()
+        public Funcionario() 
         {
-            codigo = 0; 
-            nome = "";
-            contacto = 0;
+            codigo = 0;
+            dataentrada = DateTime.Now;
+            cargo = "";
         }
+
+        public Funcionario(int codigo, DateTime dataentrada, string cargo) 
+        {
+            this.codigo = codigo;
+            this.dataentrada = dataentrada;
+            this.cargo = cargo;
+        }
+
         #endregion
 
         #region Propriedades
-        /// <summary>
-        /// Obtém ou define o código do funcionário.
-        /// </summary>
-        public int Codigo
+        int Codigo
         {
             get { return codigo; }
             set { codigo = value; }
         }
-
-        public string Nome
+        DateTime DataEntrada
         {
-            get { return nome; }
-            set { nome = value; }
+            get { return dataentrada; }
+            set { dataentrada = value; }
         }
 
-        public int Contacto
+        string Cargo
         {
-            get { return contacto; }
-            set { contacto = value; }
-        }
-
-
-        public virtual string MostraFuncionario()
-        {
-            return (String.Format("Nome: {0} - Codigo: {1} - Contacto{2}:", nome, codigo, contacto));
-
+            get { return cargo; } 
+            set { cargo = value; }
         }
         #endregion
 
         #region Operadores
         public static bool operator ==(Funcionario f1, Funcionario f2)
         {
-            if ((f1.Nome == f2.Nome) && (f1.codigo == f2.codigo) && (f1.contacto == f2.contacto) )
+            if ((f1.Nome == f2.Nome) && (f1.Apelido == f2.Apelido) && (f1.Contacto == f2.Contacto) && (f1.Idade == f2.Idade) && (f1.Nif == f2.Nif) && (f1.Sns == f2.Sns) && (f1.codigo == f2.codigo))
                 return true;
             return false;
         }
 
         public static bool operator !=(Funcionario f1, Funcionario f2)
         {
-            //if (!((p1.Nome == p2.Nome) && (p1.idade == p2.idade)))
+
             if (f1 == f2)
                 return false;
             return true;
-            //ou
-            //return (!(p1 == p2));
+
         }
         #endregion
 
         #region Overrides
         public override string ToString()
         {
-            //return base.ToString();
-
-            //return "Nome: " + nome + " Idade: " + idade;
-            return String.Format("Nome: {0} - Codigo: {1} - Contacto{2}:", nome, codigo.ToString(),contacto.ToString() );
+            return String.Format("Nome: {0} {1} - Idade: {2} - Contacto: {3} - NIF: {4} - SNS: {5} - Código: {6} - Data de Entrada: {7} - Cargo: {8}", Nome, Apelido, Idade.ToString(), Contacto.ToString(), Nif.ToString(), Sns.ToString(), codigo.ToString(), dataentrada.ToString("dd/MM/yyyy"), cargo);
         }
+
 
         public override bool Equals(object obj)
         {
@@ -95,10 +86,14 @@ namespace FUNCIONARIO
             }
             return false;
         }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
         #endregion
 
         #region Destruidores
-
         #endregion
 
         #endregion
