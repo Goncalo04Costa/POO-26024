@@ -1,4 +1,6 @@
-﻿namespace UTENTE
+﻿using PESSOA;
+
+namespace UTENTE
 {
     public class Utente
     {

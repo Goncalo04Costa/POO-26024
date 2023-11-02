@@ -6,10 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Reference Include="Pessoa">
-      <HintPath>..\Pessoa.cs\bin\Debug\net6.0\Pessoa.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
 </Project>

@@ -1,4 +1,4 @@
-﻿using System.Diagnostics.Contracts;
+﻿using PESSOA;
 
 namespace FUNCIONARIO { 
     class Enfermeiro : Funcionario

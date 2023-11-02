@@ -1,4 +1,5 @@
-﻿namespace FUNCIONARIO
+﻿using PESSOA;
+namespace FUNCIONARIO
 {
     public class Funcionario
     {
