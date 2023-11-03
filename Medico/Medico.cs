@@ -1,8 +1,8 @@
-﻿
+﻿using FUNCIONARIO;
 using PESSOA;
-namespace Funcionario
+namespace MEDICO
 {
-    class Medico : Funcionario
+    public class Medico : Funcionario
     {
         #region Atributos
         int codigoMedico;
@@ -17,7 +17,7 @@ namespace Funcionario
         }
 
         public Medico(int codigoMedico, string especialidade)
-           
+
         {
             this.codigoMedico = codigoMedico;
             this.especialidade = especialidade;

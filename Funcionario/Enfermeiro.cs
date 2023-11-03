@@ -1,7 +1,8 @@
 ﻿using PESSOA;
 
-namespace Funcionario { 
-   
+namespace FUNCIONARIO
+{
+
     class Enfermeiro : Funcionario
     {
         #region Atributos
@@ -34,8 +35,9 @@ namespace Funcionario {
             set { codigoEnfermeiro = value; }
         }
         string Condicao
-        { get { return condicao; } 
-            set { condicao = value; } 
+        {
+            get { return condicao; }
+            set { condicao = value; }
         }
         #endregion
 
@@ -49,18 +51,18 @@ namespace Funcionario {
 
         public static bool operator !=(Enfermeiro e1, Enfermeiro e2)
         {
-           
+
             if (e1 == e2)
                 return false;
             return true;
-           
+
         }
         #endregion
 
         #region Overrides
         public override string ToString()
         {
-            
+
             return String.Format("Nome: {0} - Codigo: {1} - Contacto{2}:", Nome, codigoEnfermeiro.ToString(), Contacto.ToString());
         }
 
@@ -88,4 +90,5 @@ namespace Funcionario {
 
         #endregion
     }
+
 }
