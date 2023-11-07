@@ -18,11 +18,7 @@ namespace UCCI
         int capacidade;
         string morada;
 
-        private Diretor d;
-        private Utente[] utentes;
-        private Funcionario[] funcionarios;
-        private Diretor[] diretores;
-        
+       
         #endregion
 
 
