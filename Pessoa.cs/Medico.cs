@@ -8,6 +8,8 @@ namespace Person
         string especialidade;
         #endregion
 
+
+        #region Metodos
         #region Construtores
         public Medico()
         {
@@ -83,7 +85,7 @@ namespace Person
 
         #region Destruidores
         #endregion
-
+        #endregion
 
 
     }

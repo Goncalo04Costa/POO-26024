@@ -1,6 +1,4 @@
-﻿
-
-namespace Person
+﻿namespace Person
 {
  public class Funcionario : Pessoa
 {

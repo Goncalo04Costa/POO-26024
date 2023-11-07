@@ -6,7 +6,7 @@
         int codigochefe;
         int Gabinete;
         #endregion
-
+        #region Metodos
         #region Construtores
         public Diretor()
         {
@@ -66,5 +66,7 @@
         #region Destruidores
         // Mantenha os destruidores conforme necessário
         #endregion
+        #endregion
     }
+
 }

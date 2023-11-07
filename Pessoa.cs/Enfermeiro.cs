@@ -3,7 +3,7 @@
 namespace Person
 {
 
-    class Enfermeiro : Funcionario
+    public class Enfermeiro : Funcionario
     {
         #region Atributos
         int codigoEnfermeiro;

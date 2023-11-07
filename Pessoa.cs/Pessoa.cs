@@ -1,6 +1,5 @@
 ﻿namespace Person
-{
-    public class Pessoa
+{   public class Pessoa
     {
         #region Atributos
         string nome;
