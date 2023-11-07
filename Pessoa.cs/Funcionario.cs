@@ -1,8 +1,7 @@
 ﻿
-using PESSOA;
 
-namespace FUNCIONARIO;
-
+namespace Person
+{
  public class Funcionario : Pessoa
 {
     #region Atributos
@@ -99,4 +98,5 @@ namespace FUNCIONARIO;
     #endregion
 
 
+}
 }

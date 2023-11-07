@@ -1,5 +1,4 @@
-﻿
-namespace PESSOA
+﻿namespace Person
 {
     public class Utente : Pessoa
     {

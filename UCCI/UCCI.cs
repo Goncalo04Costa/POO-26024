@@ -1,6 +1,6 @@
-﻿
+﻿using Person;
 
-namespace UCCI
+namespace Unidade
 {
     public class UCCI
     {

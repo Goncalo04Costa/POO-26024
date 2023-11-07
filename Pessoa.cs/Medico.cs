@@ -1,7 +1,5 @@
-﻿using FUNCIONARIO;
-using PESSOA;
-namespace FUNCIONARIO
-
+﻿
+namespace Person
 {
     public class Medico : Funcionario
     {

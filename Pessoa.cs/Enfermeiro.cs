@@ -1,8 +1,6 @@
 ﻿
 
-using FUNCIONARIO;
-
-namespace PESSOA
+namespace Person
 {
 
     class Enfermeiro : Funcionario

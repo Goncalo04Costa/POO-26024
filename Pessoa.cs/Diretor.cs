@@ -1,7 +1,4 @@
-﻿using FUNCIONARIO;
-using PESSOA; // Certifique-se de usar a declaração correta para o namespace Pessoa
-
-namespace PESSOA
+﻿namespace Person
 {
     public class Diretor : Funcionario
     {
