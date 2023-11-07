@@ -1,9 +1,4 @@
-﻿using System;
-using DIRETOR;
-using UTENTE;
-using FUNCIONARIO;
-using MEDICO;
-using PESSOA;
+﻿
 
 namespace UCCI
 {
@@ -27,7 +22,7 @@ namespace UCCI
         private Utente[] utentes;
         private Funcionario[] funcionarios;
         private Diretor[] diretores;
-        private Medico[] medicos;
+        
         #endregion
 
 
