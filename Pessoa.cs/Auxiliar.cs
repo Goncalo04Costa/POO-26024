@@ -6,7 +6,7 @@ namespace Person
     {
         #region Atributos
         int codigoAuxiliar;
-        string condicao;
+       public string condicao;
         #endregion
 
         #region Metodos
@@ -28,7 +28,7 @@ namespace Person
 
         #region Propriedades
 
-        int Codigomedico
+        int Codigoauxiliar
         {
             get { return codigoAuxiliar; }
             set { codigoAuxiliar = value; }

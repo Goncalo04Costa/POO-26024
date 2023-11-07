@@ -6,8 +6,8 @@ namespace Person
     public class Enfermeiro : Funcionario
     {
         #region Atributos
-        int codigoEnfermeiro;
-        string condicao;
+       public int codigoEnfermeiro;
+       public string condicao;
         #endregion
 
         #region Metodos

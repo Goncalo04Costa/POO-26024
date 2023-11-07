@@ -14,6 +14,19 @@ namespace Person
             totalUtentes = 0;
         }
 
+        public static int MaxUtentes { get { return MAX_UTENTES; } }
+
+        public Utente[] UtentesArray
+        {
+            get { return (Utente[])utentesArray.Clone(); }
+            set { } // EVITAR!
+        }
+
+        public int TotalUtentes
+        {
+            get { return totalUtentes; }
+        }
+
         public void AdicionarUtente(Utente utente)
         {
             if (totalUtentes < MAX_UTENTES)
@@ -38,6 +51,23 @@ namespace Person
                 }
             }
         }
+
+        public void OrdenarPorDataEntrada()
+        {
+            for (int i = 0; i < totalUtentes - 1; i++)
+            {
+                for (int j = 0; j < totalUtentes - i - 1; j++)
+                {
+                    if (DateTime.Parse(utentesArray[j].DataEntrada) > DateTime.Parse(utentesArray[j + 1].DataEntrada))
+                    {
+                        Utente temp = utentesArray[j];
+                        utentesArray[j] = utentesArray[j + 1];
+                        utentesArray[j + 1] = temp;
+                    }
+                }
+            }
+        }
+
 
     }
 }

@@ -4,7 +4,7 @@
     {
         #region Atributos
         int ContactoFamiliar;
-        string DataEntrada;
+        public string DataEntrada;
 
         #endregion
 
@@ -15,7 +15,7 @@
         {
            
             ContactoFamiliar = 0;
-            DataEntrada = "";
+            DataEntrada = DateTime.Now;
         }
         #endregion
 

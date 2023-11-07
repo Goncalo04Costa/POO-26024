@@ -4,12 +4,29 @@ namespace Person
 {
     public class Pessoas
     {
+        private const int MAX_PESSOAS = 100;
+        private int totalPessoas;
         private Pessoa[] pessoasArray;
 
-        public Pessoas(int tamanhoArray)
+        public Pessoas()
         {
-            pessoasArray = new Pessoa[tamanhoArray];
+            pessoasArray = new Pessoa[MAX_PESSOAS];
+            totalPessoas = 0;
         }
+
+        public static int MaxPessoas { get { return MAX_PESSOAS; } }
+
+        public Pessoa[] PessoasArray
+        {
+            get { return (Pessoa[])pessoasArray.Clone(); }
+            set { } // EVITAR!
+        }
+
+        public int TotalPessoas
+        {
+            get { return totalPessoas; }
+        }
+
 
         public void AdicionarPessoa(int index, Pessoa pessoa)
         {
