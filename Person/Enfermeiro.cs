@@ -29,7 +29,7 @@ namespace Person
 
         #region Propriedades
 
-        int Codigomedico
+        int Codigoenfermeiro
         {
             get { return codigoEnfermeiro; }
             set { codigoEnfermeiro = value; }

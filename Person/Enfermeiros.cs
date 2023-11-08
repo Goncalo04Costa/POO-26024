@@ -42,62 +42,30 @@ namespace Person
             }
         }
 
-        public void ListarEnfermeiros()
+        public void RemoverEnfermeiro(int codigoEnfermeiro)
         {
-            Console.WriteLine("Lista de Enfermeiros:");
-            foreach (Enfermeiro enfermeiro in enfermeirosArray)
+            for (int i = 0; i < totalEnfermeiros; i++)
             {
-                if (enfermeiro != null)
+                if (enfermeirosArray[i].codigoEnfermeiro == codigoEnfermeiro)
                 {
-                    Console.WriteLine(enfermeiro.ToString());
-                }
-            }
-        }
-
-        public void ListarEnfermeirosPorCondicao(string condicao)
-        {
-            Console.WriteLine($"Lista de Enfermeiros com a Condição {condicao}:");
-            foreach (Enfermeiro enfermeiro in enfermeirosArray)
-            {
-                if (enfermeiro != null && enfermeiro.condicao == condicao)
-                {
-                    Console.WriteLine(enfermeiro.ToString());
-                }
-            }
-        }
-
-
-        private void Ordenar()
-        {
-            for (int i = 0; i < totalEnfermeiros - 1; i++)
-            {
-                for (int j = 0; j < totalEnfermeiros - i - 1; j++)
-                {
-                    if (enfermeirosArray[j].codigoEnfermeiro < enfermeirosArray[j + 1].codigoEnfermeiro)
+                    for (int j = i; j < totalEnfermeiros - 1; j++)
                     {
-                        // Troca os elementos se o primeiro for menor que o próximo
-                        Enfermeiro temp = enfermeirosArray[j];
                         enfermeirosArray[j] = enfermeirosArray[j + 1];
-                        enfermeirosArray[j + 1] = temp;
                     }
+                    enfermeirosArray[totalEnfermeiros - 1] = null; // Limpar a última posição
+                    totalEnfermeiros--;
+                    Console.WriteLine("Enfermeiro removido com sucesso.");
+                    return;
                 }
             }
+            Console.WriteLine("Enfermeiro não encontrado.");
         }
 
-        public void ListarEnfermeirosOrdenados()
+        public int ContarEnfermeiros()
         {
-            // Ordenar os enfermeiros usando o Bubble Sort
-            Ordenar();
-
-            Console.WriteLine("Lista de Enfermeiros por Ordem Decrescente de Código:");
-            foreach (Enfermeiro enfermeiro in enfermeirosArray)
-            {
-                if (enfermeiro != null)
-                {
-                    Console.WriteLine(enfermeiro.ToString());
-                }
-            }
+            return totalEnfermeiros;
         }
+
         #endregion
     }
 }

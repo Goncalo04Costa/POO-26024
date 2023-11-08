@@ -4,9 +4,9 @@ namespace Person
 {
     public class Auxiliares
     {
-         Auxiliar[] auxiliaresArray;
-         const int MAX_AUXILIARES = 52;
-         int totalAuxiliares;
+        Auxiliar[] auxiliaresArray;
+        const int MAX_AUXILIARES = 52;
+        int totalAuxiliares;
 
         public Auxiliares()
         {
@@ -61,7 +61,7 @@ namespace Person
                     return auxiliar;
                 }
             }
-            return null; 
+            return null;
         }
 
         public int ContarAuxiliares()
@@ -78,53 +78,32 @@ namespace Person
         }
 
 
-        private void ReorganizarArray()
+        public void RemoverAuxiliar(int CodigoAuxiliar)
         {
-            Auxiliar[] tempArray = new Auxiliar[MAX_AUXILIARES];
-            int index = 0;
+
             for (int i = 0; i < totalAuxiliares; i++)
             {
-                if (auxiliaresArray[i] != null)
+                if (auxiliaresArray[i].codigoAuxiliar == CodigoAuxiliar)
                 {
-                    tempArray[index] = auxiliaresArray[i];
-                    index++;
-                }
-            }
-            auxiliaresArray = tempArray;
-        }
-
-
-
-
-        public bool RemoverAuxiliar(string nome)
-        {
-            for (int i = 0; i < totalAuxiliares; i++)
-            {
-                if (auxiliaresArray[i] != null && auxiliaresArray[i].Nome == nome)
-                {
-                    auxiliaresArray[i] = null;
-                    ReorganizarArray(); 
+                    for (int j = i; j < totalAuxiliares - 1; j++)
+                    {
+                        auxiliaresArray[j] = auxiliaresArray[j + 1];
+                    }
+                    auxiliaresArray[totalAuxiliares - 1] = null;
                     totalAuxiliares--;
-                    return true;
+                    return;
                 }
             }
-            return false;
         }
 
-
-        public void ListarAuxiliaresPorCondicao(string Condicao)
+        public int ContaAxuxiliares()
         {
-            Console.WriteLine($"Lista de Auxiliares com a Condição {Condicao}:");
-            foreach (Auxiliar auxiliar in auxiliaresArray)
-            {
-                if (auxiliar != null && auxiliar.condicao == Condicao)
-                {
-                    Console.WriteLine(auxiliar.ToString());
-                }
-            }
+            return totalAuxiliares;
         }
-
 
         #endregion
     }
 }
+
+
+

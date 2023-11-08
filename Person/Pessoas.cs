@@ -40,16 +40,29 @@ namespace Person
             }
         }
 
-        public void ListarPessoas()
+
+        public void RemoverPessoa(int NIF)
         {
-            Console.WriteLine("Lista de Pessoas:");
-            foreach (Pessoa pessoa in pessoasArray)
+
+            for (int i = 0; i < totalPessoas; i++)
             {
-                if (pessoa != null)
+                if (pessoasArray[i].Nif == NIF)
                 {
-                    Console.WriteLine(pessoa.ToString());
+                    for (int j = i; j < totalPessoas - 1; j++)
+                    {
+                        pessoasArray[j] = pessoasArray[j + 1];
+                    }
+                    pessoasArray[totalPessoas - 1] = null;
+                    totalPessoas--;
+                    return;
                 }
             }
         }
+
+        public int ContaPessoa()
+        {
+            return totalPessoas;
+        }
     }
+
 }

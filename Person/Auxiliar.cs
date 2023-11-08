@@ -5,7 +5,7 @@ namespace Person
     public class Auxiliar : Funcionario
     {
         #region Atributos
-        int codigoAuxiliar;
+       public int codigoAuxiliar;
        public string condicao;
         #endregion
 

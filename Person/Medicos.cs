@@ -38,30 +38,28 @@ namespace Person
             }
         }
 
-        public void ListarMedicos()
+        public void RemoverEnfermeiro(int codigoM)
         {
-            Console.WriteLine("Lista de Médicos:");
-            foreach (Medico medico in medicosArray)
+            for (int i = 0; i < totalMedicos; i++)
             {
-                if (medico != null)
+                if (medicosArray[i].CodigoMedico == codigoM)
                 {
-                    Console.WriteLine(medico.ToString());
+                    for (int j = i; j < totalMedicos - 1; j++)
+                    {
+                        medicosArray[j] = medicosArray[j + 1];
+                    }
+                    medicosArray[totalMedicos - 1] = null; 
+                    totalMedicos--;
+                    return;
                 }
             }
         }
 
-
-        public void ListarMedicosPorEspecialidade(string especialidade)
+        public int ContarMedicos()
         {
-            Console.WriteLine($"Lista de Médicos com a Especialidade {especialidade}:");
-            foreach (Medico medico in medicosArray)
-            {
-                if (medico != null && medico.Especialidade == especialidade)
-                {
-                    Console.WriteLine(medico.ToString());
-                }
-            }
+            return totalMedicos;
         }
+
 
     }
 }

@@ -40,33 +40,28 @@ namespace Person
             }
         }
 
-        public void ListarUtentes()
+        public void RemoverUtente(int NIF)
         {
-            Console.WriteLine("Lista de Utentes:");
-            foreach (Utente utente in utentesArray)
+            for (int i = 0; i < totalUtentes; i++)
             {
-                if (utente != null)
+                if (utentesArray[i].Nif == NIF)
                 {
-                    Console.WriteLine(utente.ToString());
+                    for (int j = i; j < totalUtentes - 1; j++)
+                    {
+                        utentesArray[j] = utentesArray[j + 1];
+                    }
+                    utentesArray[totalUtentes - 1] = null;
+                    totalUtentes--;
+                    return;
                 }
             }
         }
 
-        public void OrdenarPorDataEntrada()
+        public int ContarUtentes()
         {
-            for (int i = 0; i < totalUtentes - 1; i++)
-            {
-                for (int j = 0; j < totalUtentes - i - 1; j++)
-                {
-                    if (DateTime.Parse(utentesArray[j].DataEntrada) > DateTime.Parse(utentesArray[j + 1].DataEntrada))
-                    {
-                        Utente temp = utentesArray[j];
-                        utentesArray[j] = utentesArray[j + 1];
-                        utentesArray[j + 1] = temp;
-                    }
-                }
-            }
+            return totalUtentes;
         }
+
 
 
     }

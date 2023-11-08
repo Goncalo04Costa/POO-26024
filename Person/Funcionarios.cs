@@ -41,70 +41,31 @@ namespace Person
             }
         }
 
-        public void ListarFuncionarios()
+
+        public void RemoverFuncionario(int NIF)
         {
-            Console.WriteLine("Lista de Funcionários:");
-            foreach (Funcionario funcionario in funcionariosArray)
+
+            for (int i = 0; i < totalFuncionarios; i++)
             {
-                if (funcionario != null)
+                if (funcionariosArray[i].Nif == NIF)
                 {
-                    Console.WriteLine(funcionario.ToString());
+                    for (int j = i; j < totalFuncionarios - 1; j++)
+                    {
+                        funcionariosArray[j] = funcionariosArray[j + 1];
+                    }
+                    funcionariosArray[totalFuncionarios - 1] = null;
+                    totalFuncionarios--;
+                    return;
                 }
             }
         }
 
-        public void QuickSort(Funcionario[] arr, int left, int right)
+        public int ContaFuncionario()
         {
-            int i = left, j = right;
-            Funcionario pivot = arr[(left + right) / 2];
-
-            while (i <= j)
-            {
-                while (String.Compare(arr[i].Nome, pivot.Nome, StringComparison.Ordinal) < 0)
-                {
-                    i++;
-                }
-
-                while (String.Compare(arr[j].Nome, pivot.Nome, StringComparison.Ordinal) > 0)
-                {
-                    j--;
-                }
-
-                if (i <= j)
-                { 
-                    Funcionario tmp = arr[i];
-                    arr[i] = arr[j];
-                    arr[j] = tmp;
-                    i++;
-                    j--;
-                }
-            }
-
-            // Recursão
-            if (left < j)
-            {
-                QuickSort(arr, left, j);
-            }
-
-            if (i < right)
-            {
-                QuickSort(arr, i, right);
-            }
+            return totalFuncionarios;
         }
-
-        public void ListarFuncionariosOrdenados()
-        {
-            QuickSort(funcionariosArray, 0, totalFuncionarios - 1);
-
-            Console.WriteLine("Lista de Funcionários por Ordem Alfabética:");
-            foreach (Funcionario funcionario in funcionariosArray)
-            {
-                if (funcionario != null)
-                {
-                    Console.WriteLine(funcionario.ToString());
-                }
-            }
-        }
-
     }
+
+
+
 }

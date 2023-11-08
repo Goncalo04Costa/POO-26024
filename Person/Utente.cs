@@ -15,7 +15,7 @@
         {
            
             ContactoFamiliar = 0;
-            DataEntrada = DateTime.Now;
+            DataEntrada = "";
         }
         #endregion
 
