@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+ *Gonçalo Cardoso Ferreira da Costa 
+ * a26024@alunos.ipca.pt
+ * POO
+ * LESI
+ * Professor:Luis Ferreira
+ * */
+using System;
 
 namespace Person
 {

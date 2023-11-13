@@ -1,4 +1,10 @@
-﻿
+﻿/*
+ *Gonçalo Cardoso Ferreira da Costa 
+ * a26024@alunos.ipca.pt
+ * POO
+ * LESI
+ * Professor:Luis Ferreira
+ * */
 namespace Person
 {
     public class Medico : Funcionario
