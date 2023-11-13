@@ -1,10 +1,11 @@
 ﻿/*
- *Gonçalo Cardoso Ferreira da Costa 
+ * Gonçalo Cardoso Ferreira da Costa 
  * a26024@alunos.ipca.pt
  * POO
  * LESI
- * Professor:Luis Ferreira
- * */
+ * Professor: Luis Ferreira
+ */
+
 using System;
 
 namespace Person
@@ -15,25 +16,30 @@ namespace Person
         private const int MAX_UTENTES = 52;
         private int totalUtentes;
 
+        // Construtor padrão
         public Utentes()
         {
             utentesArray = new Utente[MAX_UTENTES];
             totalUtentes = 0;
         }
 
+        // Propriedade estática para obter o máximo de utentes permitidos
         public static int MaxUtentes { get { return MAX_UTENTES; } }
 
+        // Propriedade para obter uma cópia do array de utentes
         public Utente[] UtentesArray
         {
             get { return (Utente[])utentesArray.Clone(); }
-            set { } // EVITAR!
+            set { } // Evitar definir o valor diretamente, pois pode causar problemas de referência
         }
 
+        // Propriedade para obter o total de utentes atualmente no array
         public int TotalUtentes
         {
             get { return totalUtentes; }
         }
 
+        // Método para adicionar um utente ao array
         public void AdicionarUtente(Utente utente)
         {
             if (totalUtentes < MAX_UTENTES)
@@ -47,6 +53,7 @@ namespace Person
             }
         }
 
+        // Método para remover um utente com base no NIF
         public void RemoverUtente(int NIF)
         {
             for (int i = 0; i < totalUtentes; i++)
@@ -64,12 +71,10 @@ namespace Person
             }
         }
 
+        // Método para contar o número de utentes no array
         public int ContarUtentes()
         {
             return totalUtentes;
         }
-
-
-
     }
 }

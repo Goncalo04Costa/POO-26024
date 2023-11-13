@@ -1,10 +1,13 @@
 ﻿/*
- *Gonçalo Cardoso Ferreira da Costa 
+ * Gonçalo Cardoso Ferreira da Costa 
  * a26024@alunos.ipca.pt
  * POO
  * LESI
- * Professor:Luis Ferreira
- * */
+ * Professor: Luis Ferreira
+ */
+
+using System;
+
 namespace Person
 {
     public class Medicos
@@ -12,6 +15,7 @@ namespace Person
         private Medico[] medicosArray;
         private const int MAX_MEDICOS = 2;
         private int totalMedicos;
+
         public Medicos()
         {
             medicosArray = new Medico[MAX_MEDICOS];
@@ -23,7 +27,7 @@ namespace Person
         public Medico[] MedicosArray
         {
             get { return (Medico[])medicosArray.Clone(); }
-            set { } // EVITAR!
+            
         }
 
         public int TotalMedicos
@@ -44,17 +48,17 @@ namespace Person
             }
         }
 
-        public void RemoverEnfermeiro(int codigoM)
+        public void RemoverMedico(int codigoMedico)
         {
             for (int i = 0; i < totalMedicos; i++)
             {
-                if (medicosArray[i].CodigoMedico == codigoM)
+                if (medicosArray[i].CodigoMedico == codigoMedico)
                 {
                     for (int j = i; j < totalMedicos - 1; j++)
                     {
                         medicosArray[j] = medicosArray[j + 1];
                     }
-                    medicosArray[totalMedicos - 1] = null; 
+                    medicosArray[totalMedicos - 1] = null;
                     totalMedicos--;
                     return;
                 }
@@ -65,7 +69,6 @@ namespace Person
         {
             return totalMedicos;
         }
-
-
     }
 }
+

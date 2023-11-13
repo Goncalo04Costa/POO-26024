@@ -1,39 +1,61 @@
 ﻿/*
- *Gonçalo Cardoso Ferreira da Costa 
+ * Gonçalo Cardoso Ferreira da Costa
  * a26024@alunos.ipca.pt
  * POO
  * LESI
- * Professor:Luis Ferreira
- * */
+ * Professor: Luis Ferreira
+ */
+
 using System;
 
 namespace Person
 {
+    /// <summary>
+    /// Representa uma classe que gerencia um array de objetos Auxiliar.
+    /// </summary>
     public class Auxiliares
     {
-        Auxiliar[] auxiliaresArray;
-        const int MAX_AUXILIARES = 52;
-        int totalAuxiliares;
+        private Auxiliar[] auxiliaresArray;
+        private const int MAX_AUXILIARES = 52;
+        private int totalAuxiliares;
 
+        /// <summary>
+        /// Construtor padrão que inicializa um array de auxiliares e define o total de auxiliares como 0.
+        /// </summary>
         public Auxiliares()
         {
             auxiliaresArray = new Auxiliar[MAX_AUXILIARES];
             totalAuxiliares = 0;
         }
 
+        /// <summary>
+        /// Obtém o número máximo de auxiliares permitidos.
+        /// </summary>
         public static int MaxAuxiliares { get { return MAX_AUXILIARES; } }
 
+        /// <summary>
+        /// Obtém uma cópia do array de auxiliares.
+        /// </summary>
         public Auxiliar[] AuxiliaresArray
         {
             get { return (Auxiliar[])auxiliaresArray.Clone(); }
             set { } // EVITAR!
         }
 
+        /// <summary>
+        /// Obtém o total atual de auxiliares no array.
+        /// </summary>
         public int TotalAuxiliares
         {
             get { return totalAuxiliares; }
         }
-        #region Othermethods
+
+        #region Outros Métodos
+
+        /// <summary>
+        /// Adiciona um auxiliar ao array, desde que o limite máximo não tenha sido atingido.
+        /// </summary>
+        /// <param name="auxiliar">O auxiliar a ser adicionado.</param>
         public void AdicionarAuxiliar(Auxiliar auxiliar)
         {
             if (totalAuxiliares < MAX_AUXILIARES)
@@ -47,63 +69,12 @@ namespace Person
             }
         }
 
-        public void ListarAuxiliares()
-        {
-            Console.WriteLine("Lista de Auxiliares:");
-            foreach (Auxiliar auxiliar in auxiliaresArray)
-            {
-                if (auxiliar != null)
-                {
-                    Console.WriteLine(auxiliar.ToString());
-                }
-            }
-        }
-
-        public Auxiliar PesquisarPorNome(string nome)
-        {
-            foreach (Auxiliar auxiliar in auxiliaresArray)
-            {
-                if (auxiliar != null && auxiliar.Nome == nome)
-                {
-                    return auxiliar;
-                }
-            }
-            return null;
-        }
-
-        public int ContarAuxiliares()
-        {
-            int count = 0;
-            foreach (Auxiliar auxiliar in auxiliaresArray)
-            {
-                if (auxiliar != null)
-                {
-                    count++;
-                }
-            }
-            return count;
-        }
 
 
-        public void RemoverAuxiliar(int CodigoAuxiliar)
-        {
-
-            for (int i = 0; i < totalAuxiliares; i++)
-            {
-                if (auxiliaresArray[i].codigoAuxiliar == CodigoAuxiliar)
-                {
-                    for (int j = i; j < totalAuxiliares - 1; j++)
-                    {
-                        auxiliaresArray[j] = auxiliaresArray[j + 1];
-                    }
-                    auxiliaresArray[totalAuxiliares - 1] = null;
-                    totalAuxiliares--;
-                    return;
-                }
-            }
-        }
-
-        public int ContaAxuxiliares()
+        /// <summary>
+        /// Retorna o número total de auxiliares no array.
+        /// </summary>
+        public int ContaAuxiliares()
         {
             return totalAuxiliares;
         }
