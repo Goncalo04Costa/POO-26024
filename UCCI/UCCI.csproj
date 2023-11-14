@@ -7,6 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Reference Include="Equipment">
+      <HintPath>..\Equipamentos\bin\Debug\net6.0\Equipment.dll</HintPath>
+    </Reference>
     <Reference Include="Persons">
       <HintPath>..\Persons\bin\Debug\net6.0\Persons.dll</HintPath>
     </Reference>
