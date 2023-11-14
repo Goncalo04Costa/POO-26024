@@ -1,6 +1,14 @@
-﻿namespace Equipment
+﻿/*
+ * Gonçalo Cardoso Ferreira da Costa
+ * a26024@alunos.ipca.pt
+ * POO
+ * LESI
+ * Professor: Luis Ferreira
+ */
+
+namespace Equipment
 {
-     class Equipamentos
+     public class Equipamentos
     {
 
         private Equipamento[] equipamentosArray;
@@ -33,7 +41,7 @@
         /// <summary>
         /// Obtém o total atual de equipamentos no array.
         /// </summary>
-        public int TotaldeMedicamentos
+        public int TotaldeEquipamentos
         {
             get { return totalequipamentos; }
         }

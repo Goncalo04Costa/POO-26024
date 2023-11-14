@@ -43,9 +43,7 @@ namespace Persons
                 totalMedicos++;
             }
             else
-            {
-                Console.WriteLine("O limite máximo de médicos foi atingido. Não é possível adicionar mais médicos.");
-            }
+            {}
         }
 
         public void RemoverMedico(int codigoMedico)

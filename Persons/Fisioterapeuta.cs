@@ -1,34 +1,22 @@
-﻿/*
- * Gonçalo Cardoso Ferreira da Costa
- * a26024@alunos.ipca.pt
- * POO
- * LESI
- * Professor: Luis Ferreira
- */
+﻿
 
 namespace Persons
 {
-    /// <summary>
-    /// Representa a classe Enfermeiro, que é uma subclasse de Funcionario.
-    /// </summary>
-    public class Enfermeiro : Funcionario
+    public class Fisioterapeuta : Funcionario
     {
         #region Atributos
 
-        int codigoenfermeiro;
-        string condicao;
+        public int codigofisioterapeuta;
+        public string condicao;
 
         #endregion
 
         #region Construtores
 
-        /// <summary>
-        /// Construtor padrão para a classe Enfermeiro.
-        /// Inicializa CodigoEnfermeiro para 0 e Condicao para uma string vazia.
-        /// </summary>
-        public Enfermeiro()
+        
+        public Fisioterapeuta()
         {
-            codigoenfermeiro = 0;
+            codigofisioterapeuta = 0;
             condicao = "";
         }
 
@@ -44,17 +32,18 @@ namespace Persons
         /// <param name="nif">NIF (Número de Identificação Fiscal) do Enfermeiro.</param>
         /// <param name="sns">Número do SNS (Serviço Nacional de Saúde) do Enfermeiro.</param>
         /// <param name="contacto">Número de contato do Enfermeiro.</param>
-        public Enfermeiro(int codigoEnfermeiro, string condicao, string nome, string apelido, int idade, int nif, int sns, int contacto, string Nome, string Apelido,int Idade, int NIF, int SNS,int Contacto)
+        public Fisioterapeuta(int codigoFisioterapeuta, string condicao, string nome, string apelido, int idade, int nif, int sns, int contacto, string Nome, string Apelido, int Idade, int NIF, int SNS, int Contacto)
         {
-            this.codigoenfermeiro = codigoEnfermeiro;
+            this.codigofisioterapeuta = codigoFisioterapeuta;
             this.condicao = condicao;
         }
 
 
-        public int CodigoEnfermeiro
+
+        public int CodigoFisioterapeuta
         {
-            get { return codigoenfermeiro; }
-            set { codigoenfermeiro = value; }
+            get { return codigofisioterapeuta; }
+            set { codigofisioterapeuta = value; }
         }
 
         /// <summary>
@@ -67,14 +56,14 @@ namespace Persons
         }
         #endregion
 
-        #region Operadores
+            #region Operadores
 
-        /// <summary>
-        /// Operador de igualdade para comparar dois objetos Enfermeiro.
-        /// </summary>
-        public static bool operator ==(Enfermeiro e1, Enfermeiro e2)
+            /// <summary>
+            /// Operador de igualdade para comparar dois objetos Enfermeiro.
+            /// </summary>
+        public static bool operator ==(Fisioterapeuta f1, Fisioterapeuta f2)
         {
-            if ((e1.Nome == e2.Nome) && (e1.CodigoEnfermeiro == e2.CodigoEnfermeiro) && (e1.Sns == e2.Sns) && (e1.Nif == e2.Nif))
+            if ((f1.Nome == f2.Nome) && (f1.codigofisioterapeuta == f2.codigofisioterapeuta) && (f1.Sns == f2.Sns) && (f1.Nif == f2.Nif))
                 return true;
 
             return false;
@@ -83,9 +72,9 @@ namespace Persons
         /// <summary>
         /// Operador de desigualdade para comparar dois objetos Enfermeiro.
         /// </summary>
-        public static bool operator !=(Enfermeiro e1, Enfermeiro e2)
+        public static bool operator !=(Fisioterapeuta f1, Fisioterapeuta f2)
         {
-            if (e1 == e2)
+            if (f1 == f2)
                 return false;
 
             return true;
@@ -100,7 +89,7 @@ namespace Persons
         /// </summary>
         public override string ToString()
         {
-            return String.Format("Nome: {0} - Codigo: {1} - Contacto{2}:", Nome, CodigoEnfermeiro.ToString(), Contacto.ToString());
+            return String.Format("Nome: {0} - Codigo: {1} - Contacto{2}:", Nome, codigofisioterapeuta.ToString(), Contacto.ToString());
         }
 
         /// <summary>
@@ -108,10 +97,10 @@ namespace Persons
         /// </summary>
         public override bool Equals(object obj)
         {
-            if (obj is Enfermeiro)
+            if (obj is Fisioterapeuta)
             {
-                Enfermeiro e = (Enfermeiro)obj;
-                if (this == e)
+                Fisioterapeuta f = (Fisioterapeuta)obj;
+                if (this == f)
                 {
                     return true;
                 }

@@ -1,5 +1,10 @@
-﻿using static System.Net.Mime.MediaTypeNames;
-
+﻿/*
+ * Gonçalo Cardoso Ferreira da Costa
+ * a26024@alunos.ipca.pt
+ * POO
+ * LESI
+ * Professor: Luis Ferreira
+ */
 namespace Product
 {
     public class Medicamento : Produto

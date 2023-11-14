@@ -63,9 +63,7 @@ namespace Persons
                 totalAuxiliares++;
             }
             else
-            {
-                Console.WriteLine("O limite máximo de auxiliares foi atingido. Não é possível adicionar mais auxiliares.");
-            }
+            {}
         }
 
 

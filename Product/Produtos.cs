@@ -1,4 +1,11 @@
-﻿namespace Product
+﻿/*
+ * Gonçalo Cardoso Ferreira da Costa
+ * a26024@alunos.ipca.pt
+ * POO
+ * LESI
+ * Professor: Luis Ferreira
+ */
+namespace Product
 {
     public class Produtos
     {
@@ -81,9 +88,9 @@
         /// <summary>
         /// Retorna o número total de medicamentos no array.
         /// </summary>
-        public int ContaMedicamento()
+        public int ContaProdutos()
         {
-            return totalmedicamentos; ;
+            return totalprodutos; 
         }
 
         #endregion

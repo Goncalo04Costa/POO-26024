@@ -12,17 +12,14 @@ namespace Persons
     // Definição da classe Pessoas
     public class Pessoas
     {
-        // Constante que define o número máximo de pessoas
+        
         private const int MAX_PESSOAS = 100;
-
-        // Variáveis de instância da classe
         private int totalPessoas;
         private Pessoa[] pessoasArray;
 
         // Construtor padrão da classe Pessoas
         public Pessoas()
         {
-            // Inicializa o array de pessoas e o total de pessoas
             pessoasArray = new Pessoa[MAX_PESSOAS];
             totalPessoas = 0;
         }
@@ -34,7 +31,7 @@ namespace Persons
         public Pessoa[] PessoasArray
         {
             get { return (Pessoa[])pessoasArray.Clone(); }
-            set { } // Evitar definição de valor (set) para evitar alterações externas
+            set { } 
         }
 
         // Propriedade de leitura do total de pessoas
@@ -44,16 +41,15 @@ namespace Persons
         }
 
         // Método para adicionar uma pessoa ao array na posição especificada
-        public void AdicionarPessoa(int index, Pessoa pessoa)
+        public void AdicionarPessoa(Pessoa pessoa)
         {
-            if (index >= 0 && index < pessoasArray.Length)
+            if (totalPessoas < MAX_PESSOAS)
             {
-                pessoasArray[index] = pessoa;
+                pessoasArray[totalPessoas] = pessoa;
+                totalPessoas++;
             }
             else
-            {
-                Console.WriteLine("ERRO!");
-            }
+            {}
         }
 
         // Método para remover uma pessoa com o NIF especificado do array

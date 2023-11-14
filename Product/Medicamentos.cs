@@ -1,4 +1,11 @@
-﻿namespace Product
+﻿/*
+ * Gonçalo Cardoso Ferreira da Costa
+ * a26024@alunos.ipca.pt
+ * POO
+ * LESI
+ * Professor: Luis Ferreira
+ */
+namespace Product
 {
     public class Medicamentos
     {

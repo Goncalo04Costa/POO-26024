@@ -1,6 +1,10 @@
-﻿using static System.Net.Mime.MediaTypeNames;
-using System.Diagnostics.Contracts;
-using System.Net;
+﻿/*
+ * Gonçalo Cardoso Ferreira da Costa
+ * a26024@alunos.ipca.pt
+ * POO
+ * LESI
+ * Professor: Luis Ferreira
+ */
 
 namespace Product
 {

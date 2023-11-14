@@ -1,12 +1,21 @@
-﻿namespace Equipment
+﻿/*
+ * Gonçalo Cardoso Ferreira da Costa
+ * a26024@alunos.ipca.pt
+ * POO
+ * LESI
+ * Professor: Luis Ferreira
+ */
+
+namespace Equipment
 {
-    public class Equipamento
+    public class Equipamento : IEquipamento
     {
         #region Atributos
         int codigo;
         string nome;
         string descricao;
         int carga;
+        int estado;
         #endregion
 
         #region Metodos
@@ -20,15 +29,17 @@
             codigo = 0;
             nome = "";
             descricao = "";
-            carga = 0;
+           carga = 0;
+           estado = 0; 
         }
 
-        public Equipamento( int codigo, string nome, string descricao, int carga)
+        public Equipamento( int codigo, string nome, string descricao, int carga, int estado)
         {
             this.codigo = codigo;
             this.nome = nome;
             this.descricao = descricao;
             this.carga = carga;
+            this.estado = estado;
         }
         #endregion
 
@@ -36,14 +47,15 @@
        
         public int Codigo
         {
-            set { codigo = value; }
-            get { return codigo; }
-          
+            
+         get { return codigo; }
+         set { codigo = value; }
+
         }
         public string Nome
         {
-            set { nome = value;}
             get{ return nome;}
+           set { nome = value; }
         }
         
         public  string Descricao 
@@ -51,6 +63,11 @@
             set { descricao = value; }
         }
 
+        public int Estado
+        {
+            get { return estado; }
+            set { estado = value; }
+        }
         public int Carga
         {
             get { return carga; }
@@ -67,7 +84,7 @@
         /// <returns></returns>
         public static bool operator ==(Equipamento e1, Equipamento e2)
         {
-            if ((e1.Codigo == e2.Codigo ) && (e1.Nome == e2.Nome) && (e1.Descricao == e2.Descricao) && (e1.Carga == e2.Carga))
+            if ((e1.Codigo == e2.Codigo ) && (e1.Nome == e2.Nome) && (e1.Descricao == e2.Descricao) && (e1.Carga == e2.Carga) && (e1.Estado == e2.Estado))
                 return true;
             return false;
         }
@@ -86,8 +103,6 @@
             if (e1 == e2)
                 return false;
             return true;
-            //ou
-            //return (!(p1 == p2));
         }
         #endregion
 
@@ -99,7 +114,7 @@
         public override string ToString()
         {
 
-            return String.Format( "Codigo: {0} - Nome: {0} - Descrição: {1} - Carga: {2}: ",codigo.ToString(), nome, descricao, carga.ToString());
+            return String.Format( "Codigo: {0} - Nome: {1} - Descrição: {2} - Carga: {3} - Estado:{4}: ",codigo.ToString(), nome, descricao, carga.ToString(), estado.ToString());
         }
 
         /// <summary>
@@ -119,6 +134,8 @@
             }
             return false;
         }
+
+
         #endregion
 
         #region Destruidores
@@ -129,4 +146,4 @@
 
 
     }
-}
+}  
