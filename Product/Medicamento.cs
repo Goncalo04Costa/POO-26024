@@ -31,12 +31,11 @@ namespace Product
         {
             set
             {
-                //if (value<0)
                 codigomedicamento = value;
             }
             get
             {
-                //if(pode_saber_a_minha_idade)
+           
                 return codigomedicamento;
             }
         }
@@ -46,7 +45,7 @@ namespace Product
         /// </summary>
         public string Fornecedor
         {
-            get { return fornecedor.ToUpper(); }
+            get { return fornecedor; }
             set { fornecedor = value; }
         }
 
@@ -60,8 +59,7 @@ namespace Product
             return false;
         }
 
-        //><=
-        //+
+        
         /// <summary>
         /// 
         /// </summary>
@@ -70,40 +68,39 @@ namespace Product
         /// <returns></returns>
         public static bool operator !=(Medicamento m1, Medicamento m2)
         {
-            //if (!((p1.Nome == p2.Nome) && (p1.idade == p2.idade)))
+         
             if (m1 == m2)
                 return false;
             return true;
-            //ou
-            //return (!(p1 == p2));
+         
         }
         #endregion
 
         #region Overrides
         public override string ToString()
         {
-            //return base.ToString();
-
-            //return "Nome: " + nome + " Idade: " + idade;
-            return String.Format("Forncedor: {0} - Codigo Medicamento: {1}", fornecedor, codigomedicamento.ToString());
+            return String.Format("Nome: {0} - Codigo: {1} - CodigoMedicamento{2} - Fornecedor{3} - Stock{4}:", Nome, Codigo.ToString(), codigomedicamento.ToString(),fornecedor, Stock.ToString());
         }
 
         /// <summary>
-        /// 
+        /// Determina se o objeto Medicamento é igual a outro objeto.
         /// </summary>
-        /// <param name="obj"></param>
-        /// <returns></returns>
         public override bool Equals(object obj)
         {
-            if (obj is Medicamento)
+            if (obj is Limpeza)
             {
-                Medicamento m = (Medicamento)obj;
-                if (this == m)
-                {
-                    return true;
-                }
+                Limpeza l = (Limpeza)obj;
+                return this == l;
             }
             return false;
+        }
+
+        /// <summary>
+        /// Retorna um código hash para o objeto Medicamento.
+        /// </summary>
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Nome, Codigo, codigomedicamento, fornecedor, Stock);
         }
 
         #endregion

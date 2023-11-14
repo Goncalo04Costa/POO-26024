@@ -1,11 +1,20 @@
-﻿namespace Product
+﻿/*
+ * Gonçalo Cardoso Ferreira da Costa 
+ * a26024@alunos.ipca.pt
+ * POO
+ * LESI
+ * Professor: Luis Ferreira
+ */
+
+namespace Product
 {
     public class Produto
     {
         #region ESTADO 
 
          string nome;
-         int codigo;    
+         int codigo;
+         int stock;
 
         #endregion
 
@@ -19,19 +28,17 @@
         {
             codigo = 0;
             nome = "";
+            stock = 0;
         }
 
-        public Produto(int codigo, string nome)
+        public Produto(int codigo, string nome, int stock)
         {
             this.codigo = codigo;
             this.nome = nome;
+            this.stock = stock;
         }
 
-        //public Pessoa(int id, string no)
-        //{
-        //    idade = id;
-        //    nome = no;
-        //}
+      
         #endregion
 
         #region PROPRIEDADES
@@ -43,12 +50,10 @@
         {
             set
             {
-                //if (value<0)
                 codigo = value;
             }
             get
             {
-                //if(pode_saber_a_minha_idade)
                 return codigo;
             }
         }
@@ -58,10 +63,15 @@
         /// </summary>
         public string Nome
         {
-            get { return nome.ToUpper(); }
+            get { return nome; }
             set { nome = value; }
         }
 
+        public int Stock
+        {
+            get { return stock; }
+            set { stock = value; }
+        }
         #endregion
 
         #region Operadores
@@ -74,7 +84,7 @@
         /// <returns></returns>
         public static bool operator ==(Produto p1, Produto p2)
         {
-            if ((p1.Nome == p2.Nome) && (p1.Codigo== p2.Codigo))
+            if ((p1.Nome == p2.Nome) && (p1.Codigo== p2.Codigo) && (p1.Stock == p2.Stock))
                 return true;
             return false;
         }
@@ -107,12 +117,10 @@
         /// <returns></returns>
         public override string ToString()
         {
-            //return base.ToString();
-
-            //return "Nome: " + nome + " Idade: " + idade;
-            return String.Format("Nome: {0} - Codigo: {1}", nome, codigo.ToString());
+          
+            return String.Format("Nome: {0} - Codigo: {1} - Stoc: {2}: ", nome, codigo.ToString(), stock.ToString());
         }
-
+         
         /// <summary>
         /// 
         /// </summary>

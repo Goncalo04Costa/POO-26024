@@ -1,4 +1,5 @@
 ﻿using Person;
+using Product;
 /*
  *Gonçalo Cardoso Ferreira da Costa 
  * a26024@alunos.ipca.pt
@@ -226,4 +227,14 @@ namespace Unidade
 }
 */
 
-
+namespace UCCI
+{
+    public class UCCI
+    {
+        static void Main(string[] args)
+        {
+            Produto p1 = new Produto();
+            Pessoa  pessoa = new Pessoa();
+        }
+    }
+}
