@@ -2,7 +2,7 @@
 
 namespace Product
 {
-    internal class Medicamento : Produto
+    public class Medicamento : Produto
     {
 
         #region Atributos

@@ -1,6 +1,6 @@
 ﻿namespace Product
 {
-    internal class Limpezas
+    public class Limpezas
     {
         private Limpeza[] limpezasArray;
         private const int MAX_limpeza = 200;

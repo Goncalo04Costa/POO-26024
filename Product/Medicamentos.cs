@@ -1,6 +1,6 @@
 ﻿namespace Product
 {
-    internal class Medicamentos
+    public class Medicamentos
     {
         private Medicamento[] medicamentosArray;
         private const int MAX_Medicamentos = 320;
