@@ -6,7 +6,7 @@
  * Professor: Luis Ferreira
  */
 
-using System;
+
 
 namespace Person
 {
