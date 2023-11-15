@@ -46,29 +46,21 @@ namespace Product
 
         #region Outros Métodos
 
-        /// <summary>
-        /// Adiciona um produto ao  array, desde que o limite máximo não tenha sido atingido.
-        /// </summary>
-        /// <param name="medicamento">O produto a ser adicionado.</param>
-        public void NewProduto(Produto produto)
+        public bool AdicionarProduto(Produto produto)
         {
             if (totalprodutos < MAX_produtos)
             {
                 produtossArray[totalprodutos] = produto;
-               totalprodutos++;
+                totalprodutos++;
+                return true; // Indica que o produto foi adicionado com sucesso
             }
             else
             {
-                Console.WriteLine("O limite máximo de produtos foi atingido.");
+                return false; // Indica que não foi possível adicionar o produto devido ao limite atingido
             }
         }
 
-
-        /// <summary>
-        /// Remove um produto com base no codigo.
-        /// </summary>
-        /// <param name="codigo">O codigo do produto a ser removido.</param>
-        public void RemoverProduto(int codigo)
+        public bool RemoverProduto(int codigo)
         {
             for (int i = 0; i < totalprodutos; i++)
             {
@@ -80,9 +72,11 @@ namespace Product
                     }
                     produtossArray[totalprodutos - 1] = null;
                     totalprodutos--;
-                    return;
+                    return true; // Indica que o produto foi removido com sucesso
                 }
             }
+
+            return false; // Indica que o produto não foi encontrado para remoção
         }
 
         /// <summary>

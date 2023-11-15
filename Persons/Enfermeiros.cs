@@ -57,24 +57,21 @@ namespace Persons
         /// Adiciona um objeto Enfermeiro à coleção.
         /// </summary>
         /// <param name="enfermeiro">O objeto Enfermeiro a ser adicionado.</param>
-        public void AdicionarEnfermeiro(Enfermeiro enfermeiro)
+        public bool AdicionarEnfermeiro(Enfermeiro enfermeiro)
         {
             if (totalEnfermeiros < MAX_ENFERMEIROS)
             {
                 enfermeirosArray[totalEnfermeiros] = enfermeiro;
                 totalEnfermeiros++;
+                return true; // Indica que o enfermeiro foi adicionado com sucesso
             }
             else
             {
-                Console.WriteLine("O limite máximo de enfermeiros foi atingido. Não é possível adicionar mais enfermeiros.");
+                return false; // Indica que não foi possível adicionar o enfermeiro devido ao limite atingido
             }
         }
 
-        /// <summary>
-        /// Remove um objeto Enfermeiro da coleção com base no código do enfermeiro.
-        /// </summary>
-        /// <param name="codigoEnfermeiro">O código do Enfermeiro a ser removido.</param>
-        public void RemoverEnfermeiro(int codigoEnfermeiro)
+        public bool RemoverEnfermeiro(int codigoEnfermeiro)
         {
             for (int i = 0; i < totalEnfermeiros; i++)
             {
@@ -86,11 +83,12 @@ namespace Persons
                     }
                     enfermeirosArray[totalEnfermeiros - 1] = null; // Limpar a última posição
                     totalEnfermeiros--;
-                    Console.WriteLine("Enfermeiro removido com sucesso.");
-                    return;
+                    ;
+                    return true; // Indica que o enfermeiro foi removido com sucesso
                 }
             }
-            Console.WriteLine("Enfermeiro não encontrado.");
+            
+            return false; // Indica que o enfermeiro não foi encontrado para remoção
         }
 
         /// <summary>

@@ -90,13 +90,7 @@ namespace Product
             return false;
         }
 
-        /// <summary>
-        /// Retorna um código hash para o objeto Auxiliar.
-        /// </summary>
-        public override int GetHashCode()
-        {
-            return HashCode.Combine(Nome,Codigo, referencia, descricao, Stock);
-        }
+      
         #endregion
 
         #region Destruidores

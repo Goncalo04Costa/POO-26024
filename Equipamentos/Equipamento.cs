@@ -89,8 +89,7 @@ namespace Equipment
             return false;
         }
 
-        //><=
-        //+
+       
         /// <summary>
         /// 
         /// </summary>

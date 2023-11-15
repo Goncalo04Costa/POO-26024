@@ -35,18 +35,21 @@ namespace Persons
             get { return totalMedicos; }
         }
 
-        public void AdicionarMedico(Medico medico)
+        public bool AdicionarMedico(Medico medico)
         {
             if (totalMedicos < MAX_MEDICOS)
             {
                 medicosArray[totalMedicos] = medico;
                 totalMedicos++;
+                return true; // Indica que o médico foi adicionado com sucesso
             }
             else
-            {}
+            {
+                return false; // Indica que não foi possível adicionar o médico devido ao limite atingido
+            }
         }
 
-        public void RemoverMedico(int codigoMedico)
+        public bool RemoverMedico(int codigoMedico)
         {
             for (int i = 0; i < totalMedicos; i++)
             {
@@ -58,10 +61,13 @@ namespace Persons
                     }
                     medicosArray[totalMedicos - 1] = null;
                     totalMedicos--;
-                    return;
+                    return true; // Indica que o médico foi removido com sucesso
                 }
             }
+
+            return false; // Indica que o médico não foi encontrado para remoção
         }
+
 
         public int ContarMedicos()
         {

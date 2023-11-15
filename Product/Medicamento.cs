@@ -100,14 +100,6 @@ namespace Product
             return false;
         }
 
-        /// <summary>
-        /// Retorna um código hash para o objeto Medicamento.
-        /// </summary>
-        public override int GetHashCode()
-        {
-            return HashCode.Combine(Nome, Codigo, codigomedicamento, fornecedor, Stock);
-        }
-
         #endregion
 
         #region Destruidores

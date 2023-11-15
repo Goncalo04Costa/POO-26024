@@ -52,16 +52,17 @@ namespace Equipment
         /// Adiciona um equipamento ao  array, desde que o limite máximo não tenha sido atingido.
         /// </summary>
         /// <param name="equipamento">O  equipamento a ser adicionado.</param>
-        public void NewEquipamento(Equipamento equipamento)
+        public bool AdicionarEquipamento(Equipamento equipamento)
         {
             if (totalequipamentos < MAX_equipamentos)
             {
                 equipamentosArray[totalequipamentos] = equipamento;
                 totalequipamentos++;
+                return true; // Indica que o equipamento foi adicionado com sucesso
             }
             else
             {
-                Console.WriteLine("O limite máximo de medicamento foi atingido. Não é possível adicionar mais medicamento.");
+                return false; // Indica que não foi possível adicionar o equipamento devido ao limite atingido
             }
         }
 
@@ -70,7 +71,7 @@ namespace Equipment
         /// Remove um equipamento com base no codigo.
         /// </summary>
         /// <param name="codigo">O codigo do equipamento a ser removido.</param>
-        public void RemoverEquipamento(int codigo)
+        public bool RemoverEquipamento(int codigo)
         {
             for (int i = 0; i < totalequipamentos; i++)
             {
@@ -82,10 +83,13 @@ namespace Equipment
                     }
                     equipamentosArray[totalequipamentos - 1] = null;
                     totalequipamentos--;
-                    return;
+                    return true; 
                 }
             }
+
+            return false; 
         }
+
 
         /// <summary>
         /// Retorna o número total de equipamento no array.

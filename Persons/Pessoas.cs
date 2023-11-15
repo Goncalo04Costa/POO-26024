@@ -41,19 +41,21 @@ namespace Persons
         }
 
         // Método para adicionar uma pessoa ao array na posição especificada
-        public void AdicionarPessoa(Pessoa pessoa)
+        public bool AdicionarPessoa(Pessoa pessoa)
         {
             if (totalPessoas < MAX_PESSOAS)
             {
                 pessoasArray[totalPessoas] = pessoa;
                 totalPessoas++;
+                return true; // Indica que a pessoa foi adicionada com sucesso
             }
             else
-            {}
+            {
+                return false; // Indica que não foi possível adicionar a pessoa devido ao limite atingido
+            }
         }
 
-        // Método para remover uma pessoa com o NIF especificado do array
-        public void RemoverPessoa(int NIF)
+        public bool RemoverPessoa(int NIF)
         {
             for (int i = 0; i < totalPessoas; i++)
             {
@@ -65,10 +67,13 @@ namespace Persons
                     }
                     pessoasArray[totalPessoas - 1] = null;
                     totalPessoas--;
-                    return;
+                    return true; // Indica que a pessoa foi removida com sucesso
                 }
             }
+
+            return false; // Indica que a pessoa não foi encontrada para remoção
         }
+
 
         // Método para obter o número total de pessoas
         public int ContaPessoa()

@@ -53,24 +53,21 @@ namespace Persons
         /// Adiciona um funcionário ao array.
         /// </summary>
         /// <param name="funcionario">O funcionário a ser adicionado.</param>
-        public void AdicionarFuncionario(Funcionario funcionario)
+        public bool AdicionarFuncionario(Funcionario funcionario)
         {
             if (totalFuncionarios < MAX_FUNCIONARIOS)
             {
                 funcionariosArray[totalFuncionarios] = funcionario;
                 totalFuncionarios++;
+                return true; // Indica que o funcionário foi adicionado com sucesso
             }
             else
             {
-                Console.WriteLine("O limite máximo de funcionários foi atingido. Não é possível adicionar mais funcionários.");
+                return false; // Indica que não foi possível adicionar o funcionário devido ao limite atingido
             }
         }
 
-        /// <summary>
-        /// Remove um funcionário com base no NIF.
-        /// </summary>
-        /// <param name="NIF">O NIF do funcionário a ser removido.</param>
-        public void RemoverFuncionario(int NIF)
+        public bool RemoverFuncionario(int NIF)
         {
             for (int i = 0; i < totalFuncionarios; i++)
             {
@@ -82,9 +79,11 @@ namespace Persons
                     }
                     funcionariosArray[totalFuncionarios - 1] = null;
                     totalFuncionarios--;
-                    return;
+                    return true; // Indica que o funcionário foi removido com sucesso
                 }
             }
+
+            return false; // Indica que o funcionário não foi encontrado para remoção
         }
 
         /// <summary>

@@ -50,25 +50,22 @@ namespace Product
         /// Adiciona um limpeza ao  array, desde que o limite máximo não tenha sido atingido.
         /// </summary>
         /// <param name="limpeza">O  limpeza a ser adicionado.</param>
-        public void Newprodutolimpeza(Limpeza limpeza)
+        public bool AdicionarProdutoLimpeza(Limpeza limpeza)
         {
             if (totalprodutolimpeza < MAX_limpeza)
             {
                 limpezasArray[totalprodutolimpeza] = limpeza;
                 totalprodutolimpeza++;
+                return true; // Indica que o produto de limpeza foi adicionado com sucesso
             }
             else
             {
                 Console.WriteLine("O limite máximo de produtos de limpeza foi atingido. Não é possível adicionar.");
+                return false; // Indica que não foi possível adicionar o produto de limpeza devido ao limite atingido
             }
         }
 
-
-        /// <summary>
-        /// Remove um produto com base no codigo.
-        /// </summary>
-        /// <param name="codigo">O codigo do produto a ser removido.</param>
-        public void RemoverProdutoLimpeza(int codigo)
+        public bool RemoverProdutoLimpeza(int codigo)
         {
             for (int i = 0; i < totalprodutolimpeza; i++)
             {
@@ -80,10 +77,13 @@ namespace Product
                     }
                     limpezasArray[totalprodutolimpeza - 1] = null;
                     totalprodutolimpeza--;
-                    return;
+                    return true; // Indica que o produto de limpeza foi removido com sucesso
                 }
             }
+
+            return false; // Indica que o produto de limpeza não foi encontrado para remoção
         }
+
 
         /// <summary>
         /// Retorna o número total de produto de limpeza no array.

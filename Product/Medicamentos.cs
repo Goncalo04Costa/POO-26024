@@ -46,29 +46,21 @@ namespace Product
 
         #region Outros Métodos
 
-        /// <summary>
-        /// Adiciona um medicamento ao  array, desde que o limite máximo não tenha sido atingido.
-        /// </summary>
-        /// <param name="medicamento">O  medicamento a ser adicionado.</param>
-        public void NewMedicamento(Medicamento medicamento)
+        public bool AdicionarMedicamento(Medicamento medicamento)
         {
             if (totalmedicamentos < MAX_Medicamentos)
             {
                 medicamentosArray[totalmedicamentos] = medicamento;
                 totalmedicamentos++;
+                return true; // Indica que o medicamento foi adicionado com sucesso
             }
             else
             {
-                Console.WriteLine("O limite máximo de medicamento foi atingido. Não é possível adicionar mais medicamento.");
+                return false; // Indica que não foi possível adicionar o medicamento devido ao limite atingido
             }
         }
 
-
-        /// <summary>
-        /// Remove um medicamento com base no codigo.
-        /// </summary>
-        /// <param name="codigo">O codigo do medicamento a ser removido.</param>
-        public void RemoverMedicamento(int codigo)
+        public bool RemoverMedicamento(int codigo)
         {
             for (int i = 0; i < totalmedicamentos; i++)
             {
@@ -80,10 +72,13 @@ namespace Product
                     }
                     medicamentosArray[totalmedicamentos - 1] = null;
                     totalmedicamentos--;
-                    return;
+                    return true; // Indica que o medicamento foi removido com sucesso
                 }
             }
+
+            return false; // Indica que o medicamento não foi encontrado para remoção
         }
+
 
         /// <summary>
         /// Retorna o número total de medicamentos no array.

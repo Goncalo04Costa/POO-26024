@@ -40,21 +40,22 @@ namespace Persons
         }
 
         // Método para adicionar um utente ao array
-        public void AdicionarUtente(Utente utente)
+        public bool AdicionarUtente(Utente utente)
         {
             if (totalUtentes < MAX_UTENTES)
             {
                 utentesArray[totalUtentes] = utente;
                 totalUtentes++;
+                return true; // Indica que o utente foi adicionado com sucesso
             }
             else
             {
                 Console.WriteLine("O limite máximo de utentes foi atingido. Não é possível adicionar mais utentes.");
+                return false; // Indica que não foi possível adicionar o utente devido ao limite atingido
             }
         }
 
-        // Método para remover um utente com base no NIF
-        public void RemoverUtente(int NIF)
+        public bool RemoverUtente(int NIF)
         {
             for (int i = 0; i < totalUtentes; i++)
             {
@@ -66,9 +67,11 @@ namespace Persons
                     }
                     utentesArray[totalUtentes - 1] = null;
                     totalUtentes--;
-                    return;
+                    return true; // Indica que o utente foi removido com sucesso
                 }
             }
+
+            return false; // Indica que o utente não foi encontrado para remoção
         }
 
         // Método para contar o número de utentes no array
