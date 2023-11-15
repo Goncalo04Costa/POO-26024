@@ -92,6 +92,22 @@ namespace Persons
         }
 
         /// <summary>
+        /// Retorna um array contendo os enfermeiros atualmente armazenados.
+        /// </summary>
+        /// <returns>Um array de objetos enfermeiros.</returns>
+        public Enfermeiro[] ListarEnfermeiro()
+        {
+            Enfermeiro[] arrayEnfermeiro = new Enfermeiro[totalEnfermeiros];
+
+            for (int i = 0; i < totalEnfermeiros; i++)
+            {
+                arrayEnfermeiro[i] = enfermeirosArray[i];
+            }
+
+            return arrayEnfermeiro;
+        }
+
+        /// <summary>
         /// Conta e retorna o número total de enfermeiros na coleção.
         /// </summary>
         /// <returns>O número total de enfermeiros.</returns>

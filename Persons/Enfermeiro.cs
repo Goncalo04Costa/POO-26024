@@ -100,7 +100,7 @@ namespace Persons
         /// </summary>
         public override string ToString()
         {
-            return String.Format("Nome: {0} - Codigo: {1} - Contacto{2}:", Nome, CodigoEnfermeiro.ToString(), Contacto.ToString());
+            return String.Format("Nome: {0} - Codigo: {1} - SNS: {2} - NIF:{3} - Contacto{4}:", Nome, CodigoEnfermeiro.ToString(),Sns.ToString(),Nif.ToString(), Contacto.ToString());
         }
 
         /// <summary>

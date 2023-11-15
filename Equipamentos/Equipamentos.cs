@@ -6,6 +6,8 @@
  * Professor: Luis Ferreira
  */
 
+using System.Text;
+
 namespace Equipment
 {
      public class Equipamentos
@@ -96,6 +98,40 @@ namespace Equipment
         public int Contaequipamento()
         {
             return totalequipamentos; 
+        }
+        /// <summary>
+        /// Retorna um array contendo os equipamentos atualmente armazenados.
+        /// </summary>
+        /// <returns>Um array de objetos equipamentos.</returns>
+        public Equipamento[] Listarequipamentos()
+        {
+            Equipamento[] arrayequipamentos = new Equipamento[totalequipamentos];
+
+            for (int i = 0; i < totalequipamentos; i++)
+            {
+                arrayequipamentos[i] = equipamentosArray[i];
+            }
+
+            return arrayequipamentos;
+        }
+
+        /// <summary>
+        /// Retorna um array contendo os equipamentos avariados atualmente armazenados.
+        /// </summary>
+        /// <returns>Um array de objetos equipamentos.</returns>
+        public Equipamento[] Listarequipamentosavariados()
+        {
+            List<Equipamento> equipamentosAvariados = new List<Equipamento>();
+
+            for (int i = 0; i < totalequipamentos; i++)
+            {
+                if (equipamentosArray[i].Estado == 0)
+                {
+                    equipamentosAvariados.Add(equipamentosArray[i]);
+                }
+            }
+
+            return equipamentosAvariados.ToArray();
         }
 
         #endregion

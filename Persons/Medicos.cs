@@ -91,6 +91,23 @@ namespace Persons
             return false;
         }
 
+
+        /// <summary>
+        /// Retorna um array contendo os medicos atualmente armazenados.
+        /// </summary>
+        /// <returns>Um array de objetos medicos.</returns>
+        public Medico[] ListarMedicos()
+        {
+            Medico[] arraymedicos = new Medico[totalMedicos];
+
+            for (int i = 0; i < totalMedicos; i++)
+            {
+                arraymedicos[i] = medicosArray[i];
+            }
+
+            return arraymedicos;
+        }
+
         /// <summary>
         /// Retorna o número atual de médicos cadastrados.
         /// </summary>

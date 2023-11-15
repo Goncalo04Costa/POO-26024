@@ -92,6 +92,24 @@ namespace Persons
             return false; 
         }
 
+
+
+        /// <summary>
+        /// Retorna um array contendo os utenntes atualmente armazenados.
+        /// </summary>
+        /// <returns>Um array de objetos utentes.</returns>
+        public Utente[] ListarUtentes()
+        {
+            Utente[] arrayutentes  = new Utente[totalUtentes];
+
+            for (int i = 0; i < totalUtentes; i++)
+            {
+                arrayutentes[i] = utentesArray[i];
+            }
+
+            return arrayutentes;
+        }
+
         /// <summary>
         /// Obtém o número total de Utentes.
         /// </summary>

@@ -96,8 +96,21 @@ namespace Persons
             }
             return false; 
         }
+        /// <summary>
+        /// Retorna um array contendo os auxiliares atualmente armazenados.
+        /// </summary>
+        /// <returns>Um array de objetos Auxiliar.</returns>
+        public Auxiliar[] ListarAuxiliares()
+        {
+            Auxiliar[] arrayAuxiliares = new Auxiliar[totalAuxiliares];
 
+            for (int i = 0; i < totalAuxiliares; i++)
+            {
+                arrayAuxiliares[i] = auxiliaresArray[i];
+            }
 
+            return arrayAuxiliares;
+        }
 
         /// <summary>
         /// Retorna o número total de auxiliares no array.

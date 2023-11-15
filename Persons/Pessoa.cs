@@ -123,16 +123,19 @@ namespace Persons
         /// <summary>
         /// Determina se a pessoa é igual a outro objeto.
         /// </summary>
+   
         public override bool Equals(object obj)
         {
             if (obj is Pessoa)
             {
                 Pessoa p = (Pessoa)obj;
-                return this == p;
+                if (this == p)
+                {
+                    return true;
+                }
             }
             return false;
         }
-
         /// <summary>
         /// Obtém um código hash para a pessoa.
         /// </summary>
@@ -140,6 +143,8 @@ namespace Persons
         {
             return base.GetHashCode();
         }
+         
+
 
 
         #endregion

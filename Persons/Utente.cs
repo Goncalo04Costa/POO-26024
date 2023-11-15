@@ -51,12 +51,19 @@
         /// </summary>
         public static bool operator ==(Utente u1, Utente u2)
         {
-            if ((u1.Nome == u2.Nome) && (u1.Nif == u2.Nif) && (u1.Apelido == u2.Apelido) && (u1.DataEntrada == u2.DataEntrada))
+            if (ReferenceEquals(u1, null) || ReferenceEquals(u2, null))
             {
-                return true;
+                return false; 
             }
-            return false;
+
+            if ((u1.Nome == u2.Nome) && (u1.Nif == u2.Nif) && (u1.Apelido == u2.Apelido))
+            {
+                return true; 
+            }
+
+            return false; 
         }
+
 
         /// <summary>
         /// Sobrecarga do operador de desigualdade para comparar Utentes.
