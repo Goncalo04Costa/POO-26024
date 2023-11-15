@@ -6,7 +6,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Equipment.Equipamentos" Collapsed="true">
-    <Position X="10.75" Y="1.5" Width="1.5" />
+    <Position X="12.75" Y="1.5" Width="1.5" />
     <TypeIdentifier />
   </Class>
   <Class Name="Persons.Auxiliar" Collapsed="true">
@@ -74,7 +74,7 @@
     <TypeIdentifier />
   </Class>
   <Class Name="Product.Medicamentos" Collapsed="true">
-    <Position X="16" Y="4.75" Width="1.5" />
+    <Position X="15.75" Y="3.75" Width="1.5" />
     <TypeIdentifier />
   </Class>
   <Class Name="Product.Produto" Collapsed="true">
@@ -82,7 +82,7 @@
     <TypeIdentifier />
   </Class>
   <Class Name="Product.Produtos" Collapsed="true">
-    <Position X="13.25" Y="1.5" Width="1.5" />
+    <Position X="17.5" Y="2" Width="1.5" />
     <TypeIdentifier />
   </Class>
   <Interface Name="Equipment.IEquipamento" Collapsed="true">

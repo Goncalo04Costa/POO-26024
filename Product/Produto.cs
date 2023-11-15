@@ -8,13 +8,16 @@
 
 namespace Product
 {
+    /// <summary>
+    /// Classe base para representar um Produto genérico.
+    /// </summary>
     public class Produto
     {
         #region ESTADO 
 
-         string nome;
-         int codigo;
-         int stock;
+        string nome;
+        int codigo;
+        int fornecedor;
 
         #endregion
 
@@ -22,44 +25,44 @@ namespace Product
 
         #region CONSTRUTORES
         /// <summary>
-        /// Construtor por omissão
+        /// Construtor por omissão.
         /// </summary>
         public Produto()
         {
             codigo = 0;
             nome = "";
-            stock = 0;
+            fornecedor = 0;
         }
 
+        /// <summary>
+        /// Construtor que recebe código, nome e stock do produto.
+        /// </summary>
+        /// <param name="codigo">O código do produto.</param>
+        /// <param name="nome">O nome do produto.</param>
+        /// <param name="stock">O stock do produto.</param>
         public Produto(int codigo, string nome, int stock)
         {
             this.codigo = codigo;
             this.nome = nome;
-            this.stock = stock;
+            this.fornecedor = stock;
         }
 
-      
+
         #endregion
 
         #region PROPRIEDADES
 
         /// <summary>
-        /// 
+        /// Obtém ou define o código do produto.
         /// </summary>
         public int Codigo
         {
-            set
-            {
-                codigo = value;
-            }
-            get
-            {
-                return codigo;
-            }
+            set { codigo = value; }
+            get { return codigo; }
         }
 
         /// <summary>
-        /// 
+        /// Obtém ou define o nome do produto.
         /// </summary>
         public string Nome
         {
@@ -67,44 +70,42 @@ namespace Product
             set { nome = value; }
         }
 
+        /// <summary>
+        /// Obtém ou define o stock do produto.
+        /// </summary>
         public int Stock
         {
-            get { return stock; }
-            set { stock = value; }
+            get { return fornecedor; }
+            set { fornecedor = value; }
         }
         #endregion
 
         #region Operadores
 
         /// <summary>
-        /// 
+        /// Verifica se dois objetos do tipo Produto são iguais com base no nome, código e stock.
         /// </summary>
-        /// <param name="p1"></param>
-        /// <param name="p2"></param>
-        /// <returns></returns>
+        /// <param name="p1">Primeiro Produto a ser comparado.</param>
+        /// <param name="p2">Segundo Produto a ser comparado.</param>
+        /// <returns>True se os produtos forem iguais, False caso contrário.</returns>
         public static bool operator ==(Produto p1, Produto p2)
         {
-            if ((p1.Nome == p2.Nome) && (p1.Codigo== p2.Codigo) && (p1.Stock == p2.Stock))
+            if ((p1.Nome == p2.Nome) && (p1.Codigo == p2.Codigo) && (p1.Stock == p2.Stock))
                 return true;
             return false;
         }
 
-        //><=
-        //+
         /// <summary>
-        /// 
+        /// Verifica se dois objetos do tipo Produto são diferentes com base no nome, código e stock.
         /// </summary>
-        /// <param name="p1"></param>
-        /// <param name="p2"></param>
-        /// <returns></returns>
+        /// <param name="p1">Primeiro Produto a ser comparado.</param>
+        /// <param name="p2">Segundo Produto a ser comparado.</param>
+        /// <returns>True se os produtos forem diferentes, False caso contrário.</returns>
         public static bool operator !=(Produto p1, Produto p2)
         {
-            //if (!((p1.Nome == p2.Nome) && (p1.idade == p2.idade)))
             if (p1 == p2)
                 return false;
             return true;
-            //ou
-            //return (!(p1 == p2));
         }
 
         #endregion
@@ -112,20 +113,19 @@ namespace Product
         #region Overrides
 
         /// <summary>
-        /// 
+        /// Retorna uma representação em string do objeto Produto.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Uma string contendo informações sobre o Produto.</returns>
         public override string ToString()
         {
-          
-            return String.Format("Nome: {0} - Codigo: {1} - Stoc: {2}: ", nome, codigo.ToString(), stock.ToString());
+            return String.Format("Nome: {0} - Codigo: {1} - Stock: {2}: ", nome, codigo.ToString(), fornecedor.ToString());
         }
-         
+
         /// <summary>
-        /// 
+        /// Determina se o objeto Produto é igual a outro objeto.
         /// </summary>
-        /// <param name="obj"></param>
-        /// <returns></returns>
+        /// <param name="obj">O objeto a ser comparado.</param>
+        /// <returns>True se os objetos forem iguais, False caso contrário.</returns>
         public override bool Equals(object obj)
         {
             if (obj is Produto)
@@ -139,6 +139,13 @@ namespace Product
             return false;
         }
 
+        /// <summary>
+        /// Sobrescrita do método GetHashCode para geração do código hash.
+        /// </summary>
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
         #endregion
         #endregion
     }

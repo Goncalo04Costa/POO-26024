@@ -58,7 +58,7 @@ namespace Persons
         }
 
         /// <summary>
-        /// Obtém ou define a especialidade do médico.
+        /// Obtém ou define a condição do Médico.
         /// </summary>
         public string Condicao
         {
@@ -119,8 +119,9 @@ namespace Persons
             return false;
         }
 
+
         /// <summary>
-        /// Sobrescreve o método GetHashCode.
+        /// Obtém um código hash para a pessoa.
         /// </summary>
         public override int GetHashCode()
         {

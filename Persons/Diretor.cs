@@ -90,12 +90,13 @@ namespace Persons
         }
 
         /// <summary>
-        /// Retorna um código hash para o objeto Diretor.
+        /// Obtém um código hash para a pessoa.
         /// </summary>
         public override int GetHashCode()
         {
             return base.GetHashCode();
         }
+
         #endregion
     }
 }

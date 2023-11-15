@@ -9,7 +9,7 @@
 namespace Persons
 {
     /// <summary>
-    /// Representa a classe Medico (Médico) que herda de Funcionario (Funcionário).
+    /// Representa a classe Medico que herda de Funcionario .
     /// </summary>
     public class Medico : Funcionario
     {
@@ -79,19 +79,10 @@ namespace Persons
         /// </summary>
         public static bool operator ==(Medico m1, Medico m2)
         {
-            if (object.ReferenceEquals(m1, m2))
+            if ((m1.Nome == m2.Nome) && (m1.CodigoMedico == m2.CodigoMedico) && (m1.Sns == m2.Sns) && (m1.Nif == m2.Nif) && (m1.Especialidade == m2.Especialidade))
                 return true;
 
-            if (m1 is null || m2 is null)
-                return false;
-
-            return m1.codigoMedico == m2.codigoMedico &&
-                   m1.Nome == m2.Nome &&
-                   m1.Apelido == m2.Apelido &&
-                   m1.Idade == m2.Idade &&
-                   m1.Nif == m2.Nif &&
-                   m1.Sns == m2.Sns &&
-                   m1.especialidade == m2.especialidade;
+            return false;
         }
 
         /// <summary>
@@ -124,13 +115,16 @@ namespace Persons
             return false;
         }
 
+
+
         /// <summary>
-        /// Retorna o código de hash do objeto Medico.
+        /// Obtém um código hash para a pessoa.
         /// </summary>
         public override int GetHashCode()
         {
             return base.GetHashCode();
         }
+
         #endregion
 
         #region Destruidores

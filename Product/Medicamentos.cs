@@ -7,6 +7,9 @@
  */
 namespace Product
 {
+    /// <summary>
+    /// Classe que representa uma coleção de Medicamentos.
+    /// </summary>
     public class Medicamentos
     {
         private Medicamento[] medicamentosArray;
@@ -23,7 +26,7 @@ namespace Product
         }
 
         /// <summary>
-        /// Obtém o número máximo de medicamentos permitidos.
+        /// Obtém o número máximo de medicamentos permitidos na coleção.
         /// </summary>
         public static int MaxMedicamentos { get { return MAX_Medicamentos; } }
 
@@ -37,7 +40,7 @@ namespace Product
         }
 
         /// <summary>
-        /// Obtém o total atual de medicamentos no array.
+        /// Obtém o total atual de medicamentos na coleção.
         /// </summary>
         public int TotaldeMedicamentos
         {
@@ -46,20 +49,28 @@ namespace Product
 
         #region Outros Métodos
 
+        /// <summary>
+        /// Adiciona um medicamento à coleção, desde que o limite máximo não tenha sido atingido.
+        /// </summary>
+        /// <param name="medicamento">O medicamento a ser adicionado.</param>
         public bool AdicionarMedicamento(Medicamento medicamento)
         {
             if (totalmedicamentos < MAX_Medicamentos)
             {
                 medicamentosArray[totalmedicamentos] = medicamento;
                 totalmedicamentos++;
-                return true; // Indica que o medicamento foi adicionado com sucesso
+                return true; 
             }
             else
             {
-                return false; // Indica que não foi possível adicionar o medicamento devido ao limite atingido
+                return false; 
             }
         }
 
+        /// <summary>
+        /// Remove um medicamento da coleção com base no seu código.
+        /// </summary>
+        /// <param name="codigo">O código do medicamento a ser removido.</param>
         public bool RemoverMedicamento(int codigo)
         {
             for (int i = 0; i < totalmedicamentos; i++)
@@ -72,20 +83,19 @@ namespace Product
                     }
                     medicamentosArray[totalmedicamentos - 1] = null;
                     totalmedicamentos--;
-                    return true; // Indica que o medicamento foi removido com sucesso
+                    return true; 
                 }
             }
 
-            return false; // Indica que o medicamento não foi encontrado para remoção
+            return false; 
         }
 
-
         /// <summary>
-        /// Retorna o número total de medicamentos no array.
+        /// Retorna o número total de medicamentos na coleção.
         /// </summary>
         public int ContaMedicamento()
         {
-            return totalmedicamentos; ;
+            return totalmedicamentos;
         }
 
         #endregion

@@ -8,42 +8,44 @@
 
 namespace Product
 {
-    public class Limpeza: Produto
+    /// <summary>
+    /// Classe que representa um produto de limpeza, derivada da classe Produto.
+    /// </summary>
+    public class Limpeza : Produto
     {
-        #region Atributos
         int referencia;
- 
         string descricao;
-        #endregion
 
-        #region Metodos
-
-        #region Construtores
+        /// <summary>
+        /// Construtor padrão da classe Limpeza.
+        /// </summary>
         public Limpeza()
         {
             referencia = 0;
             descricao = "";
-           
         }
-        #endregion
 
-        #region Propriedades
+        /// <summary>
+        /// Propriedade para obter ou definir a referência do produto de limpeza.
+        /// </summary>
         public int Referencia
         {
             get { return referencia; }
             set { referencia = value; }
         }
 
-  
-
+        /// <summary>
+        /// Propriedade para obter ou definir a descrição do produto de limpeza.
+        /// </summary>
         public string Descricao
         {
             get { return descricao; }
             set { descricao = value; }
         }
-        #endregion
 
-        #region Operadores
+        /// <summary>
+        /// Sobrecarga do operador de igualdade para comparar produtos de limpeza.
+        /// </summary>
         public static bool operator ==(Limpeza l1, Limpeza l2)
         {
             if ((l1.Descricao == l2.Descricao) && (l1.Referencia == l2.Referencia))
@@ -51,34 +53,26 @@ namespace Product
             return false;
         }
 
-
         /// <summary>
-        /// 
+        /// Sobrecarga do operador de desigualdade para comparar produtos de limpeza.
         /// </summary>
-        /// <param name="p1"></param>
-        /// <param name="p2"></param>
-        /// <returns></returns>
         public static bool operator !=(Limpeza l1, Limpeza l2)
         {
-
             if (l1 == l2)
                 return false;
             return true;
-
         }
-        #endregion
 
-        #region Overrides
         /// <summary>
-        /// Retorna uma representação em string do objeto de Limpeza
+        /// Sobrescrita do método ToString para representação em string do objeto de Limpeza.
         /// </summary>
         public override string ToString()
         {
-            return String.Format("Nome: {0} - Codigo: {1} - Referencia{2} - Descrição{3} - Stock{4}:", Nome, Codigo.ToString(), referencia.ToString(), descricao, Stock.ToString());
+            return String.Format("Nome: {0} - Codigo: {1} - Referencia: {2} - Descrição: {3} - Stock: {4}", Nome, Codigo.ToString(), referencia.ToString(), descricao, Stock.ToString());
         }
 
         /// <summary>
-        /// Determina se o objeto de  Limpeza é igual a outro objeto.
+        /// Sobrescrita do método Equals para comparação de igualdade do objeto de Limpeza.
         /// </summary>
         public override bool Equals(object obj)
         {
@@ -90,14 +84,12 @@ namespace Product
             return false;
         }
 
-      
-        #endregion
-
-        #region Destruidores
-        #endregion
-
-        #endregion
-
-
+        /// <summary>
+        /// Sobrescrita do método GetHashCode para geração do código hash.
+        /// </summary>
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }

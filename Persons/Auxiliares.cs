@@ -32,7 +32,18 @@ namespace Persons
         /// </summary>
         public static int MaxAuxiliares { get { return MAX_AUXILIARES; } }
 
-      
+
+
+        /// <summary>
+        /// Obtém uma cópia do array de Auxiliares.
+        /// </summary>
+        public Auxiliar[] AuxiliarArray
+        {
+            get { return (Auxiliar[])AuxiliarArray.Clone(); }
+            set { }
+        }
+
+
 
         /// <summary>
         /// Obtém o total atual de auxiliares no array.
@@ -54,14 +65,20 @@ namespace Persons
             {
                 auxiliaresArray[totalAuxiliares] = auxiliar;
                 totalAuxiliares++;
-                return true; // Indica que o auxiliar foi adicionado com sucesso
+                return true; 
             }
             else
             {
-                return false; // Indica que não foi possível adicionar o auxiliar devido ao limite atingido
+                return false; 
             }
         }
 
+
+        /// <summary>
+        /// Remove um Auxiliar com base no seu código.
+        /// </summary>
+        /// <param name="codigoAuxiliar">O código do Auxiliar a ser removido.</param>
+        /// <returns>True se o Auxiliar foi removido com sucesso, False caso contrário.</returns>
         public bool RemoverAuxiliar(int codigoAuxiliar)
         {
             for (int i = 0; i < totalAuxiliares; i++)
@@ -74,10 +91,10 @@ namespace Persons
                     }
                     auxiliaresArray[totalAuxiliares - 1] = null;
                     totalAuxiliares--;
-                    return true; // Indica que o auxiliar foi removido com sucesso
+                    return true; 
                 }
             }
-            return false; // Indica que o auxiliar não foi encontrado para remoção
+            return false; 
         }
 
 

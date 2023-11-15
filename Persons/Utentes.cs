@@ -6,55 +6,73 @@
  * Professor: Luis Ferreira
  */
 
-
-
 namespace Persons
 {
+    /// <summary>
+    /// Classe responsável por gerenciar um conjunto de Utentes.
+    /// </summary>
     public class Utentes
     {
-        private Utente[] utentesArray;
-        private const int MAX_UTENTES = 52;
-        private int totalUtentes;
+        private Utente[] utentesArray; 
+        private const int MAX_UTENTES = 52; 
+        private int totalUtentes; 
 
-        // Construtor padrão
+        /// <summary>
+        /// Construtor padrão da classe Utentes.
+        /// </summary>
         public Utentes()
         {
-            utentesArray = new Utente[MAX_UTENTES];
-            totalUtentes = 0;
+            utentesArray = new Utente[MAX_UTENTES]; 
+            totalUtentes = 0; 
         }
 
-        // Propriedade estática para obter o máximo de utentes permitidos
+        /// <summary>
+        /// Propriedade estática somente leitura que retorna o número máximo de Utentes.
+        /// </summary>
         public static int MaxUtentes { get { return MAX_UTENTES; } }
 
-        // Propriedade para obter uma cópia do array de utentes
+        /// <summary>
+        /// Propriedade de leitura do array de Utentes (clone para evitar alterações externas).
+        /// </summary>
         public Utente[] UtentesArray
         {
             get { return (Utente[])utentesArray.Clone(); }
-            set { } // Evitar definir o valor diretamente, pois pode causar problemas de referência
+            set { } 
         }
 
-        // Propriedade para obter o total de utentes atualmente no array
+        /// <summary>
+        /// Propriedade de leitura do total de Utentes.
+        /// </summary>
         public int TotalUtentes
         {
             get { return totalUtentes; }
         }
 
-        // Método para adicionar um utente ao array
+        /// <summary>
+        /// Adiciona um Utente ao array na próxima posição disponível.
+        /// </summary>
+        /// <param name="utente">O Utente a ser adicionado.</param>
+        /// <returns>True se o Utente foi adicionado com sucesso, False caso contrário.</returns>
         public bool AdicionarUtente(Utente utente)
         {
             if (totalUtentes < MAX_UTENTES)
             {
-                utentesArray[totalUtentes] = utente;
+                utentesArray[totalUtentes] = utente; 
                 totalUtentes++;
-                return true; // Indica que o utente foi adicionado com sucesso
+                return true; 
             }
             else
             {
-                Console.WriteLine("O limite máximo de utentes foi atingido. Não é possível adicionar mais utentes.");
-                return false; // Indica que não foi possível adicionar o utente devido ao limite atingido
+                
+                return false; 
             }
         }
 
+        /// <summary>
+        /// Remove um Utente com base no NIF.
+        /// </summary>
+        /// <param name="NIF">O NIF do Utente a ser removido.</param>
+        /// <returns>True se o Utente foi removido com sucesso, False caso contrário.</returns>
         public bool RemoverUtente(int NIF)
         {
             for (int i = 0; i < totalUtentes; i++)
@@ -67,14 +85,17 @@ namespace Persons
                     }
                     utentesArray[totalUtentes - 1] = null;
                     totalUtentes--;
-                    return true; // Indica que o utente foi removido com sucesso
+                    return true;
                 }
             }
 
-            return false; // Indica que o utente não foi encontrado para remoção
+            return false; 
         }
 
-        // Método para contar o número de utentes no array
+        /// <summary>
+        /// Obtém o número total de Utentes.
+        /// </summary>
+        /// <returns>O número total de Utentes.</returns>
         public int ContarUtentes()
         {
             return totalUtentes;

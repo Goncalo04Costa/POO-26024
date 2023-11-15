@@ -16,7 +16,7 @@ namespace Persons
         #region Atributos
 
         int codigo;
-        DateTime dataentrada;
+        string dataentrada;
         string cargo;
         int contacto;
 
@@ -32,7 +32,7 @@ namespace Persons
         public Funcionario()
         {
             codigo = 0;
-            dataentrada = DateTime.Now;
+            dataentrada = "";
             cargo = "";
             contacto = 0;
         }
@@ -43,7 +43,7 @@ namespace Persons
         /// <param name="codigo">O código do funcionário.</param>
         /// <param name="dataentrada">A data de entrada do funcionário.</param>
         /// <param name="cargo">O cargo do funcionário.</param>
-        public Funcionario(int codigo, DateTime dataentrada, string cargo, int contacto)
+        public Funcionario(int codigo, string dataentrada, string cargo, int contacto)
         {
             this.codigo = codigo;
             this.dataentrada = dataentrada;
@@ -67,7 +67,7 @@ namespace Persons
         /// <summary>
         /// Obtém ou define a data de entrada do funcionário.
         /// </summary>
-        public DateTime DataEntrada
+        public string DataEntrada
         {
             get { return dataentrada; }
             set { dataentrada = value; }
@@ -82,6 +82,9 @@ namespace Persons
             set { cargo = value; }
         }
 
+        /// <summary>
+        /// Obtém ou define a condição do funcionário.
+        /// </summary>
         public int Contacto
         {
             get { return contacto; }
@@ -120,7 +123,7 @@ namespace Persons
         /// </summary>
         public override string ToString()
         {
-            return String.Format("Nome: {0} {1} - Idade: {2} - Contacto: {3} - NIF: {4} - SNS: {5} - Código: {6} - Data de Entrada: {7} - Cargo: {8}", Nome, Apelido, Idade.ToString(), Contacto.ToString(), Nif.ToString(), Sns.ToString(), codigo.ToString(), dataentrada.ToString("dd/MM/yyyy"), cargo);
+            return String.Format("Nome: {0} {1} - Idade: {2} - Contacto: {3} - NIF: {4} - SNS: {5} - Código: {6} - Data de Entrada: {7} - Cargo: {8}", Nome, Apelido, Idade.ToString(), Contacto.ToString(), Nif.ToString(), Sns.ToString(), codigo.ToString(), dataentrada, cargo);
         }
 
         /// <summary>
@@ -139,19 +142,19 @@ namespace Persons
             return false;
         }
 
+
         /// <summary>
-        /// Sobrescreve o método GetHashCode para obter o código hash do objeto.
+        /// Obtém um código hash para a pessoa.
         /// </summary>
         public override int GetHashCode()
         {
             return base.GetHashCode();
         }
 
-        #endregion
-
-        #region Destruidores
 
         #endregion
+
+
 
         #endregion
     }

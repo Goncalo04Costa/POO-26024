@@ -1,60 +1,56 @@
-﻿/*
- * Gonçalo Cardoso Ferreira da Costa 
- * a26024@alunos.ipca.pt
- * POO
- * LESI
- * Professor: Luis Ferreira
- */
-
-namespace Persons
+﻿namespace Persons
 {
+    /// <summary>
+    /// Classe que representa um Utente, derivada da classe Pessoa.
+    /// </summary>
     public class Utente : Pessoa
     {
-        #region Atributos
         int ContactoFamiliar;
         string DataEntrada;
         string avaliacaomedica;
-        #endregion
 
-        #region Metodos
-
-        #region Construtores
-        // Construtor padrão
+        /// <summary>
+        /// Construtor padrão da classe Utente.
+        /// </summary>
         public Utente()
         {
             ContactoFamiliar = 0;
             DataEntrada = "";
             avaliacaomedica = "";
         }
-        #endregion
 
-        #region Propriedades
-        // Propriedade para obter ou definir o contato familiar
-        public int contactofamiliar
+        /// <summary>
+        /// Propriedade para obter ou definir o contato familiar do Utente.
+        /// </summary>
+        public int ContactoFamiliarProperty
         {
             get { return ContactoFamiliar; }
             set { ContactoFamiliar = value; }
         }
 
-        // Propriedade para obter ou definir a data de entrada
-        public string dataentrada
+        /// <summary>
+        /// Propriedade para obter ou definir a data de entrada do Utente.
+        /// </summary>
+        public string DataEntradaProperty
         {
             get { return DataEntrada; }
             set { DataEntrada = value; }
         }
 
+        /// <summary>
+        /// Propriedade para obter ou definir a avaliação médica do Utente.
+        /// </summary>
         public string AvaliacaoMedica
         {
             get { return avaliacaomedica; }
             set { avaliacaomedica = value; }
         }
-        #endregion
 
-        #region Operadores
-        // Sobrecarga do operador de igualdade
+        /// <summary>
+        /// Sobrecarga do operador de igualdade para comparar Utentes.
+        /// </summary>
         public static bool operator ==(Utente u1, Utente u2)
         {
-            // Comparação de atributos para determinar igualdade
             if ((u1.Nome == u2.Nome) && (u1.Nif == u2.Nif) && (u1.Apelido == u2.Apelido) && (u1.DataEntrada == u2.DataEntrada))
             {
                 return true;
@@ -62,21 +58,25 @@ namespace Persons
             return false;
         }
 
-        // Sobrecarga do operador de desigualdade
+        /// <summary>
+        /// Sobrecarga do operador de desigualdade para comparar Utentes.
+        /// </summary>
         public static bool operator !=(Utente u1, Utente u2)
         {
             return !(u1 == u2);
         }
-        #endregion
 
-        #region Overrides
-        // Sobrescrita do método ToString para representação em string
+        /// <summary>
+        /// Sobrescrita do método ToString para representação em string.
+        /// </summary>
         public override string ToString()
         {
-            return String.Format("Nome: {0} - Idade: {1} - Data entrada: {2} - NIF: {3}- Avaliacao: {4}", Nome, Idade.ToString(), DataEntrada.ToString(), Nif.ToString(), avaliacaomedica);
+            return String.Format("Nome: {0} - Idade: {1} - Data entrada: {2} - NIF: {3} - Avaliacao: {4}", Nome, Idade.ToString(), DataEntrada.ToString(), Nif.ToString(), avaliacaomedica);
         }
 
-        // Sobrescrita do método Equals para comparação de igualdade
+        /// <summary>
+        /// Sobrescrita do método Equals para comparação de igualdade.
+        /// </summary>
         public override bool Equals(object obj)
         {
             if (obj is Utente)
@@ -87,14 +87,12 @@ namespace Persons
             return false;
         }
 
-        // Sobrescrita do método GetHashCode para geração de código hash
-       
-        #endregion
-
-        #region Destruidores
-        
-        #endregion
-
-        #endregion
+        /// <summary>
+        /// Sobrescrita do método GetHashCode para geração do código hash.
+        /// </summary>
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }

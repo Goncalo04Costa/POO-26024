@@ -6,14 +6,15 @@
  * Professor: Luis Ferreira
  */
 
-// Declaração de um namespace chamado "Person"
 namespace Persons
 {
-    // Definição da classe Pessoa
+    /// <summary>
+    /// Classe base que representa uma pessoa genérica.
+    /// </summary>
     public class Pessoa
     {
         #region Atributos
-        // Declaração dos atributos da classe
+
         string nome;
         string apelido;
         int idade;
@@ -21,10 +22,14 @@ namespace Persons
         int SNS;
         #endregion
 
-        #region Metodos
+        #region Métodos
 
         #region Construtores
-        // Construtor padrão da classe Pessoa
+
+        /// <summary>
+        /// Construtor padrão sem parâmetros para a classe Pessoa.
+        /// Inicializa os atributos com valores padrão.
+        /// </summary>
         public Pessoa()
         {
             nome = "";
@@ -32,51 +37,63 @@ namespace Persons
             idade = 0;
             NIF = 0;
             SNS = 0;
-          
         }
         #endregion
 
         #region Propriedades
-        // Propriedade Nome, com getter e setter
+
+        /// <summary>
+        /// Obtém ou define o nome da pessoa.
+        /// </summary>
         public string Nome
         {
             get { return nome; }
             set { nome = value; }
         }
 
-        // Propriedade Apelido, com getter e setter
+        /// <summary>
+        /// Obtém ou define o apelido da pessoa.
+        /// </summary>
         public string Apelido
         {
             get { return apelido; }
             set { apelido = value; }
         }
 
-        // Propriedade Idade, com getter e setter
+        /// <summary>
+        /// Obtém ou define a idade da pessoa.
+        /// </summary>
         public int Idade
         {
             get { return idade; }
             set { idade = value; }
         }
 
-        // Propriedade Nif, com getter e setter
+        /// <summary>
+        /// Obtém ou define o NIF (Número de Identificação Fiscal) da pessoa.
+        /// </summary>
         public int Nif
         {
             get { return NIF; }
             set { NIF = value; }
         }
 
-        // Propriedade Sns, com getter e setter
+        /// <summary>
+        /// Obtém ou define o número de Segurança Social (SNS) da pessoa.
+        /// </summary>
         public int Sns
         {
             get { return SNS; }
             set { SNS = value; }
         }
 
-   
         #endregion
 
         #region Operadores
-        // Sobrecarga do operador de igualdade (==)
+
+        /// <summary>
+        /// Compara duas pessoas para igualdade com base em seus atributos.
+        /// </summary>
         public static bool operator ==(Pessoa p1, Pessoa p2)
         {
             if ((p1.nome == p2.nome) && (p1.apelido == p2.apelido) && (p1.idade == p2.idade) && (p1.NIF == p2.NIF) && (p1.SNS == p2.SNS))
@@ -84,50 +101,49 @@ namespace Persons
             return false;
         }
 
-        // Sobrecarga do operador de desigualdade (!=)
+        /// <summary>
+        /// Compara duas pessoas para desigualdade com base em seus atributos.
+        /// </summary>
         public static bool operator !=(Pessoa p1, Pessoa p2)
         {
-            // Utiliza a sobrecarga do operador de igualdade para implementar o operador de desigualdade
-            if (p1 == p2)
-                return false;
-            return true;
+            return !(p1 == p2);
         }
         #endregion
 
         #region Overrides
-        // Sobrescrita do método ToString
+
+        /// <summary>
+        /// Retorna uma representação em string da pessoa.
+        /// </summary>
         public override string ToString()
         {
-            // Retorna uma string formatada com informações sobre a pessoa
-            return String.Format("Nome: {0}{1} - Idade: {2} -  NIF:{3} - SNS:{4}", nome, apelido, idade.ToString(), NIF.ToString(), SNS.ToString());
+            return String.Format("Nome: {0} {1} - Idade: {2} - NIF: {3} - SNS: {4}", nome, apelido, idade.ToString(), NIF.ToString(), SNS.ToString());
         }
 
-        // Sobrescrita do método Equals
+        /// <summary>
+        /// Determina se a pessoa é igual a outro objeto.
+        /// </summary>
         public override bool Equals(object obj)
         {
-            // Verifica se o objeto é do tipo Pessoa e se é igual à instância atual usando o operador de igualdade sobrecarregado
             if (obj is Pessoa)
             {
                 Pessoa p = (Pessoa)obj;
-                if (this == p)
-                {
-                    return true;
-                }
+                return this == p;
             }
             return false;
         }
 
-        // Sobrescrita do método GetHashCode
+        /// <summary>
+        /// Obtém um código hash para a pessoa.
+        /// </summary>
         public override int GetHashCode()
         {
-            // Retorna o código hash padrão da classe base
             return base.GetHashCode();
         }
+
+
         #endregion
 
-        #region Destruidores
-        // Não há destruidores definidos neste exemplo
-        #endregion
 
         #endregion
     }

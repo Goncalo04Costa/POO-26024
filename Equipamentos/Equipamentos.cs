@@ -58,14 +58,13 @@ namespace Equipment
             {
                 equipamentosArray[totalequipamentos] = equipamento;
                 totalequipamentos++;
-                return true; // Indica que o equipamento foi adicionado com sucesso
+                return true;
             }
             else
             {
-                return false; // Indica que não foi possível adicionar o equipamento devido ao limite atingido
+                return false;
             }
         }
-
 
         /// <summary>
         /// Remove um equipamento com base no codigo.

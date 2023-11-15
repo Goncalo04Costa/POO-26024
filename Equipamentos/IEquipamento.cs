@@ -1,7 +1,10 @@
-﻿namespace Equipment
+﻿/// <summary>
+/// Interface que define propriedades para um equipamento.
+/// </summary>
+public interface IEquipamento
 {
-    public interface IEquipamento
-    {
-        int Estado { get; set; } 
-    }
+    /// <summary>
+    /// Obtém ou define o estado do equipamento.
+    /// </summary>
+    int Estado { get; set; }
 }

@@ -38,7 +38,7 @@ namespace Persons
         public Funcionario[] FuncionariosArray
         {
             get { return (Funcionario[])funcionariosArray.Clone(); }
-            set { } // EVITAR!
+            set { } 
         }
 
         /// <summary>
@@ -59,11 +59,11 @@ namespace Persons
             {
                 funcionariosArray[totalFuncionarios] = funcionario;
                 totalFuncionarios++;
-                return true; // Indica que o funcionário foi adicionado com sucesso
+                return true; 
             }
             else
             {
-                return false; // Indica que não foi possível adicionar o funcionário devido ao limite atingido
+                return false; 
             }
         }
 
@@ -79,11 +79,11 @@ namespace Persons
                     }
                     funcionariosArray[totalFuncionarios - 1] = null;
                     totalFuncionarios--;
-                    return true; // Indica que o funcionário foi removido com sucesso
+                    return true; 
                 }
             }
 
-            return false; // Indica que o funcionário não foi encontrado para remoção
+            return false; 
         }
 
         /// <summary>

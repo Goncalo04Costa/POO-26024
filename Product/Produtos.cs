@@ -46,20 +46,30 @@ namespace Product
 
         #region Outros Métodos
 
+        /// <summary>
+        /// Adiciona um produto ao array, desde que o limite máximo não tenha sido atingido.
+        /// </summary>
+        /// <param name="produto">O produto a ser adicionado.</param>
+        /// <returns>True se o produto foi adicionado com sucesso, False caso contrário.</returns>
         public bool AdicionarProduto(Produto produto)
         {
             if (totalprodutos < MAX_produtos)
             {
                 produtossArray[totalprodutos] = produto;
                 totalprodutos++;
-                return true; // Indica que o produto foi adicionado com sucesso
+                return true; 
             }
             else
             {
-                return false; // Indica que não foi possível adicionar o produto devido ao limite atingido
+                return false;
             }
         }
 
+        /// <summary>
+        /// Remove um produto do array com base no seu código.
+        /// </summary>
+        /// <param name="codigo">O código do produto a ser removido.</param>
+        /// <returns>True se o produto foi removido com sucesso, False caso contrário.</returns>
         public bool RemoverProduto(int codigo)
         {
             for (int i = 0; i < totalprodutos; i++)
@@ -72,12 +82,13 @@ namespace Product
                     }
                     produtossArray[totalprodutos - 1] = null;
                     totalprodutos--;
-                    return true; // Indica que o produto foi removido com sucesso
+                    return true; 
                 }
             }
 
-            return false; // Indica que o produto não foi encontrado para remoção
+            return false; 
         }
+
 
         /// <summary>
         /// Retorna o número total de medicamentos no array.

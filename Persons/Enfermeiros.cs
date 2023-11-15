@@ -15,9 +15,9 @@ namespace Persons
     /// </summary>
     public class Enfermeiros
     {
-        private Enfermeiro[] enfermeirosArray; // Array para armazenar objetos Enfermeiro
-        private const int MAX_ENFERMEIROS = 24; // Número máximo de enfermeiros permitidos
-        private int totalEnfermeiros; // Número atual de enfermeiros na coleção
+        private Enfermeiro[] enfermeirosArray;
+        private const int MAX_ENFERMEIROS = 24;
+        private int totalEnfermeiros;
 
         /// <summary>
         /// Construtor padrão para a classe Enfermeiros.
@@ -35,12 +35,12 @@ namespace Persons
         public static int MaxEnfermeiros { get { return MAX_ENFERMEIROS; } }
 
         /// <summary>
-        /// Obtém uma cópia do array de Enfermeiro.
+        /// Obtém uma cópia do array de Enfermeiros.
         /// </summary>
         public Enfermeiro[] EnfermeirosArray
         {
             get { return (Enfermeiro[])enfermeirosArray.Clone(); }
-            set { } // Evite definir o array diretamente para evitar modificações externas.
+            set { } 
         }
 
         /// <summary>
@@ -63,11 +63,11 @@ namespace Persons
             {
                 enfermeirosArray[totalEnfermeiros] = enfermeiro;
                 totalEnfermeiros++;
-                return true; // Indica que o enfermeiro foi adicionado com sucesso
+                return true; 
             }
             else
             {
-                return false; // Indica que não foi possível adicionar o enfermeiro devido ao limite atingido
+                return false; 
             }
         }
 
@@ -81,14 +81,14 @@ namespace Persons
                     {
                         enfermeirosArray[j] = enfermeirosArray[j + 1];
                     }
-                    enfermeirosArray[totalEnfermeiros - 1] = null; // Limpar a última posição
+                    enfermeirosArray[totalEnfermeiros - 1] = null;
                     totalEnfermeiros--;
                     ;
-                    return true; // Indica que o enfermeiro foi removido com sucesso
+                    return true; 
                 }
             }
             
-            return false; // Indica que o enfermeiro não foi encontrado para remoção
+            return false; 
         }
 
         /// <summary>

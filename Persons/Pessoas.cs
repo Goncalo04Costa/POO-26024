@@ -6,55 +6,76 @@
  * Professor: Luis Ferreira
  */
 
-
 namespace Persons
 {
-    // Definição da classe Pessoas
+    /// <summary>
+    /// Classe responsável por gerenciar um conjunto de pessoas.
+    /// </summary>
     public class Pessoas
     {
-        
-        private const int MAX_PESSOAS = 100;
-        private int totalPessoas;
-        private Pessoa[] pessoasArray;
+        private const int MAX_PESSOAS = 100; 
+        private int totalPessoas; 
+        private Pessoa[] pessoasArray; 
 
-        // Construtor padrão da classe Pessoas
+        /// <summary>
+        /// Construtor padrão da classe Pessoas.
+        /// Inicializa o array de pessoas e o contador de pessoas.
+        /// </summary>
         public Pessoas()
         {
-            pessoasArray = new Pessoa[MAX_PESSOAS];
-            totalPessoas = 0;
+            pessoasArray = new Pessoa[MAX_PESSOAS]; 
+            totalPessoas = 0; 
         }
 
-        // Propriedade de leitura estática que retorna o número máximo de pessoas
-        public static int MaxPessoas { get { return MAX_PESSOAS; } }
+        /// <summary>
+        /// Propriedade estática somente leitura que retorna o número máximo de pessoas.
+        /// </summary>
+        public static int MaxPessoas { 
+            get 
+            { return MAX_PESSOAS; } 
+        }
 
-        // Propriedade de leitura do array de pessoas (clone para evitar alterações externas)
+        /// <summary>
+        /// Propriedade de leitura do array de pessoas (clone para evitar alterações externas).
+        /// </summary>
         public Pessoa[] PessoasArray
         {
             get { return (Pessoa[])pessoasArray.Clone(); }
             set { } 
         }
 
-        // Propriedade de leitura do total de pessoas
+        /// <summary>
+        /// Propriedade de leitura do total de pessoas.
+        /// </summary>
         public int TotalPessoas
         {
             get { return totalPessoas; }
         }
 
-        // Método para adicionar uma pessoa ao array na posição especificada
+        /// <summary>
+        /// Adiciona uma pessoa ao array na próxima posição disponível.
+        /// </summary>
+        /// <param name="pessoa">A pessoa a ser adicionada.</param>
+        /// <returns>True se a pessoa foi adicionada com sucesso, False caso contrário.</returns>
         public bool AdicionarPessoa(Pessoa pessoa)
         {
             if (totalPessoas < MAX_PESSOAS)
             {
-                pessoasArray[totalPessoas] = pessoa;
-                totalPessoas++;
-                return true; // Indica que a pessoa foi adicionada com sucesso
+                pessoasArray[totalPessoas] = pessoa; 
+                totalPessoas++; 
+                return true; 
             }
             else
             {
-                return false; // Indica que não foi possível adicionar a pessoa devido ao limite atingido
+                return false; 
             }
         }
 
+        /// <summary>
+        /// Remove uma pessoa com base no NIF.
+        /// </summary>
+        /// <param name="NIF">O NIF da pessoa a ser removida.</param>
+        /// <returns>True se a pessoa foi removida com sucesso, False caso contrário.</returns>
         public bool RemoverPessoa(int NIF)
         {
             for (int i = 0; i < totalPessoas; i++)
@@ -67,15 +88,16 @@ namespace Persons
                     }
                     pessoasArray[totalPessoas - 1] = null;
                     totalPessoas--;
-                    return true; // Indica que a pessoa foi removida com sucesso
+                    return true; 
                 }
             }
-
-            return false; // Indica que a pessoa não foi encontrada para remoção
+            return false; 
         }
 
-
-        // Método para obter o número total de pessoas
+        /// <summary>
+        /// Obtém o número total de pessoas.
+        /// </summary>
+        /// <returns>O número total de pessoas.</returns>
         public int ContaPessoa()
         {
             return totalPessoas;

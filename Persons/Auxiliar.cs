@@ -14,13 +14,7 @@ namespace Persons
     {
         #region Atributos
 
-        /// <summary>
-        /// Obtém ou define o código do Auxiliar.
-        /// </summary>
         public int codigoAuxiliar;
-        /// <summary>
-        /// Obtém ou define a condição do Auxiliar.
-        /// </summary>
         public string condicao;
 
         #endregion
@@ -128,13 +122,15 @@ namespace Persons
             return false;
         }
 
+
         /// <summary>
-        /// Retorna um código hash para o objeto Auxiliar.
+        /// Obtém um código hash para a pessoa.
         /// </summary>
         public override int GetHashCode()
         {
-            return HashCode.Combine(Nome, Apelido, Contacto, Idade, Nif, Sns, codigoAuxiliar, condicao);
+            return base.GetHashCode();
         }
+
 
         #endregion
 
