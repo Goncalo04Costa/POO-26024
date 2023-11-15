@@ -18,8 +18,8 @@ namespace Main
             Medicos listaMedicos = new Medicos();
 
             // Adicionando alguns elementos para testar
-            listaUtentes.AdicionarUtente(new Utente { Nome = "Alice", Nif = 12345, Idade = 30 });
-            listaUtentes.AdicionarUtente(new Utente { Nome = "Bob", Nif = 54321, Idade = 25 });
+            listaUtentes.AdicionarUtente(new Utente { Nome = "Alice", Nif = 12345, Idade = 30, AvaliacaoMedica = "Estavel" });
+            listaUtentes.AdicionarUtente(new Utente { Nome = "Julio", Nif = 54321, Idade = 25, AvaliacaoMedica = "Em recuperação" });
 
             listaMedicamentos.AdicionarMedicamento(new Medicamento { Codigo = 1, Nome = "Paracetamol", Stock = 50 });
             listaMedicamentos.AdicionarMedicamento(new Medicamento { Codigo = 2, Nome = "Aspirina", Stock = 30 });
@@ -28,10 +28,10 @@ namespace Main
             listaEquipamentos.AdicionarEquipamento(new Equipamento { Codigo = 102, Nome = "Projetor", Estado = 0 });
 
             listaEnfermeiros.AdicionarEnfermeiro(new Enfermeiro { CodigoEnfermeiro = 1, Condicao = "Ativo", Nome = "Maria", Apelido = "Silva", Idade = 35, Nif = 98765, Sns = 456789, Contacto = 912345678 });
-            listaEnfermeiros.AdicionarEnfermeiro(new Enfermeiro { CodigoEnfermeiro = 2, Condicao = "Inativo", Nome = "João", Apelido = "Ferreira", Idade = 40, Nif = 54321, Sns = 123456, Contacto = 923456789 });
+            listaEnfermeiros.AdicionarEnfermeiro(new Enfermeiro { CodigoEnfermeiro = 2, Condicao = "Inativo", Nome = "António", Apelido = "Silva", Idade = 18, Nif = 54321, Sns = 123456, Contacto = 923456789 });
 
-            listaMedicos.AdicionarMedico(new Medico { CodigoMedico = 1, Especialidade = "Pediatra", Nome = "António", Apelido = "Fernandes", Idade = 45, Nif = 123456789, Sns = 987654321, Contacto = 933333333 });
-            listaMedicos.AdicionarMedico(new Medico { CodigoMedico = 2, Especialidade = "Cardiologista", Nome = "Sofia", Apelido = "Martins", Idade = 38, Nif = 987654321, Sns = 123456789, Contacto = 911111111 });
+            listaMedicos.AdicionarMedico(new Medico { CodigoMedico = 1, Especialidade = "Pediatra", Nome = "Rui", Apelido = "Miguel", Idade = 45, Nif = 123456789, Sns = 987654321, Contacto = 933333333 });
+            listaMedicos.AdicionarMedico(new Medico { CodigoMedico = 2, Especialidade = "Cardiologista", Nome = "João", Apelido = "Oliveira", Idade = 18, Nif = 987654321, Sns = 123456789, Contacto = 934513863 });
 
             // Exibindo os elementos adicionados para cada categoria
             Console.WriteLine("Utentes:");
