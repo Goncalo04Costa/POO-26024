@@ -18,6 +18,7 @@ namespace Persons
         int codigo;
         DateTime dataentrada;
         string cargo;
+        int contacto;
 
         #endregion
 
@@ -33,6 +34,7 @@ namespace Persons
             codigo = 0;
             dataentrada = DateTime.Now;
             cargo = "";
+            contacto = 0;
         }
 
         /// <summary>
@@ -41,11 +43,12 @@ namespace Persons
         /// <param name="codigo">O código do funcionário.</param>
         /// <param name="dataentrada">A data de entrada do funcionário.</param>
         /// <param name="cargo">O cargo do funcionário.</param>
-        public Funcionario(int codigo, DateTime dataentrada, string cargo)
+        public Funcionario(int codigo, DateTime dataentrada, string cargo, int contacto)
         {
             this.codigo = codigo;
             this.dataentrada = dataentrada;
             this.cargo = cargo;
+           this.contacto = contacto;
         }
 
         #endregion
@@ -55,7 +58,7 @@ namespace Persons
         /// <summary>
         /// Obtém ou define o código do funcionário.
         /// </summary>
-        int Codigo
+        public int Codigo
         {
             get { return codigo; }
             set { codigo = value; }
@@ -64,7 +67,7 @@ namespace Persons
         /// <summary>
         /// Obtém ou define a data de entrada do funcionário.
         /// </summary>
-        DateTime DataEntrada
+        public DateTime DataEntrada
         {
             get { return dataentrada; }
             set { dataentrada = value; }
@@ -73,12 +76,17 @@ namespace Persons
         /// <summary>
         /// Obtém ou define o cargo do funcionário.
         /// </summary>
-        string Cargo
+        public string Cargo
         {
             get { return cargo; }
             set { cargo = value; }
         }
 
+        public int Contacto
+        {
+            get { return contacto; }
+            set { contacto = value; }
+        }
         #endregion
 
         #region Operadores

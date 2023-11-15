@@ -12,7 +12,8 @@ namespace Persons
     {
         #region Atributos
         int ContactoFamiliar;
-        public string DataEntrada;
+        string DataEntrada;
+        string avaliacaomedica;
         #endregion
 
         #region Metodos
@@ -23,6 +24,7 @@ namespace Persons
         {
             ContactoFamiliar = 0;
             DataEntrada = "";
+            avaliacaomedica = "";
         }
         #endregion
 
@@ -39,6 +41,12 @@ namespace Persons
         {
             get { return DataEntrada; }
             set { DataEntrada = value; }
+        }
+
+        public string AvaliacaoMedica
+        {
+            get { return avaliacaomedica; }
+            set { avaliacaomedica = value; }
         }
         #endregion
 
@@ -65,7 +73,7 @@ namespace Persons
         // Sobrescrita do método ToString para representação em string
         public override string ToString()
         {
-            return String.Format("Nome: {0} - Idade: {1} - Data entrada: {2} - NIF: {3}", Nome, Idade.ToString(), DataEntrada.ToString(), Nif.ToString());
+            return String.Format("Nome: {0} - Idade: {1} - Data entrada: {2} - NIF: {3}- Avaliacao: {4}", Nome, Idade.ToString(), DataEntrada.ToString(), Nif.ToString(), avaliacaomedica);
         }
 
         // Sobrescrita do método Equals para comparação de igualdade
@@ -80,10 +88,7 @@ namespace Persons
         }
 
         // Sobrescrita do método GetHashCode para geração de código hash
-        public override int GetHashCode()
-        {
-            return HashCode.Combine(Nome, Nif, Apelido, DataEntrada);
-        }
+       
         #endregion
 
         #region Destruidores

@@ -19,7 +19,6 @@ namespace Persons
         int idade;
         int NIF;
         int SNS;
-        int contacto;
         #endregion
 
         #region Metodos
@@ -33,7 +32,7 @@ namespace Persons
             idade = 0;
             NIF = 0;
             SNS = 0;
-            contacto = 0;
+          
         }
         #endregion
 
@@ -73,19 +72,14 @@ namespace Persons
             set { SNS = value; }
         }
 
-        // Propriedade Contacto, com getter e setter
-        public int Contacto
-        {
-            get { return contacto; }
-            set { contacto = value; }
-        }
+   
         #endregion
 
         #region Operadores
         // Sobrecarga do operador de igualdade (==)
         public static bool operator ==(Pessoa p1, Pessoa p2)
         {
-            if ((p1.nome == p2.nome) && (p1.apelido == p2.apelido) && (p1.contacto == p2.contacto) && (p1.idade == p2.idade) && (p1.NIF == p2.NIF) && (p1.SNS == p2.SNS))
+            if ((p1.nome == p2.nome) && (p1.apelido == p2.apelido) && (p1.idade == p2.idade) && (p1.NIF == p2.NIF) && (p1.SNS == p2.SNS))
                 return true;
             return false;
         }
@@ -105,7 +99,7 @@ namespace Persons
         public override string ToString()
         {
             // Retorna uma string formatada com informações sobre a pessoa
-            return String.Format("Nome: {0}{1} - Idade: {2} - Contacto{3} - NIF:{4} - SNS:{5}", nome, apelido, idade.ToString(), contacto.ToString(), NIF.ToString(), SNS.ToString());
+            return String.Format("Nome: {0}{1} - Idade: {2} -  NIF:{3} - SNS:{4}", nome, apelido, idade.ToString(), NIF.ToString(), SNS.ToString());
         }
 
         // Sobrescrita do método Equals
