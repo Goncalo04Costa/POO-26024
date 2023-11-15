@@ -10,14 +10,13 @@ namespace Main
     {
         static void Main(string[] args)
         {
-            // Criando instâncias das classes
+            
             Utentes listaUtentes = new Utentes();
             Medicamentos listaMedicamentos = new Medicamentos();
             Equipamentos listaEquipamentos = new Equipamentos();
             Enfermeiros listaEnfermeiros = new Enfermeiros();
             Medicos listaMedicos = new Medicos();
 
-            // Adicionando alguns elementos para testar
             listaUtentes.AdicionarUtente(new Utente { Nome = "Alice", Nif = 12345, Idade = 30, AvaliacaoMedica = "Estavel" });
             listaUtentes.AdicionarUtente(new Utente { Nome = "Julio", Nif = 54321, Idade = 25, AvaliacaoMedica = "Em recuperação" });
 
@@ -33,7 +32,7 @@ namespace Main
             listaMedicos.AdicionarMedico(new Medico { CodigoMedico = 1, Especialidade = "Pediatra", Nome = "Rui", Apelido = "Miguel", Idade = 45, Nif = 123456789, Sns = 987654321, Contacto = 933333333 });
             listaMedicos.AdicionarMedico(new Medico { CodigoMedico = 2, Especialidade = "Cardiologista", Nome = "João", Apelido = "Oliveira", Idade = 18, Nif = 987654321, Sns = 123456789, Contacto = 934513863 });
 
-            // Exibindo os elementos adicionados para cada categoria
+            
             Console.WriteLine("Utentes:");
             foreach (Utente utente in listaUtentes.ListarUtentes())
             {
