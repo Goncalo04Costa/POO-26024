@@ -1,104 +1,57 @@
 ﻿/*
- * Gonçalo Cardoso Ferreira da Costa
+ *Gonçalo Cardoso Ferreira da Costa 
  * a26024@alunos.ipca.pt
  * POO
  * LESI
- * Professor: Luis Ferreira
- */
+ * Professor:Luis Ferreira
+ * */
+
+using System.Collections.Generic;
+
 namespace Product
 {
-    /// <summary>
-    /// Classe que gerencia um conjunto de produtos de limpeza.
-    /// </summary>
     public class Limpezas
     {
-        private Limpeza[] limpezasArray;
-        private const int MAX_limpeza = 200;
-        private int totalprodutolimpeza;
+        private List<Limpeza> limpezasList; // Utilizando List<Limpeza> em vez de Limpeza[]
 
-        /// <summary>
-        /// Construtor padrão que inicializa um array de produtos de limpeza e define o total como 0.
-        /// </summary>
         public Limpezas()
         {
-            limpezasArray = new Limpeza[MAX_limpeza];
-            totalprodutolimpeza = 0;
+            limpezasList = new List<Limpeza>(); // Inicializando a lista vazia
         }
 
-        /// <summary>
-        /// Obtém o número máximo de produtos de limpeza permitidos.
-        /// </summary>
-        public static int MaxProdutoLimpeza { get { return MAX_limpeza; } }
-
-        /// <summary>
-        /// Obtém uma cópia do array de produtos de limpeza.
-        /// </summary>
-        public Limpeza[] LimpezasArray
+        public List<Limpeza> LimpezasList
         {
-            get { return (Limpeza[])limpezasArray.Clone(); }
-            set { }
+            get { return limpezasList; }
         }
 
-        /// <summary>
-        /// Obtém o total atual de produtos de limpeza no array.
-        /// </summary>
-        public int TotalprodutoLimpeza
-        {
-            get { return totalprodutolimpeza; }
-        }
-
-        #region Outros Métodos
-
-        /// <summary>
-        /// Adiciona um produto de limpeza ao array, desde que o limite máximo não tenha sido atingido.
-        /// </summary>
-        /// <param name="limpeza">O produto de limpeza a ser adicionado.</param>
         public bool AdicionarProdutoLimpeza(Limpeza limpeza)
         {
-            if (totalprodutolimpeza < MAX_limpeza)
+          limpezasList.Add(limpeza);
+            return true;
+        }
+
+        public bool RemoverProdutoLimpeza(int codigo)
+        {
+            Limpeza produtoLimpezaParaRemover = limpezasList.Find(p => p.Codigo == codigo);
+            if (produtoLimpezaParaRemover != null)
             {
-                limpezasArray[totalprodutolimpeza] = limpeza;
-                totalprodutolimpeza++;
+                limpezasList.Remove(produtoLimpezaParaRemover); // Removendo o produto de limpeza da lista
                 return true;
             }
             else
             {
-        
-                return false; 
+                return false;
             }
         }
 
-        /// <summary>
-        /// Remove um produto de limpeza do array com base no código.
-        /// </summary>
-        /// <param name="codigo">O código do produto de limpeza a ser removido.</param>
-        public bool RemoverProdutoLimpeza(int codigo)
+        public List<Limpeza> ListarProdutosLimpeza()
         {
-            for (int i = 0; i < totalprodutolimpeza; i++)
-            {
-                if (limpezasArray[i].Codigo == codigo)
-                {
-                    for (int j = i; j < totalprodutolimpeza - 1; j++)
-                    {
-                        limpezasArray[j] = limpezasArray[j + 1];
-                    }
-                    limpezasArray[totalprodutolimpeza - 1] = null;
-                    totalprodutolimpeza--;
-                    return true; 
-                }
-            }
-
-            return false; 
+            return new List<Limpeza>(limpezasList); // Retorna uma nova lista com os produtos de limpeza
         }
 
-        /// <summary>
-        /// Retorna o número total de produtos de limpeza no array.
-        /// </summary>
         public int ContarProdutoLimpeza()
         {
-            return totalprodutolimpeza;
+            return limpezasList.Count; // Contando o número de produtos de limpeza na lista
         }
-
-        #endregion
     }
 }

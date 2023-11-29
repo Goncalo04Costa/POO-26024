@@ -13,7 +13,7 @@ namespace Product
     /// </summary>
     public class Produto
     {
-        #region ESTADO 
+        #region ATRIBUTOS
 
         string nome;
         int codigo;
@@ -21,7 +21,7 @@ namespace Product
 
         #endregion
 
-        #region COMPORTAMENTO
+        #region METODOS
 
         #region CONSTRUTORES
         /// <summary>

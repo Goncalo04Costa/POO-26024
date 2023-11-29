@@ -1,98 +1,60 @@
 ﻿/*
- * Gonçalo Cardoso Ferreira da Costa 
+ *Gonçalo Cardoso Ferreira da Costa 
  * a26024@alunos.ipca.pt
  * POO
  * LESI
- * Professor: Luis Ferreira
- */
+ * Professor:Luis Ferreira
+ * */
 
+using System.Collections.Generic;
 
 namespace Persons
 {
     /// <summary>
-    /// A classe Funcionarios gerencia um array de funcionários.
+    /// A classe Funcionarios gerencia uma lista de funcionários.
     /// </summary>
     public class Funcionarios
     {
-        private Funcionario[] funcionariosArray;
-        private const int MAX_FUNCIONARIOS = 52;
-        private int totalFuncionarios;
+        private List<Funcionario> funcionariosList; // Utilizando List<Funcionario> em vez de Funcionario[]
 
-        /// <summary>
-        /// Construtor da classe Funcionarios.
-        /// </summary>
         public Funcionarios()
         {
-            funcionariosArray = new Funcionario[MAX_FUNCIONARIOS];
-            totalFuncionarios = 0;
+            funcionariosList = new List<Funcionario>(); // Inicializando a lista vazia
         }
 
-        /// <summary>
-        /// Obtém o número máximo de funcionários.
-        /// </summary>
-        public static int MaxFuncionarios { get { return MAX_FUNCIONARIOS; } }
-
-        /// <summary>
-        /// Obtém uma cópia do array de funcionários.
-        /// </summary>
-        public Funcionario[] FuncionariosArray
+        public List<Funcionario> FuncionariosList
         {
-            get { return (Funcionario[])funcionariosArray.Clone(); }
-            set { } 
+            get { return funcionariosList; }
         }
 
-        /// <summary>
-        /// Obtém o número total de funcionários.
-        /// </summary>
-        public int TotalFuncionarios
-        {
-            get { return totalFuncionarios; }
-        }
-
-        /// <summary>
-        /// Adiciona um funcionário ao array.
-        /// </summary>
-        /// <param name="funcionario">O funcionário a ser adicionado.</param>
         public bool AdicionarFuncionario(Funcionario funcionario)
         {
-            if (totalFuncionarios < MAX_FUNCIONARIOS)
+            funcionariosList.Add(funcionario); // Adicionando o funcionário à lista
+            return true; // Sempre pode adicionar, não há um limite fixo
+        }
+
+        public bool RemoverFuncionario(int nif)
+        {
+            Funcionario funcionarioParaRemover = funcionariosList.Find(f => f.Nif == nif);
+            if (funcionarioParaRemover != null)
             {
-                funcionariosArray[totalFuncionarios] = funcionario;
-                totalFuncionarios++;
-                return true; 
+                funcionariosList.Remove(funcionarioParaRemover); // Removendo o funcionário da lista
+                return true;
             }
             else
             {
-                return false; 
+                return false;
             }
         }
 
-        public bool RemoverFuncionario(int NIF)
+        public List<Funcionario> ListarFuncionarios()
         {
-            for (int i = 0; i < totalFuncionarios; i++)
-            {
-                if (funcionariosArray[i].Nif == NIF)
-                {
-                    for (int j = i; j < totalFuncionarios - 1; j++)
-                    {
-                        funcionariosArray[j] = funcionariosArray[j + 1];
-                    }
-                    funcionariosArray[totalFuncionarios - 1] = null;
-                    totalFuncionarios--;
-                    return true; 
-                }
-            }
-
-            return false; 
+            return new List<Funcionario>(funcionariosList); // Retorna uma nova lista com os funcionários
         }
 
-        /// <summary>
-        /// Retorna o número atual de funcionários no array.
-        /// </summary>
-        /// <returns>O número atual de funcionários.</returns>
-        public int ContaFuncionario()
+        public int ContaFuncionarios()
         {
-            return totalFuncionarios;
+            return funcionariosList.Count; // Contando o número de funcionários na lista
         }
     }
 }

@@ -1,4 +1,12 @@
-﻿namespace Persons
+﻿/*
+ *Gonçalo Cardoso Ferreira da Costa 
+ * a26024@alunos.ipca.pt
+ * POO
+ * LESI
+ * Professor:Luis Ferreira
+ * */
+
+namespace Persons
 {
     /// <summary>
     /// Classe que representa um Utente, derivada da classe Pessoa.
@@ -8,6 +16,8 @@
         int ContactoFamiliar;
         string DataEntrada;
         string avaliacaomedica;
+        int estado;
+
 
         /// <summary>
         /// Construtor padrão da classe Utente.
@@ -17,6 +27,7 @@
             ContactoFamiliar = 0;
             DataEntrada = "";
             avaliacaomedica = "";
+            estado = 0;
         }
 
         /// <summary>
@@ -46,6 +57,14 @@
             set { avaliacaomedica = value; }
         }
 
+        /// <summary>
+        /// Propriedade para obter ou definir o contato familiar do Utente.
+        /// </summary>
+        public int Estado
+        {
+            get { return estado; }
+            set { estado = value; }
+        }
         /// <summary>
         /// Sobrecarga do operador de igualdade para comparar Utentes.
         /// </summary>
@@ -101,5 +120,6 @@
         {
             return base.GetHashCode();
         }
+
     }
 }

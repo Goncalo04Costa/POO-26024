@@ -1,63 +1,41 @@
 ﻿/*
- * Gonçalo Cardoso Ferreira da Costa
+ *Gonçalo Cardoso Ferreira da Costa 
  * a26024@alunos.ipca.pt
  * POO
  * LESI
- * Professor: Luis Ferreira
- */
+ * Professor:Luis Ferreira
+ * */
+
+using System.Collections.Generic;
+
 namespace Product
 {
     public class Produtos
     {
-        private Produto[] produtossArray;
-        private const int MAX_produtos = 400;
-        private int totalprodutos;
+        private List<Produto> produtosList; // Utilizando List<Produto> em vez de Produto[]
 
-        /// <summary>
-        /// Construtor padrão que inicializa um array de produtos e define o total de produtos como 0.
-        /// </summary>
         public Produtos()
         {
-            produtossArray = new Produto[MAX_produtos];
-            totalprodutos = 0;
+            produtosList = new List<Produto>(); // Inicializando a lista vazia
         }
 
-        /// <summary>
-        /// Obtém o número máximo de produtos permitidos.
-        /// </summary>
-        public static int MaxProdutos { get { return MAX_produtos; } }
-
-        /// <summary>
-        /// Obtém uma cópia do array de produtos.
-        /// </summary>
-        public Produto[] ProdutosArray
+        public List<Produto> ProdutosList
         {
-            get { return (Produto[])ProdutosArray.Clone(); }
-            set { }
+            get { return produtosList; }
         }
 
-        /// <summary>
-        /// Obtém o total atual de produtos no array.
-        /// </summary>
-        public int TotaldeProdutos
+        public void AdicionarProduto(Produto produto)
         {
-            get { return totalprodutos; }
+            produtosList.Add(produto); // Adicionando o produto à lista
         }
 
-        #region Outros Métodos
-
-        /// <summary>
-        /// Adiciona um produto ao array, desde que o limite máximo não tenha sido atingido.
-        /// </summary>
-        /// <param name="produto">O produto a ser adicionado.</param>
-        /// <returns>True se o produto foi adicionado com sucesso, False caso contrário.</returns>
-        public bool AdicionarProduto(Produto produto)
+        public bool RemoverProduto(int codigo)
         {
-            if (totalprodutos < MAX_produtos)
+            Produto produtoParaRemover = produtosList.Find(p => p.Codigo == codigo);
+            if (produtoParaRemover != null)
             {
-                produtossArray[totalprodutos] = produto;
-                totalprodutos++;
-                return true; 
+                produtosList.Remove(produtoParaRemover); // Removendo o produto da lista
+                return true;
             }
             else
             {
@@ -65,39 +43,14 @@ namespace Product
             }
         }
 
-        /// <summary>
-        /// Remove um produto do array com base no seu código.
-        /// </summary>
-        /// <param name="codigo">O código do produto a ser removido.</param>
-        /// <returns>True se o produto foi removido com sucesso, False caso contrário.</returns>
-        public bool RemoverProduto(int codigo)
+        public List<Produto> ListarProdutos()
         {
-            for (int i = 0; i < totalprodutos; i++)
-            {
-                if (produtossArray[i].Codigo == codigo)
-                {
-                    for (int j = i; j < totalprodutos - 1; j++)
-                    {
-                        produtossArray[j] = produtossArray[j + 1];
-                    }
-                    produtossArray[totalprodutos - 1] = null;
-                    totalprodutos--;
-                    return true; 
-                }
-            }
-
-            return false; 
+            return new List<Produto>(produtosList); // Retorna uma nova lista com os produtos
         }
 
-
-        /// <summary>
-        /// Retorna o número total de medicamentos no array.
-        /// </summary>
-        public int ContaProdutos()
+        public int ContarProdutos()
         {
-            return totalprodutos; 
+            return produtosList.Count; // Contando o número de produtos na lista
         }
-
-        #endregion
     }
 }

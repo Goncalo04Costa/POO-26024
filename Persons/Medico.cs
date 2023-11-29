@@ -100,8 +100,9 @@ namespace Persons
         /// </summary>
         public override string ToString()
         {
-            return $"Nome: {Nome} {Apelido} - Especialidade: {especialidade} - Código Médico: {codigoMedico}";
+            return String.Format("Nome: {0} {1} - Codigo: {2} - Especialidade: {3} - Contacto: {4}", Nome,Apelido,  codigoMedico.ToString(),Especialidade,  Contacto.ToString());
         }
+
 
         /// <summary>
         /// Compara se dois objetos Medico são iguais.

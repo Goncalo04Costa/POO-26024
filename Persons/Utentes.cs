@@ -1,10 +1,12 @@
 ﻿/*
- * Gonçalo Cardoso Ferreira da Costa 
+ *Gonçalo Cardoso Ferreira da Costa 
  * a26024@alunos.ipca.pt
  * POO
  * LESI
- * Professor: Luis Ferreira
- */
+ * Professor:Luis Ferreira
+ * */
+
+using System.Collections.Generic;
 
 namespace Persons
 {
@@ -13,110 +15,46 @@ namespace Persons
     /// </summary>
     public class Utentes
     {
-        private Utente[] utentesArray; 
-        private const int MAX_UTENTES = 52; 
-        private int totalUtentes; 
+        private List<Utente> utentesList; // Utilizando List<Utente> em vez de Utente[]
 
-        /// <summary>
-        /// Construtor padrão da classe Utentes.
-        /// </summary>
         public Utentes()
         {
-            utentesArray = new Utente[MAX_UTENTES]; 
-            totalUtentes = 0; 
+            utentesList = new List<Utente>(); // Inicializando a lista vazia
         }
 
-        /// <summary>
-        /// Propriedade estática somente leitura que retorna o número máximo de Utentes.
-        /// </summary>
-        public static int MaxUtentes { get { return MAX_UTENTES; } }
-
-        /// <summary>
-        /// Propriedade de leitura do array de Utentes (clone para evitar alterações externas).
-        /// </summary>
-        public Utente[] UtentesArray
+        public List<Utente> UtentesList
         {
-            get { return (Utente[])utentesArray.Clone(); }
-            set { } 
+            get { return utentesList; }
         }
 
-        /// <summary>
-        /// Propriedade de leitura do total de Utentes.
-        /// </summary>
-        public int TotalUtentes
-        {
-            get { return totalUtentes; }
-        }
-
-        /// <summary>
-        /// Adiciona um Utente ao array na próxima posição disponível.
-        /// </summary>
-        /// <param name="utente">O Utente a ser adicionado.</param>
-        /// <returns>True se o Utente foi adicionado com sucesso, False caso contrário.</returns>
         public bool AdicionarUtente(Utente utente)
         {
-            if (totalUtentes < MAX_UTENTES)
+            utentesList.Add(utente); // Adicionando o utente à lista
+            return true; // Não há um limite fixo, sempre pode adicionar
+        }
+
+        public bool RemoverUtente(int nif)
+        {
+            Utente utenteParaRemover = utentesList.Find(u => u.Nif == nif);
+            if (utenteParaRemover != null)
             {
-                utentesArray[totalUtentes] = utente; 
-                totalUtentes++;
-                return true; 
+                utentesList.Remove(utenteParaRemover); // Removendo o utente da lista
+                return true;
             }
             else
             {
-                
-                return false; 
+                return false;
             }
         }
 
-        /// <summary>
-        /// Remove um Utente com base no NIF.
-        /// </summary>
-        /// <param name="NIF">O NIF do Utente a ser removido.</param>
-        /// <returns>True se o Utente foi removido com sucesso, False caso contrário.</returns>
-        public bool RemoverUtente(int NIF)
+        public List<Utente> ListarUtentes()
         {
-            for (int i = 0; i < totalUtentes; i++)
-            {
-                if (utentesArray[i].Nif == NIF)
-                {
-                    for (int j = i; j < totalUtentes - 1; j++)
-                    {
-                        utentesArray[j] = utentesArray[j + 1];
-                    }
-                    utentesArray[totalUtentes - 1] = null;
-                    totalUtentes--;
-                    return true;
-                }
-            }
-
-            return false; 
+            return new List<Utente>(utentesList); // Retorna uma nova lista com os utentes
         }
 
-
-
-        /// <summary>
-        /// Retorna um array contendo os utenntes atualmente armazenados.
-        /// </summary>
-        /// <returns>Um array de objetos utentes.</returns>
-        public Utente[] ListarUtentes()
-        {
-            Utente[] arrayutentes  = new Utente[totalUtentes];
-
-            for (int i = 0; i < totalUtentes; i++)
-            {
-                arrayutentes[i] = utentesArray[i];
-            }
-
-            return arrayutentes;
-        }
-
-        /// <summary>
-        /// Obtém o número total de Utentes.
-        /// </summary>
-        /// <returns>O número total de Utentes.</returns>
         public int ContarUtentes()
         {
-            return totalUtentes;
+            return utentesList.Count; // Contando o número de utentes na lista
         }
     }
 }

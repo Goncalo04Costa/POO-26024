@@ -14,8 +14,8 @@ namespace Persons
     {
         #region Atributos
 
-        public int codigoAuxiliar;
-        public string condicao;
+       int codigoAuxiliar;
+       string condicao;
 
         #endregion
 

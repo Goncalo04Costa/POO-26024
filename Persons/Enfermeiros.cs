@@ -1,121 +1,57 @@
 ﻿/*
- * Gonçalo Cardoso Ferreira da Costa 
+ *Gonçalo Cardoso Ferreira da Costa 
  * a26024@alunos.ipca.pt
  * POO
  * LESI
- * Professor: Luis Ferreira
- */
+ * Professor:Luis Ferreira
+ * */
 
-
+using System.Collections.Generic;
 
 namespace Persons
 {
-    /// <summary>
-    /// Representa a coleção de objetos Enfermeiro.
-    /// </summary>
     public class Enfermeiros
     {
-        private Enfermeiro[] enfermeirosArray;
-        private const int MAX_ENFERMEIROS = 24;
-        private int totalEnfermeiros;
+        private List<Enfermeiro> enfermeirosList; // Utilizando List<Enfermeiro> em vez de Enfermeiro[]
 
-        /// <summary>
-        /// Construtor padrão para a classe Enfermeiros.
-        /// Inicializa o array de Enfermeiro e define o número total de enfermeiros como zero.
-        /// </summary>
         public Enfermeiros()
         {
-            enfermeirosArray = new Enfermeiro[MAX_ENFERMEIROS];
-            totalEnfermeiros = 0;
+            enfermeirosList = new List<Enfermeiro>(); // Inicializando a lista vazia
         }
 
-        /// <summary>
-        /// Obtém o número máximo de enfermeiros permitidos.
-        /// </summary>
-        public static int MaxEnfermeiros { get { return MAX_ENFERMEIROS; } }
-
-        /// <summary>
-        /// Obtém uma cópia do array de Enfermeiros.
-        /// </summary>
-        public Enfermeiro[] EnfermeirosArray
+        public List<Enfermeiro> EnfermeirosList
         {
-            get { return (Enfermeiro[])enfermeirosArray.Clone(); }
-            set { } 
+            get { return enfermeirosList; }
         }
 
-        /// <summary>
-        /// Obtém o número total de enfermeiros na coleção.
-        /// </summary>
-        public int TotalEnfermeiros
-        {
-            get { return totalEnfermeiros; }
-        }
-
-        #region Outros Métodos
-
-        /// <summary>
-        /// Adiciona um objeto Enfermeiro à coleção.
-        /// </summary>
-        /// <param name="enfermeiro">O objeto Enfermeiro a ser adicionado.</param>
         public bool AdicionarEnfermeiro(Enfermeiro enfermeiro)
         {
-            if (totalEnfermeiros < MAX_ENFERMEIROS)
-            {
-                enfermeirosArray[totalEnfermeiros] = enfermeiro;
-                totalEnfermeiros++;
-                return true; 
-            }
-            else
-            {
-                return false; 
-            }
+            enfermeirosList.Add(enfermeiro); // Adicionando o enfermeiro à lista
+            return true; // Não há mais limite, então sempre pode adicionar
         }
 
         public bool RemoverEnfermeiro(int codigoEnfermeiro)
         {
-            for (int i = 0; i < totalEnfermeiros; i++)
+            Enfermeiro enfermeiroParaRemover = enfermeirosList.Find(e => e.CodigoEnfermeiro == codigoEnfermeiro);
+            if (enfermeiroParaRemover != null)
             {
-                if (enfermeirosArray[i].CodigoEnfermeiro == codigoEnfermeiro)
-                {
-                    for (int j = i; j < totalEnfermeiros - 1; j++)
-                    {
-                        enfermeirosArray[j] = enfermeirosArray[j + 1];
-                    }
-                    enfermeirosArray[totalEnfermeiros - 1] = null;
-                    totalEnfermeiros--;
-                    ;
-                    return true; 
-                }
+                enfermeirosList.Remove(enfermeiroParaRemover); // Removendo o enfermeiro da lista
+                return true;
             }
-            
-            return false; 
+            else
+            {
+                return false;
+            }
         }
 
-        /// <summary>
-        /// Retorna um array contendo os enfermeiros atualmente armazenados.
-        /// </summary>
-        /// <returns>Um array de objetos enfermeiros.</returns>
-        public Enfermeiro[] ListarEnfermeiro()
+        public List<Enfermeiro> ListarEnfermeiros()
         {
-            Enfermeiro[] arrayEnfermeiro = new Enfermeiro[totalEnfermeiros];
-
-            for (int i = 0; i < totalEnfermeiros; i++)
-            {
-                arrayEnfermeiro[i] = enfermeirosArray[i];
-            }
-
-            return arrayEnfermeiro;
+            return new List<Enfermeiro>(enfermeirosList); // Retorna uma nova lista com os enfermeiros
         }
 
-        /// <summary>
-        /// Conta e retorna o número total de enfermeiros na coleção.
-        /// </summary>
-        /// <returns>O número total de enfermeiros.</returns>
         public int ContarEnfermeiros()
         {
-            return totalEnfermeiros;
+            return enfermeirosList.Count; // Contando o número de enfermeiros na lista
         }
-
-        #endregion
     }
 }

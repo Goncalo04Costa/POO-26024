@@ -1,128 +1,92 @@
 ﻿/*
- * Gonçalo Cardoso Ferreira da Costa
+ *Gonçalo Cardoso Ferreira da Costa 
  * a26024@alunos.ipca.pt
  * POO
  * LESI
- * Professor: Luis Ferreira
- */
+ * Professor:Luis Ferreira
+ * */
 
+
+using System.Collections.Generic;
 
 namespace Persons
 {
     /// <summary>
-    /// Representa uma classe que gerencia um array de objetos Auxiliar.
+    /// Representa uma classe que gerencia uma lista dinâmica de objetos Auxiliar.
     /// </summary>
     public class Auxiliares
     {
-        private Auxiliar[] auxiliaresArray;
-        private const int MAX_AUXILIARES = 52;
-        private int totalAuxiliares;
+        private List<Auxiliar> auxiliaresList;
 
         /// <summary>
-        /// Construtor padrão que inicializa um array de auxiliares e define o total de auxiliares como 0.
+        /// Construtor padrão que inicializa a lista de auxiliares.
         /// </summary>
         public Auxiliares()
         {
-            auxiliaresArray = new Auxiliar[MAX_AUXILIARES];
-            totalAuxiliares = 0;
+            auxiliaresList = new List<Auxiliar>();
         }
 
         /// <summary>
-        /// Obtém o número máximo de auxiliares permitidos.
+        /// Obtém uma cópia da lista de Auxiliares.
         /// </summary>
-        public static int MaxAuxiliares { get { return MAX_AUXILIARES; } }
-
-
-
-        /// <summary>
-        /// Obtém uma cópia do array de Auxiliares.
-        /// </summary>
-        public Auxiliar[] AuxiliarArray
+        public List<Auxiliar> AuxiliarList
         {
-            get { return (Auxiliar[])AuxiliarArray.Clone(); }
-            set { }
+            get { return new List<Auxiliar>(auxiliaresList); }
         }
 
-
-
         /// <summary>
-        /// Obtém o total atual de auxiliares no array.
+        /// Obtém o total atual de auxiliares na lista.
         /// </summary>
         public int TotalAuxiliares
         {
-            get { return totalAuxiliares; }
+            get { return auxiliaresList.Count; }
         }
 
         #region Outros Métodos
 
         /// <summary>
-        /// Adiciona um auxiliar ao array, desde que o limite máximo não tenha sido atingido.
+        /// Adiciona um auxiliar à lista.
         /// </summary>
         /// <param name="auxiliar">O auxiliar a ser adicionado.</param>
-        public bool AdicionarAuxiliar(Auxiliar auxiliar)
+        public void AdicionarAuxiliar(Auxiliar auxiliar)
         {
-            if (totalAuxiliares < MAX_AUXILIARES)
-            {
-                auxiliaresArray[totalAuxiliares] = auxiliar;
-                totalAuxiliares++;
-                return true; 
-            }
-            else
-            {
-                return false; 
-            }
+            auxiliaresList.Add(auxiliar);
         }
 
-
         /// <summary>
-        /// Remove um Auxiliar com base no seu código.
+        /// Remove um auxiliar com base no seu código.
         /// </summary>
-        /// <param name="codigoAuxiliar">O código do Auxiliar a ser removido.</param>
-        /// <returns>True se o Auxiliar foi removido com sucesso, False caso contrário.</returns>
+        /// <param name="codigoAuxiliar">O código do auxiliar a ser removido.</param>
+        /// <returns>True se o auxiliar foi removido com sucesso, False caso contrário.</returns>
         public bool RemoverAuxiliar(int codigoAuxiliar)
         {
-            for (int i = 0; i < totalAuxiliares; i++)
+            Auxiliar auxiliar = auxiliaresList.Find(a => a.CodigoAuxiliar == codigoAuxiliar);
+            if (auxiliar != null)
             {
-                if (auxiliaresArray[i].CodigoAuxiliar == codigoAuxiliar)
-                {
-                    for (int j = i; j < totalAuxiliares - 1; j++)
-                    {
-                        auxiliaresArray[j] = auxiliaresArray[j + 1];
-                    }
-                    auxiliaresArray[totalAuxiliares - 1] = null;
-                    totalAuxiliares--;
-                    return true; 
-                }
+                auxiliaresList.Remove(auxiliar);
+                return true;
             }
-            return false; 
+            return false;
         }
+
         /// <summary>
-        /// Retorna um array contendo os auxiliares atualmente armazenados.
+        /// Retorna uma lista contendo os auxiliares atualmente armazenados.
         /// </summary>
-        /// <returns>Um array de objetos Auxiliar.</returns>
-        public Auxiliar[] ListarAuxiliares()
+        /// <returns>Uma lista de objetos Auxiliar.</returns>
+        public List<Auxiliar> ListarAuxiliares()
         {
-            Auxiliar[] arrayAuxiliares = new Auxiliar[totalAuxiliares];
-
-            for (int i = 0; i < totalAuxiliares; i++)
-            {
-                arrayAuxiliares[i] = auxiliaresArray[i];
-            }
-
-            return arrayAuxiliares;
+            return new List<Auxiliar>(auxiliaresList);
         }
 
         /// <summary>
-        /// Retorna o número total de auxiliares no array.
+        /// Retorna o número total de auxiliares na lista.
         /// </summary>
+        /// <returns>O número total de auxiliares.</returns>
         public int ContaAuxiliares()
         {
-            return totalAuxiliares;
+            return auxiliaresList.Count;
         }
 
         #endregion
     }
 }
-
-
-
