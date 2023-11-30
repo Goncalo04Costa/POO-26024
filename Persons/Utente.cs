@@ -11,6 +11,7 @@ namespace Persons
     /// <summary>
     /// Classe que representa um Utente, derivada da classe Pessoa.
     /// </summary>
+    [Serializable]
     public class Utente : Pessoa
     {
         int ContactoFamiliar;

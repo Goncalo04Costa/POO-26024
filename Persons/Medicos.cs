@@ -7,6 +7,7 @@
  * */
 
 using System.Collections.Generic;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Persons
 {
@@ -45,6 +46,34 @@ namespace Persons
             {
                 return false;
             }
+        }
+
+        /// <summary>
+        /// Metodo que lê um ficheiro e guarda numa lista a informação
+        /// </summary>
+        /// <returns></returns>
+        public bool LeMedicos()
+        {
+            if (!(File.Exists("Medicos.bin"))) return false;
+            Stream s = File.Open("Medicos.bin", FileMode.Open, FileAccess.Read);
+            BinaryFormatter b = new BinaryFormatter();
+            medicosList = (List<Medico>)b.Deserialize(s);
+            s.Close();
+            return true;
+        }
+
+        /// <summary>
+        /// Metodo que guarda as informações de uma lista num ficheiro
+        /// </summary>
+        /// <returns></returns>
+        public bool GuardaMedicos()
+        {
+            if (!(File.Exists("Medicos.bin"))) return false;
+            Stream s = File.Open("Medicos.bin", FileMode.Open, FileAccess.Write);
+            BinaryFormatter b = new BinaryFormatter();
+            b.Serialize(s, medicosList);
+            s.Close();
+            return true;
         }
 
         public List<Medico> ListarMedicos()

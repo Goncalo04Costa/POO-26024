@@ -7,6 +7,7 @@
  * */
 
 using System.Collections.Generic;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Persons
 {
@@ -51,6 +52,34 @@ namespace Persons
             {
                 return false;
             }
+        }
+
+        /// <summary>
+        /// Metodo que lê um ficheiro e guarda numa lista a informação
+        /// </summary>
+        /// <returns></returns>
+        public bool LeUtentes()
+        {
+            if (!(File.Exists("Utentes.bin"))) return false;
+            Stream s = File.Open("Utentes.bin", FileMode.Open, FileAccess.Read);
+            BinaryFormatter b = new BinaryFormatter();
+            utentesList = (List<Utente>)b.Deserialize(s);
+            s.Close();
+            return true;
+        }
+
+        /// <summary>
+        /// Metodo que guarda as informações de uma lista num ficheiro
+        /// </summary>
+        /// <returns></returns>
+        public bool GuardaUtente()
+        {
+            if (!(File.Exists("Utentes.bin"))) return false;
+            Stream s = File.Open("Utentes.bin", FileMode.Open, FileAccess.Write);
+            BinaryFormatter b = new BinaryFormatter();
+            b.Serialize(s, utentesList);
+            s.Close();
+            return true;
         }
 
         public bool DarAltaUtente(int nif)

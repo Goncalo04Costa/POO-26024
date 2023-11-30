@@ -11,6 +11,7 @@ namespace Persons
     /// <summary>
     /// Representa a classe Medico que herda de Funcionario .
     /// </summary>
+    [Serializable]
     public class Medico : Funcionario
     {
         #region Atributos

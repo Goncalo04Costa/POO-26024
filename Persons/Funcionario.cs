@@ -11,6 +11,7 @@ namespace Persons
     /// <summary>
     /// A classe Funcionario representa um funcionário que herda da classe Pessoa.
     /// </summary>
+    [Serializable]
     public class Funcionario : Pessoa
     {
         #region Atributos

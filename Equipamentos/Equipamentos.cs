@@ -7,6 +7,7 @@
  * */
 
 using System.Collections.Generic;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Equipment
 {
@@ -44,6 +45,33 @@ namespace Equipment
             }
         }
 
+        /// <summary>
+        /// Metodo que lê um ficheiro e guarda numa lista a informação
+        /// </summary>
+        /// <returns></returns>
+        public bool LeEquipamentos()
+        {
+            if (!(File.Exists("Equipamentos.bin"))) return false;
+            Stream s = File.Open("Equipamentos.bin", FileMode.Open, FileAccess.Read);
+            BinaryFormatter b = new BinaryFormatter();
+            equipamentosList = (List<Equipamento>)b.Deserialize(s);
+            s.Close();
+            return true;
+        }
+
+        /// <summary>
+        /// Metodo que guarda as informações de uma lista num ficheiro
+        /// </summary>
+        /// <returns></returns>
+        public bool GuardaEquipamentos()
+        {
+            if (!(File.Exists("Equipamentos.bin"))) return false;
+            Stream s = File.Open("Equipamentos.bin", FileMode.Open, FileAccess.Write);
+            BinaryFormatter b = new BinaryFormatter();
+            b.Serialize(s, equipamentosList);
+            s.Close();
+            return true;
+        }
         public List<Equipamento> ListarEquipamentos()
         {
             return new List<Equipamento>(equipamentosList); // Retorna uma nova lista com os equipamentos

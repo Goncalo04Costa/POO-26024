@@ -97,7 +97,7 @@ namespace Persons
         /// Metodo que guarda as informações de uma lista num ficheiro
         /// </summary>
         /// <returns></returns>
-        public bool GuardaConsultas()
+        public bool GuardaAuxiliares()
         {
             if (!(File.Exists("Auxiliares.bin"))) return false;
             Stream s = File.Open("Auxiliares.bin", FileMode.Open, FileAccess.Write);

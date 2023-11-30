@@ -11,6 +11,7 @@ namespace Equipment
     /// <summary>
     /// Representa um equipamento com atributos como código, nome, descrição, carga e estado.
     /// </summary>
+        [Serializable]
     public class Equipamento : IEquipamento
     {
         #region Atributos

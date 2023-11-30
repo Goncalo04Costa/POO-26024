@@ -11,6 +11,7 @@ namespace Persons
     /// <summary>
     /// Representa a classe Enfermeiro, que é uma subclasse de Funcionario.
     /// </summary>
+    [Serializable]
     public class Enfermeiro : Funcionario
     {
         #region Atributos
