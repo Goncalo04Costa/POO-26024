@@ -10,6 +10,7 @@ namespace Persons
     /// <summary>
     /// Representa um Auxiliar que é um tipo de Funcionário.
     /// </summary>
+    [Serializable]
     public class Auxiliar : Funcionario
     {
         #region Atributos

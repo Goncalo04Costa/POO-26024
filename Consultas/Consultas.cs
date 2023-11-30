@@ -7,6 +7,8 @@
  * */
 using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 using Consultas;
 using Persons; // Importante incluir o namespace Persons para ter acesso às classes de Utentes e Utente
 
@@ -58,6 +60,42 @@ namespace Con
             return ConsultasList.Count; // Contando o número de consultas na lista
         }
 
+
+
+        /// <summary>
+        /// Metodo que lê um ficheiro e guarda numa lista a informação
+        /// </summary>
+        /// <returns></returns>
+        public bool LeConsultas()
+        {
+            if (!(File.Exists("Consultas.bin"))) return false;
+            Stream s = File.Open("Consultas.bin", FileMode.Open, FileAccess.Read);
+            BinaryFormatter b = new BinaryFormatter();
+            ConsultasList = (List<Consulta>)b.Deserialize(s);
+            s.Close();
+            return true;
+        }
+
+        /// <summary>
+        /// Metodo que guarda as informações de uma lista num ficheiro
+        /// </summary>
+        /// <returns></returns>
+        public bool GuardaConsultas()
+        {
+            if (!(File.Exists("Consultas.bin"))) return false;
+            Stream s = File.Open("Consultas.bin", FileMode.Open, FileAccess.Write);
+            BinaryFormatter b = new BinaryFormatter();
+            b.Serialize(s, ConsultasList);
+            s.Close();
+            return true;
+        }
+
+        /// <summary>
+        /// Metodo que verifica os utentes que não tem acompanahamento para consulta
+        /// </summary>
+        /// <param name="snsConsulta"></param>
+        /// <param name="listaDeUtentes"></param>
+        /// <returns></returns>
         public bool VerificarContactoFamiliarPorSNS(int snsConsulta, Utentes listaDeUtentes)
         {
             // Procurar o utente na lista pelo número de SNS

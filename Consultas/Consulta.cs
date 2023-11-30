@@ -2,6 +2,7 @@
 
 namespace Consultas
 {
+    [Serializable]
     public class Consulta
     {
         #region Atributos
@@ -61,6 +62,12 @@ namespace Consultas
         #endregion
 
         #region Operadores
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns></returns>
         public static bool operator ==( Consulta a, Consulta b )
         {
             if ((a.consultaid ==  b.consultaid) && (a.hospital == b.hospital) && (a.codigomedico == b.codigomedico) && (a.SNSUTENTE == b.SNSUTENTE)) 

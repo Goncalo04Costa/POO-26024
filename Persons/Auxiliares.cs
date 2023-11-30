@@ -7,7 +7,10 @@
  * */
 
 
+using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 namespace Persons
 {
@@ -53,6 +56,12 @@ namespace Persons
             auxiliaresList.Add(auxiliar);
         }
 
+        public bool ExisteAuxiliar(int codigoAuxiliar)
+        {
+            return auxiliaresList.Any(a => a.CodigoAuxiliar == codigoAuxiliar);
+        }
+
+
         /// <summary>
         /// Remove um auxiliar com base no seu código.
         /// </summary>
@@ -67,6 +76,35 @@ namespace Persons
                 return true;
             }
             return false;
+        }
+
+
+        /// <summary>
+        /// Metodo que lê um ficheiro e guarda numa lista a informação
+        /// </summary>
+        /// <returns></returns>
+        public bool LeAuxiliares()
+        {
+            if (!(File.Exists("Auxiliares.bin"))) return false;
+            Stream s = File.Open("Auxiliares.bin", FileMode.Open, FileAccess.Read);
+            BinaryFormatter b = new BinaryFormatter();
+            auxiliaresList = (List<Auxiliar>)b.Deserialize(s);
+            s.Close();
+            return true;
+        }
+
+        /// <summary>
+        /// Metodo que guarda as informações de uma lista num ficheiro
+        /// </summary>
+        /// <returns></returns>
+        public bool GuardaConsultas()
+        {
+            if (!(File.Exists("Auxiliares.bin"))) return false;
+            Stream s = File.Open("Auxiliares.bin", FileMode.Open, FileAccess.Write);
+            BinaryFormatter b = new BinaryFormatter();
+            b.Serialize(s, auxiliaresList);
+            s.Close();
+            return true;
         }
 
         /// <summary>
