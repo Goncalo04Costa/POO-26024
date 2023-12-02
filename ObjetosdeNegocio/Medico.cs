@@ -6,7 +6,7 @@
  * Professor: Luis Ferreira
  */
 
-namespace Persons
+namespace ObjetosdeNegocio
 {
     /// <summary>
     /// Representa a classe Medico que herda de Funcionario .

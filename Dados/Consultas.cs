@@ -9,10 +9,10 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
-using Consultas;
-using Persons; // Importante incluir o namespace Persons para ter acesso às classes de Utentes e Utente
+using ObjetosdeNegocio;
 
-namespace Con
+
+namespace  Dados
 {
     public class Consultas
     {

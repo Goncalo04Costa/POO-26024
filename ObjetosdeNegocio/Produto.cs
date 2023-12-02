@@ -6,7 +6,7 @@
  * Professor: Luis Ferreira
  */
 
-namespace Product
+namespace ObjetosdeNegocio
 {
     /// <summary>
     /// Classe base para representar um Produto genérico.

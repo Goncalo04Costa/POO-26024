@@ -6,7 +6,7 @@
  * Professor: Luis Ferreira
  */
 
-namespace Persons
+namespace ObjetosdeNegocio
 {
     /// <summary>
     /// Representa um Diretor que é um tipo de Funcionário.

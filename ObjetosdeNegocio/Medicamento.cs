@@ -5,7 +5,7 @@
  * LESI
  * Professor: Luis Ferreira
  */
-namespace Product
+namespace ObjetosdeNegocio
 {
     /// <summary>
     /// Classe que representa um Medicamento, derivado da classe base Produto.
