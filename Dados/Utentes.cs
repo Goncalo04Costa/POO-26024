@@ -17,11 +17,11 @@ namespace Dados
     /// </summary>
     public class Utentes
     {
-        private List<Utente> utentesList; // Utilizando List<Utente> em vez de Utente[]
+        private List<Utente> utentesList; 
 
         public Utentes()
         {
-            utentesList = new List<Utente>(); // Inicializando a lista vazia
+            utentesList = new List<Utente>(); 
         }
 
         public List<Utente> UtentesList
@@ -37,8 +37,8 @@ namespace Dados
 
         public bool AdicionarUtente(Utente utente)
         {
-            utentesList.Add(utente); // Adicionando o utente à lista
-            return true; // Não há um limite fixo, sempre pode adicionar
+            utentesList.Add(utente); 
+            return true; 
         }
 
         public bool RemoverUtente(int nif)
