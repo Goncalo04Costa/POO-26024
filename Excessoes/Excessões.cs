@@ -1,6 +1,6 @@
 ﻿namespace Excessoes
 {
-    public class Excessões
+    public class Excessoes
     {
 
     }
