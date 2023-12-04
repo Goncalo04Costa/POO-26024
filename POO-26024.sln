@@ -9,9 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ObjetosdeNegocio", "Objetos
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dados", "Dados\Dados.csproj", "{BAAA3A1E-A1FB-47C6-A059-E17C613EF12B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegrasdeNegocio", "RegrasdeNegocio\RegrasdeNegocio.csproj", "{F60FA68B-8280-4B30-8B47-2AA254681542}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RegrasdeNegocio", "RegrasdeNegocio\RegrasdeNegocio.csproj", "{F60FA68B-8280-4B30-8B47-2AA254681542}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excessoes", "Excessoes\Excessoes.csproj", "{43A5A6E1-4049-4277-BEA8-A6CC7E409264}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Excecao", "Excessoes\Excecao.csproj", "{43A5A6E1-4049-4277-BEA8-A6CC7E409264}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaces", "Interfaces\Interfaces.csproj", "{C9A859E5-EC41-4777-A2BA-C7067068D93B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{43A5A6E1-4049-4277-BEA8-A6CC7E409264}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43A5A6E1-4049-4277-BEA8-A6CC7E409264}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43A5A6E1-4049-4277-BEA8-A6CC7E409264}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9A859E5-EC41-4777-A2BA-C7067068D93B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9A859E5-EC41-4777-A2BA-C7067068D93B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9A859E5-EC41-4777-A2BA-C7067068D93B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9A859E5-EC41-4777-A2BA-C7067068D93B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

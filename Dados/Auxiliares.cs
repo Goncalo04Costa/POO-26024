@@ -12,6 +12,8 @@ using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using ObjetosdeNegocio;
+using Excecao;
+using Interfaces;
 
 namespace Dados
 {
@@ -20,14 +22,23 @@ namespace Dados
     /// </summary>
     public class Auxiliares
     {
-        private List<Auxiliar> auxiliaresList;
+        private static List<Auxiliar> auxiliaresList;
 
         /// <summary>
         /// Construtor padrão que inicializa a lista de auxiliares.
         /// </summary>
-        public Auxiliares()
+        static Auxiliares()
         {
             auxiliaresList = new List<Auxiliar>();
+        }
+
+
+        /// <summary>
+        /// Construtor por defeito.
+        /// </summary>
+        public Auxiliares()
+        {
+
         }
 
         /// <summary>
@@ -49,14 +60,32 @@ namespace Dados
         #region Outros Métodos
 
         /// <summary>
-        /// Adiciona um auxiliar à lista.
+        /// Método estático para inserir um novo auxiliar na lista estática compartilhada.
         /// </summary>
-        /// <param name="auxiliar">O auxiliar a ser adicionado.</param>
-        public void AdicionarAuxiliar(Auxiliar auxiliar)
+        /// <param name="novoAuxiliar">O auxiliar a ser inserido na lista.</param>
+        /// <returns>True se a inserção for bem-sucedida, False caso contrário.</returns>
+        public static bool InsereAuxiliarLista(Auxiliar novoAuxiliar)
         {
-            auxiliaresList.Add(auxiliar);
+            
+            
+                foreach (Auxiliar aux in auxiliaresList)
+                {
+                    if (aux.Equals(novoAuxiliar))
+                    {
+                        throw new AuxiliarException("Já existe este auxiliar na lista.");
+                    }
+                }
+
+                auxiliaresList.Add(novoAuxiliar);
+                return true; 
+            
         }
 
+        /// <summary>
+        /// Verifica se um auxiliar com o código especificado existe na lista estática compartilhada.
+        /// </summary>
+        /// <param name="codigoAuxiliar">O código do auxiliar a ser verificado.</param>
+        /// <returns>True se o auxiliar existir na lista, False caso contrário.</returns>
         public bool ExisteAuxiliar(int codigoAuxiliar)
         {
             return auxiliaresList.Any(a => a.CodigoAuxiliar == codigoAuxiliar);
@@ -84,37 +113,57 @@ namespace Dados
         /// Metodo que lê um ficheiro e guarda numa lista a informação
         /// </summary>
         /// <returns></returns>
-        public bool LeAuxiliares()
+        public bool LerAuxiliares(string nomeFicheiro)
         {
-            if (!(File.Exists("Auxiliares.bin"))) return false;
-            Stream s = File.Open("Auxiliares.bin", FileMode.Open, FileAccess.Read);
-            BinaryFormatter b = new BinaryFormatter();
-            auxiliaresList = (List<Auxiliar>)b.Deserialize(s);
-            s.Close();
-            return true;
+            try
+            {
+                if (!File.Exists(nomeFicheiro))
+                    return false;
+
+                using (Stream ficheiro = File.Open(nomeFicheiro, FileMode.Open))
+                {
+                    BinaryFormatter b = new BinaryFormatter();
+                    auxiliaresList = (List<Auxiliar>)b.Deserialize(ficheiro);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new LeituraFicheiroAuxiliarException("Erro ao ler o ficheiro de auxiliares: " + ex.Message);
+            }
         }
 
         /// <summary>
         /// Metodo que guarda as informações de uma lista num ficheiro
         /// </summary>
         /// <returns></returns>
-        public bool GuardaAuxiliares()
+        public bool GravarAuxiliares(string nomeFicheiro)
         {
-            if (!(File.Exists("Auxiliares.bin"))) return false;
-            Stream s = File.Open("Auxiliares.bin", FileMode.Open, FileAccess.Write);
-            BinaryFormatter b = new BinaryFormatter();
-            b.Serialize(s, auxiliaresList);
-            s.Close();
+            try
+            {
+                using (Stream ficheiro = File.Open(nomeFicheiro, FileMode.Create))
+                {
+                    BinaryFormatter b = new BinaryFormatter();
+                    b.Serialize(ficheiro, auxiliaresList);
+                    ficheiro.Close();
+                }
+            }
+            catch (EscritaFicheiroAuxiliaresException e)
+            {
+                throw new EscritaFicheiroAuxiliaresException("Erro ao gravar o ficheiro." + e.Message);
+            }
+           
             return true;
         }
 
+
         /// <summary>
-        /// Retorna uma lista contendo os auxiliares atualmente armazenados.
+        /// Método estático que retorna uma cópia da lista estática compartilhada de auxiliares.
         /// </summary>
-        /// <returns>Uma lista de objetos Auxiliar.</returns>
-        public List<Auxiliar> ListarAuxiliares()
+        /// <returns>Uma lista contendo todos os auxiliares.</returns>
+        public static List<Auxiliar> EnviarTodosAuxiliares()
         {
-            return new List<Auxiliar>(auxiliaresList);
+            return auxiliaresList.ToList();
         }
 
         /// <summary>

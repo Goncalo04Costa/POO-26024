@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -11,6 +11,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="Excecao">
+      <HintPath>..\Excessoes\bin\Debug\net6.0\Excecao.dll</HintPath>
+    </Reference>
+    <Reference Include="Interfaces">
+      <HintPath>..\Interfaces\bin\Debug\net6.0\Interfaces.dll</HintPath>
+    </Reference>
     <Reference Include="ObjetosdeNegocio">
       <HintPath>..\ObjetosdeNegocio\bin\Debug\net6.0\ObjetosdeNegocio.dll</HintPath>
     </Reference>

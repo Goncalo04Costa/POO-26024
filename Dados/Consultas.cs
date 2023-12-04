@@ -1,116 +1,96 @@
-﻿/*
- *Gonçalo Cardoso Ferreira da Costa 
- * a26024@alunos.ipca.pt
- * POO
- * LESI
- * Professor:Luis Ferreira
- * */
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using ObjetosdeNegocio;
+using Excecao;
 
-
-namespace  Dados
+namespace Dados
 {
     public class Consultas
     {
-        private List<Consulta> ConsultasList;
-        private Utentes listaUtentes; // Adicionando a lista de Utentes como atributo
-
-        public Consultas(Utentes utentes)
+        private static List<Consulta> ConsultasList; 
+        private static Utentes listaUtentes; 
+      
+        static Consultas()
         {
-            ConsultasList = new List<Consulta>(); // Inicializando a lista vazia
-            listaUtentes = utentes; // Recebendo a lista de Utentes ao criar Consultas
+            ConsultasList = new List<Consulta>(); 
         }
 
+       
+        public Consultas()
+        {
+
+        }
+
+  
         public List<Consulta> Consultaslist
         {
             get { return ConsultasList; }
         }
 
-        public bool AdicionarConsulta(Consulta consulta)
-        {
-            ConsultasList.Add(consulta); // Adicionando a consulta à lista
-            return true; // Não há um limite fixo, sempre pode adicionar
-        }
-
-        public bool RemoveConsulta(int codigo)
-        {
-            Consulta consultaremover = ConsultasList.Find(c => c.Consultaid == codigo);
-            if (consultaremover != null)
-            {
-                ConsultasList.Remove(consultaremover); // Removendo a consulta da lista
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
 
         public List<Consulta> ListaConsultas()
         {
-            return new List<Consulta>(ConsultasList); // Retorna uma nova lista de consultas
+            return new List<Consulta>(ConsultasList); 
         }
 
+       
         public int ContaConsultas()
         {
-            return ConsultasList.Count; // Contando o número de consultas na lista
+            return ConsultasList.Count; 
         }
-
 
 
         /// <summary>
         /// Metodo que lê um ficheiro e guarda numa lista a informação
         /// </summary>
         /// <returns></returns>
-        public bool LeConsultas()
+        public bool LerConsultas(string nomeFicheiro)
         {
-            if (!(File.Exists("Consultas.bin"))) return false;
-            Stream s = File.Open("Consultas.bin", FileMode.Open, FileAccess.Read);
-            BinaryFormatter b = new BinaryFormatter();
-            ConsultasList = (List<Consulta>)b.Deserialize(s);
-            s.Close();
-            return true;
+            try
+            {
+                if (!File.Exists(nomeFicheiro))
+                    return false;
+
+                using (Stream ficheiro = File.Open(nomeFicheiro, FileMode.Open))
+                {
+                    BinaryFormatter b = new BinaryFormatter();
+                    ConsultasList = (List<Consulta>)b.Deserialize(ficheiro);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new LeituraFicheiroConsultaException("Erro ao ler o ficheiro de consultas: " + ex.Message);
+            }
         }
 
         /// <summary>
         /// Metodo que guarda as informações de uma lista num ficheiro
         /// </summary>
         /// <returns></returns>
-        public bool GuardaConsultas()
+        public bool GravarConsultas(string nomeFicheiro)
         {
-            if (!(File.Exists("Consultas.bin"))) return false;
-            Stream s = File.Open("Consultas.bin", FileMode.Open, FileAccess.Write);
-            BinaryFormatter b = new BinaryFormatter();
-            b.Serialize(s, ConsultasList);
-            s.Close();
+            try
+            {
+                using (Stream ficheiro = File.Open(nomeFicheiro, FileMode.Create))
+                {
+                    BinaryFormatter b = new BinaryFormatter();
+                    b.Serialize(ficheiro, ConsultasList);
+                    ficheiro.Close();
+                }
+            }
+            catch (EscritaFicheiroConsultasException e)
+            {
+                throw new EscritaFicheiroConsultasException("Erro ao gravar o ficheiro." + e.Message);
+            }
+
             return true;
         }
 
-
-        /*
-         *public bool GuardaConsultas()
-{
-    try
-    {
-        Stream s = File.Open("Consultas.bin", FileMode.Create, FileAccess.Write);
-        BinaryFormatter b = new BinaryFormatter();
-        b.Serialize(s, ConsultasList);
-        s.Close();
-        return true;
-    }
-    catch (Exception ex)
-    {
-        // 
-        Console.WriteLine("Erro: " + ex.Message);
-        return false;
-    } 
-         */
         /// <summary>
-        /// Metodo que verifica os utentes que não tem acompanahamento para consulta
+        /// Verificar os clientes que precisam de transporte
         /// </summary>
         /// <param name="snsConsulta"></param>
         /// <param name="listaDeUtentes"></param>
@@ -121,19 +101,9 @@ namespace  Dados
 
             if (utenteEncontrado != null)
             {
-                if (utenteEncontrado.ContactoFamiliarProperty == 0)
-                {
-                 return true; 
-                }
-                else
-                {
-                 return false; 
-                }
+                return utenteEncontrado.ContactoFamiliarProperty == 0;
             }
-            else
-            {
-                 return false; 
-            }
+            return false;
         }
     }
 }

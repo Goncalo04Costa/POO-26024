@@ -13,11 +13,11 @@ using ObjetosdeNegocio;
 namespace Dados
 {
     /// <summary>
-    /// Classe responsável por gerenciar um conjunto de médicos.
+    /// Classe responsável por gerir um conjunto de médicos.
     /// </summary>
     public class Medicos
     {
-        private List<Medico> medicosList; // Utilizando List<Medico> em vez de Medico[]
+        private static List<Medico> medicosList; 
 
         public Medicos()
         {
