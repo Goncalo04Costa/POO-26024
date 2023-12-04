@@ -12,6 +12,27 @@ namespace Excecao
         { }
     }
 
+
+    /// <summary>
+    /// Exceção para verificação de existência de produto.
+    /// </summary>
+    /// <seealso cref="System.Exception" />
+    public class ProdutoNaoExisteException : Exception
+    {
+        public ProdutoNaoExisteException(string message) : base(message)
+        { }
+    }
+
+    /// <summary>
+    /// Exceção para verificação de existência de medicamento.
+    /// </summary>
+    /// <seealso cref="System.Exception" />
+    public class MedicamentoNaoExisteException : Exception
+    {
+        public MedicamentoNaoExisteException(string message) : base(message)
+        { }
+    }
+
     /// <summary>
     /// Exceção para verificação de existência de auxiliar.
     /// </summary>
@@ -68,6 +89,21 @@ namespace Excecao
 
         public EscritaFicheiroUtenteException(string message) : base(message) { }
     }
+
+
+
+
+    /// <summary>
+    /// Exceção para escrita de produtos.
+    /// </summary>
+    /// <seealso cref="System.Exception" />
+    public class EscritaficheiroProdutoException : Exception
+    {
+        public EscritaficheiroProdutoException() { }
+
+        public EscritaficheiroProdutoException(string message) : base(message) { }
+    }
+
     /// <summary>
     /// Exceção para escrita de Enfermeiros.
     /// </summary>
@@ -89,6 +125,18 @@ namespace Excecao
         public EscritaFicheiroAuxiliaresException(string message) : base(message) { }
     }
 
+
+
+    /// <summary>
+    /// Exceção para escrita de Medicamentos.
+    /// </summary>
+    /// <seealso cref="System.Exception" />
+    public class EscritaFicheiroMedicamentoException : Exception
+    {
+        public EscritaFicheiroMedicamentoException() { }
+
+        public EscritaFicheiroMedicamentoException(string message) : base(message) { }
+    }
 
     /// <summary>
     /// Exceção para escrita de Médicos.
@@ -125,6 +173,16 @@ namespace Excecao
         public LeituraFicheiroAuxiliarException(string message) : base(message) { }
     }
 
+    public class LeituraficheiroProdutoException : Exception
+    {
+        public LeituraficheiroProdutoException(string message) : base(message) { }
+    }
+
+    public class LeituraFicheiroMedicamentoException : Exception
+    {
+        public LeituraFicheiroMedicamentoException(string message) : base(message) { }
+    }
+
     public class LeituraFicheiroConsultaException : Exception
     {
         public LeituraFicheiroConsultaException(string message) : base(message) { }
@@ -140,6 +198,11 @@ namespace Excecao
     public class LeituraFicheiroFuncionarioException : Exception
     {
         public LeituraFicheiroFuncionarioException(string message) : base(message) { }
+    }
+
+    public class LeituraFicheiroMedicoException : Exception
+    {
+        public LeituraFicheiroMedicoException(string message) : base(message) { }
     }
 
     /// <summary>
@@ -162,6 +225,17 @@ namespace Excecao
         public EnfermeiroException() { }
 
         public EnfermeiroException(string message) : base(message) { }
+    }
+
+    /// <summary>
+    /// Exceção genérica para Medicamento.
+    /// </summary>
+    /// <seealso cref="System.Exception" />
+    public class MedicamentoException : Exception
+    {
+        public MedicamentoException() { }
+
+        public MedicamentoException(string message) : base(message) { }
     }
 
     /// <summary>
@@ -208,4 +282,33 @@ namespace Excecao
         public ConsultaException(string message) : base(message) { }
     }
 
+
+
+    /// <summary>
+    /// Exceção genérica para Produto.
+    /// </summary>
+    /// <seealso cref="System.Exception" />
+    public class ProdutoException : Exception
+    {
+        public ProdutoException() { }
+
+        public ProdutoException(string message) : base(message) { }
+    }
+
+    /// <summary>
+    /// Exceção para verificação de existência de utente.
+    /// </summary>
+    /// <seealso cref="System.Exception" />
+  
+
+    /// <summary>
+    /// Exceção para leitura de Utentes.
+    /// </summary>
+    /// <seealso cref="System.Exception" />
+    public class LeituraFicheiroUtenteException : Exception
+    {
+        public LeituraFicheiroUtenteException(string message) : base(message) { }
+    }
+
+  
 }

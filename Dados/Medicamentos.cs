@@ -7,6 +7,9 @@
  * */
 
 using System.Collections.Generic;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO; 
+using Excecao;
 using ObjetosdeNegocio;
 
 namespace Dados
@@ -32,17 +35,41 @@ namespace Dados
             get { return medicamentosList; }
         }
 
-        public void AdicionarMedicamento(Medicamento medicamento)
+        /// <summary>
+        /// Método estático para inserir um novo medicamento na lista estática compartilhada.
+        /// </summary>
+        /// <param name="novofunc">O medicamento a ser inserido na lista.</param>
+        /// <returns>True se a inserção for bem-sucedida, False caso contrário.</returns>
+        public static bool InsereMedicamentoLista(Medicamento novoMedicamento)
         {
-            medicamentosList.Add(medicamento); 
-        }
+            Medicamento medicamentoExistente = medicamentosList.Find(m => m.Codigo == novoMedicamento.Codigo);
 
+            if (medicamentoExistente != null)
+            {
+                medicamentoExistente.Quantidade++; // Aumenta a quantidade do medicamento existente
+            }
+            else
+            {
+                novoMedicamento.Quantidade = 1; // Define a quantidade como 1 para o novo medicamento
+                medicamentosList.Add(novoMedicamento); // Adiciona o novo medicamento à lista
+            }
+
+            return true;
+        }
         public bool RemoverMedicamento(int codigo)
         {
             Medicamento medicamentoParaRemover = medicamentosList.Find(m => m.Codigo == codigo);
             if (medicamentoParaRemover != null)
             {
-                medicamentosList.Remove(medicamentoParaRemover); // Removendo o medicamento da lista
+                // Reduz a quantidade do medicamento
+                medicamentoParaRemover.Quantidade--;
+
+                // Se a quantidade se tornar zero, remove o medicamento da lista
+                if (medicamentoParaRemover.Quantidade == 0)
+                {
+                    medicamentosList.Remove(medicamentoParaRemover);
+                }
+
                 return true;
             }
             else
@@ -51,14 +78,54 @@ namespace Dados
             }
         }
 
-        public List<Medicamento> ListarMedicamentos()
+
+        /// <summary>
+        /// Metodo que lê um ficheiro e guarda numa lista a informação
+        /// </summary>
+        /// <returns></returns>
+        public bool LerMedicamento(string nomeFicheiro)
         {
-            return new List<Medicamento>(medicamentosList); // Retorna uma nova lista com os medicamentos
+            try
+            {
+                if (!File.Exists(nomeFicheiro))
+                    return false;
+
+                using (Stream ficheiro = File.Open(nomeFicheiro, FileMode.Open))
+                {
+                    BinaryFormatter b = new BinaryFormatter();
+                    medicamentosList = (List<Medicamento>)b.Deserialize(ficheiro);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new LeituraFicheiroMedicamentoException("Erro ao ler o ficheiro de medicamentos: " + ex.Message);
+            }
         }
 
-        public int ContarMedicamentos()
+        /// <summary>
+        /// Metodo que guarda as informações de uma lista num ficheiro
+        /// </summary>
+        /// <returns></returns>
+        public bool GravarMedicamentos(string nomeFicheiro)
         {
-            return medicamentosList.Count; // Contando o número de medicamentos na lista
+            try
+            {
+                using (Stream ficheiro = File.Open(nomeFicheiro, FileMode.Create))
+                {
+                    BinaryFormatter b = new BinaryFormatter();
+                    b.Serialize(ficheiro, medicamentosList);
+                    ficheiro.Close();
+                }
+            }
+            catch (EscritaFicheiroMedicamentoException e)
+            {
+                throw new EscritaFicheiroMedicamentoException("Erro ao gravar o ficheiro." + e.Message);
+            }
+
+            return true;
         }
+
     }
+
 }

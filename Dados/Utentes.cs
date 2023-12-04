@@ -8,6 +8,7 @@
 
 using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters.Binary;
+using Excecao;
 using ObjetosdeNegocio;
 
 namespace Dados
@@ -17,92 +18,126 @@ namespace Dados
     /// </summary>
     public class Utentes
     {
-        private List<Utente> utentesList; 
+        private static List<Utente> utentesList; 
 
-        public Utentes()
+        static Utentes()
         {
             utentesList = new List<Utente>(); 
         }
 
-        public List<Utente> UtentesList
+        /// <summary>
+        /// Método estático para inserir um novo utente na lista estática compartilhada.
+        /// </summary>
+        /// <param name="novoutente">O utente a ser inserido na lista.</param>
+        /// <returns>True se a inserção for bem-sucedida, False caso contrário.</returns>
+        public static bool InsereUtenteLista(Utente novoutente)
         {
-            get { return utentesList; }
-        }
-
-        public bool ExisteUtente(int nif)
-        {
-            return utentesList.Any(u => u.Nif == nif);
-        }
 
 
-        public bool AdicionarUtente(Utente utente)
-        {
-            utentesList.Add(utente); 
-            return true; 
-        }
-
-        public bool RemoverUtente(int nif)
-        {
-            Utente utenteParaRemover = utentesList.Find(u => u.Nif == nif);
-            if (utenteParaRemover != null)
+            foreach (Utente aux in utentesList)
             {
-                utentesList.Remove(utenteParaRemover); // Removendo o utente da lista
+                if (aux.Equals(novoutente))
+                {
+                    throw new UtenteException("Já existe este utente na lista.");
+                }
+            }
+
+            utentesList.Add(novoutente);
+            return true;
+
+        }
+
+        /// <summary>
+        /// Verifica se um utente com o código especificado existe na lista estática compartilhada.
+        /// </summary>
+        /// <param name="Nif">O NIF a ser verificado.</param>
+        /// <returns>True se o auxiliar existir na lista, False caso contrário.</returns>
+        public bool ExisteUtente(int Nif)
+        {
+            return utentesList.Any(a => a.Nif == Nif);
+        }
+
+
+        /// <summary>
+        /// Remove um utente com base no seu código.
+        /// </summary>
+        /// <param name="Nif">O NIF do utente a ser removido.</param>
+        /// <returns>True se o utente foi removido com sucesso, False caso contrário.</returns>
+        public bool RemoveFunc(int Nif)
+        {
+            Utente utente = utentesList.Find(a => a.Nif == Nif);
+            if (utente != null)
+            {
+                utentesList.Remove(utente);
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
+
+
 
         /// <summary>
         /// Metodo que lê um ficheiro e guarda numa lista a informação
         /// </summary>
         /// <returns></returns>
-        public bool LeUtentes()
+        public bool LerUtente(string nomeFicheiro)
         {
-            if (!(File.Exists("Utentes.bin"))) return false;
-            Stream s = File.Open("Utentes.bin", FileMode.Open, FileAccess.Read);
-            BinaryFormatter b = new BinaryFormatter();
-            utentesList = (List<Utente>)b.Deserialize(s);
-            s.Close();
-            return true;
+            try
+            {
+                if (!File.Exists(nomeFicheiro))
+                    return false;
+
+                using (Stream ficheiro = File.Open(nomeFicheiro, FileMode.Open))
+                {
+                    BinaryFormatter b = new BinaryFormatter();
+                    utentesList = (List<Utente>)b.Deserialize(ficheiro);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new LeituraFicheiroUtenteException("Erro ao ler o ficheiro de utentes: " + ex.Message);
+            }
         }
 
         /// <summary>
         /// Metodo que guarda as informações de uma lista num ficheiro
         /// </summary>
         /// <returns></returns>
-        public bool GuardaUtente()
+        public bool GravarFuncionarios(string nomeFicheiro)
         {
-            if (!(File.Exists("Utentes.bin"))) return false;
-            Stream s = File.Open("Utentes.bin", FileMode.Open, FileAccess.Write);
-            BinaryFormatter b = new BinaryFormatter();
-            b.Serialize(s, utentesList);
-            s.Close();
+            try
+            {
+                using (Stream ficheiro = File.Open(nomeFicheiro, FileMode.Create))
+                {
+                    BinaryFormatter b = new BinaryFormatter();
+                    b.Serialize(ficheiro, utentesList);
+                    ficheiro.Close();
+                }
+            }
+            catch (EscritaFicheiroUtenteException e)
+            {
+                throw new EscritaFicheiroUtenteException("Erro ao gravar o ficheiro." + e.Message);
+            }
+
             return true;
         }
-
         public bool DarAltaUtente(int nif)
         {
             Utente utenteParaDarAlta = utentesList.Find(u => u.Nif == nif);
             if (utenteParaDarAlta != null)
             {
-                utenteParaDarAlta.Estado = 2; // Altera o estado para 2 (alta da UCCI)
-                utentesList.Remove(utenteParaDarAlta); // Remove o utente da lista
+                utenteParaDarAlta.Estado = 2; 
+                utentesList.Remove(utenteParaDarAlta);
                 return true;
             }
             else
             {
-                return false; // Utente com o NIF especificado não encontrado
+                return false; 
             }
         }
 
-        public Utente ObterUtentePorNIF(int nif)
-        {
-            return utentesList.Find(u => u.Nif == nif);
-        }
-
+      
 
         public bool AtualizarInformacoesUtente(Utente utente)
         {
@@ -112,32 +147,19 @@ namespace Dados
                 utentesList[index] = utente;
                 return true;
             }
-            return false; // Utente não encontrado
+            return false;
         }
 
-
-        public double CalcularMediaIdadeUtentes()
-        {
-            if (utentesList.Count == 0) return 0;
-
-            return utentesList.Average(u => u.Idade);
-        }
-
-        public Dictionary<int, int> ContarUtentesPorEstado()
-        {
-            return utentesList.GroupBy(u => u.Estado)
-                              .ToDictionary(g => g.Key, g => g.Count());
-        }
 
 
         public List<Utente> ListarUtentes()
         {
-            return new List<Utente>(utentesList); // Retorna uma nova lista com os utentes
+            return new List<Utente>(utentesList); 
         }
 
         public int ContarUtentes()
         {
-            return utentesList.Count; // Contando o número de utentes na lista
+            return utentesList.Count; 
         }
     }
 }
