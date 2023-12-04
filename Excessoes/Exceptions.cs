@@ -73,11 +73,18 @@ namespace Excecao
         { }
     }
 
+    /// <summary>
+    /// Exceção  para verificar existencia de consulta
+    /// </summary>
     public class ConsultaNaoExisteException : Exception
     {
         public ConsultaNaoExisteException(string message) : base(message)
         { }
     }
+
+    //----------------------------------------------------------------------------------//
+
+
 
     /// <summary>
     /// Exceção para escrita de Utentes.
@@ -91,8 +98,6 @@ namespace Excecao
     }
 
 
-
-
     /// <summary>
     /// Exceção para escrita de produtos.
     /// </summary>
@@ -102,27 +107,6 @@ namespace Excecao
         public EscritaficheiroProdutoException() { }
 
         public EscritaficheiroProdutoException(string message) : base(message) { }
-    }
-
-    /// <summary>
-    /// Exceção para escrita de Enfermeiros.
-    /// </summary>
-    /// <seealso cref="System.Exception" />
-    public class EscritaFicheiroEnfermeirosException : Exception
-    {
-        public EscritaFicheiroEnfermeirosException() { }
-
-        public EscritaFicheiroEnfermeirosException(string message) : base(message) { }
-    }
-    /// <summary>
-    /// Exceção para escrita de Auxiliares.
-    /// </summary>
-    /// <seealso cref="System.Exception" />
-    public class EscritaFicheiroAuxiliaresException : Exception
-    {
-        public EscritaFicheiroAuxiliaresException() { }
-
-        public EscritaFicheiroAuxiliaresException(string message) : base(message) { }
     }
 
 
@@ -137,6 +121,35 @@ namespace Excecao
 
         public EscritaFicheiroMedicamentoException(string message) : base(message) { }
     }
+
+
+    /// <summary>
+    /// Exceção para escrita de Auxiliares.
+    /// </summary>
+    /// <seealso cref="System.Exception" />
+    public class EscritaFicheiroAuxiliaresException : Exception
+    {
+        public EscritaFicheiroAuxiliaresException() { }
+
+        public EscritaFicheiroAuxiliaresException(string message) : base(message) { }
+    }
+
+
+    /// <summary>
+    /// Exceção para escrita de Enfermeiros.
+    /// </summary>
+    /// <seealso cref="System.Exception" />
+    public class EscritaFicheiroEnfermeirosException : Exception
+    {
+        public EscritaFicheiroEnfermeirosException() { }
+
+        public EscritaFicheiroEnfermeirosException(string message) : base(message) { }
+    }
+   
+
+
+
+  
 
     /// <summary>
     /// Exceção para escrita de Médicos.
@@ -160,6 +173,9 @@ namespace Excecao
         public EscritaFicheiroFuncionariosException(string message) : base(message) { }
     }
 
+    /// <summary>
+    /// Exceção para escrita de Consultas.
+    /// </summary>
 
     public class EscritaFicheiroConsultasException : Exception
     {
@@ -168,42 +184,86 @@ namespace Excecao
         public EscritaFicheiroConsultasException(string message) : base(message) { }
     }
 
-    public class LeituraFicheiroAuxiliarException : Exception
+
+
+    //----------------------------------------------------------------------------------//
+
+    /// <summary>
+    /// Exceção para leitura de Utentes.
+    /// </summary>
+    /// <seealso cref="System.Exception" />
+    public class LeituraFicheiroUtenteException : Exception
     {
-        public LeituraFicheiroAuxiliarException(string message) : base(message) { }
+        public LeituraFicheiroUtenteException(string message) : base(message) { }
     }
 
+
+    /// <summary>
+    /// Exceção para leiura de Produtos
+    /// </summary>
     public class LeituraficheiroProdutoException : Exception
     {
         public LeituraficheiroProdutoException(string message) : base(message) { }
     }
 
+
+    /// <summary>
+    /// Exceção parra leitura de Medicamentos
+    /// </summary>
     public class LeituraFicheiroMedicamentoException : Exception
     {
         public LeituraFicheiroMedicamentoException(string message) : base(message) { }
     }
 
-    public class LeituraFicheiroConsultaException : Exception
+
+    /// <summary>
+    /// Exceção parra leitura de Auxiliares
+    /// </summary>
+    public class LeituraFicheiroAuxiliarException : Exception
     {
-        public LeituraFicheiroConsultaException(string message) : base(message) { }
+        public LeituraFicheiroAuxiliarException(string message) : base(message) { }
     }
 
 
+    /// <summary>
+    /// Exceção parra leitura de Enfermeiros
+    /// </summary>
     public class LeituraFicheiroEnfermeiroException : Exception
     {
         public LeituraFicheiroEnfermeiroException(string message) : base(message) { }
     }
 
 
+    /// <summary>
+    /// Exceção parra leitura de Medicos
+    /// </summary>
+    public class LeituraFicheiroMedicoException : Exception
+    {
+        public LeituraFicheiroMedicoException(string message) : base(message) { }
+    }
+
+
+    /// <summary>
+    /// Exceção parra leitura de Consultas
+    /// </summary>
+    public class LeituraFicheiroConsultaException : Exception
+    {
+        public LeituraFicheiroConsultaException(string message) : base(message) { }
+    }
+
+
+
+    /// <summary>
+    /// Exceção parra leitura de Funcionarios
+    /// </summary>
     public class LeituraFicheiroFuncionarioException : Exception
     {
         public LeituraFicheiroFuncionarioException(string message) : base(message) { }
     }
 
-    public class LeituraFicheiroMedicoException : Exception
-    {
-        public LeituraFicheiroMedicoException(string message) : base(message) { }
-    }
+
+    //----------------------------------------------------------------------------------//
+
 
     /// <summary>
     /// Exceção genérica para Utentes.
@@ -215,73 +275,6 @@ namespace Excecao
 
         public UtenteException(string message) : base(message) { }
     }
-
-    /// <summary>
-    /// Exceção genérica para Enfermeiros.
-    /// </summary>
-    /// <seealso cref="System.Exception" />
-    public class EnfermeiroException : Exception
-    {
-        public EnfermeiroException() { }
-
-        public EnfermeiroException(string message) : base(message) { }
-    }
-
-    /// <summary>
-    /// Exceção genérica para Medicamento.
-    /// </summary>
-    /// <seealso cref="System.Exception" />
-    public class MedicamentoException : Exception
-    {
-        public MedicamentoException() { }
-
-        public MedicamentoException(string message) : base(message) { }
-    }
-
-    /// <summary>
-    /// Exceção genérica para Auxiliares.
-    /// </summary>
-    /// <seealso cref="System.Exception" />
-    public class AuxiliarException : Exception
-    {
-        public AuxiliarException() { }
-
-        public AuxiliarException(string message) : base(message) { }
-    }
-
-    /// <summary>
-    /// Exceção genérica para Médicos.
-    /// </summary>
-    /// <seealso cref="System.Exception" />
-    public class MedicoException : Exception
-    {
-        public MedicoException() { }
-
-        public MedicoException(string message) : base(message) { }
-    }
-
-    /// <summary>
-    /// Exceção genérica para Funcionários.
-    /// </summary>
-    /// <seealso cref="System.Exception" />
-    public class FuncionarioException : Exception
-    {
-        public FuncionarioException() { }
-
-        public FuncionarioException(string message) : base(message) { }
-    }
-
-    /// <summary>
-    /// Exceção genérica para Consultas.
-    /// </summary>
-    /// <seealso cref="System.Exception" />
-    public class ConsultaException : Exception
-    {
-        public ConsultaException() { }
-
-        public ConsultaException(string message) : base(message) { }
-    }
-
 
 
     /// <summary>
@@ -295,20 +288,76 @@ namespace Excecao
         public ProdutoException(string message) : base(message) { }
     }
 
-    /// <summary>
-    /// Exceção para verificação de existência de utente.
-    /// </summary>
-    /// <seealso cref="System.Exception" />
-  
 
     /// <summary>
-    /// Exceção para leitura de Utentes.
+    /// Exceção genérica para Medicamento.
     /// </summary>
     /// <seealso cref="System.Exception" />
-    public class LeituraFicheiroUtenteException : Exception
+    public class MedicamentoException : Exception
     {
-        public LeituraFicheiroUtenteException(string message) : base(message) { }
+        public MedicamentoException() { }
+
+        public MedicamentoException(string message) : base(message) { }
     }
 
+
+    /// <summary>
+    /// Exceção genérica para Auxiliares.
+    /// </summary>
+    /// <seealso cref="System.Exception" />
+    public class AuxiliarException : Exception
+    {
+        public AuxiliarException() { }
+
+        public AuxiliarException(string message) : base(message) { }
+    }
+
+
+    /// <summary>
+    /// Exceção genérica para Enfermeiros.
+    /// </summary>
+    /// <seealso cref="System.Exception" />
+    public class EnfermeiroException : Exception
+    {
+        public EnfermeiroException() { }
+
+        public EnfermeiroException(string message) : base(message) { }
+    }
+
+ 
+
+    /// <summary>
+    /// Exceção genérica para Médicos.
+    /// </summary>
+    /// <seealso cref="System.Exception" />
+    public class MedicoException : Exception
+    {
+        public MedicoException() { }
+
+        public MedicoException(string message) : base(message) { }
+    }
+
+
+    /// <summary>
+    /// Exceção genérica para Consultas.
+    /// </summary>
+    /// <seealso cref="System.Exception" />
+    public class ConsultaException : Exception
+    {
+        public ConsultaException() { }
+
+        public ConsultaException(string message) : base(message) { }
+    }
+
+    /// <summary>
+    /// Exceção genérica para Funcionários.
+    /// </summary>
+    /// <seealso cref="System.Exception" />
+    public class FuncionarioException : Exception
+    {
+        public FuncionarioException() { }
+
+        public FuncionarioException(string message) : base(message) { }
+    }
   
 }

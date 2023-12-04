@@ -8,7 +8,7 @@ using System.Security.Cryptography;
 
 namespace RegrasdeNegocio
 {
-    public class RegrasdeNegocio
+    public class UtentesRn
     {
         #region Atributos
         #endregion
