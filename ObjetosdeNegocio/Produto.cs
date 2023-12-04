@@ -35,13 +35,13 @@ namespace ObjetosdeNegocio
         }
 
         /// <summary>
-        /// Construtor que recebe código, nome e stock do produto.
+        /// Construtor que recebe código, nome e fornecedor do produto.
         /// </summary>
-        public Produto(int codigo, string nome, int stock)
+        public Produto(int codigo, string nome, int fornecedor)
         {
             this.codigo = codigo;
             this.nome = nome;
-            this.fornecedor = stock;
+            this.fornecedor = fornecedor;
         }
 
 
@@ -68,9 +68,9 @@ namespace ObjetosdeNegocio
         }
 
         /// <summary>
-        /// Obtém ou define o stock do produto.
+        /// Obtém ou define o fornecedor do produto.
         /// </summary>
-        public int Stock
+        public int Fornecedor
         {
             get { return fornecedor; }
             set { fornecedor = value; }
@@ -80,20 +80,20 @@ namespace ObjetosdeNegocio
         #region Operadores
 
         /// <summary>
-        /// Verifica se dois objetos do tipo Produto são iguais com base no nome, código e stock.
+        /// Verifica se dois objetos do tipo Produto são iguais com base no nome, código e fornecedor.
         /// </summary>
         /// <param name="p1">Primeiro Produto a ser comparado.</param>
         /// <param name="p2">Segundo Produto a ser comparado.</param>
         /// <returns>True se os produtos forem iguais, False caso contrário.</returns>
         public static bool operator ==(Produto p1, Produto p2)
         {
-            if ((p1.Nome == p2.Nome) && (p1.Codigo == p2.Codigo) && (p1.Stock == p2.Stock))
+            if ((p1.Nome == p2.Nome) && (p1.Codigo == p2.Codigo) && (p1.fornecedor == p2.fornecedor))
                 return true;
             return false;
         }
 
         /// <summary>
-        /// Verifica se dois objetos do tipo Produto são diferentes com base no nome, código e stock.
+        /// Verifica se dois objetos do tipo Produto são diferentes com base no nome, código e fornecedor.
         /// </summary>
         /// <param name="p1">Primeiro Produto a ser comparado.</param>
         /// <param name="p2">Segundo Produto a ser comparado.</param>
@@ -115,7 +115,7 @@ namespace ObjetosdeNegocio
         /// <returns>Uma string contendo informações sobre o Produto.</returns>
         public override string ToString()
         {
-            return String.Format("Nome: {0} - Codigo: {1} - Stock: {2}: ", nome, codigo.ToString(), fornecedor.ToString());
+            return String.Format("Nome: {0} - Codigo: {1} - Forncedor: {2}: ", nome, codigo.ToString(), fornecedor.ToString());
         }
 
         /// <summary>

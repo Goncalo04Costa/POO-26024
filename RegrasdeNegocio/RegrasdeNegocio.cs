@@ -16,10 +16,7 @@ namespace RegrasdeNegocio
         #region Metodos
 
         #region Construtores
-        public RegrasDeNegocio()
-        {
-
-        }
+        
         #endregion
 
         #region Propriedades

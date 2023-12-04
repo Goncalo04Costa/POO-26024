@@ -33,7 +33,8 @@ namespace ObjetosdeNegocio
         /// <summary>
         /// Construtor parametrizado para a classe Medico.
         /// </summary>
-        public Medico(int codigoMedico, string especialidade, string nome, string apelido, int idade, int nif, int sns, int contacto, string Nome, string Apelido, int Idade, int NIF, int SNS, int Contacto)
+        public Medico(int codigoMedico, string especialidade, int codigo, string dataentrada, string cargo, int contacto)
+                : base(codigo, dataentrada, cargo, contacto)
         {
             this.codigoMedico = codigoMedico;
             this.especialidade = especialidade;

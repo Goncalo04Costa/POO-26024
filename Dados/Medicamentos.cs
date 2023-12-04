@@ -16,13 +16,17 @@ namespace Dados
     /// </summary>
     public class Medicamentos
     {
-        private List<Medicamento> medicamentosList; // Utilizando List<Medicamento> em vez de Medicamento[]
+        private static List<Medicamento> medicamentosList; 
+
+        static Medicamentos()
+        {
+            medicamentosList = new List<Medicamento>(); 
+        }
 
         public Medicamentos()
         {
-            medicamentosList = new List<Medicamento>(); // Inicializando a lista vazia
-        }
 
+        }
         public List<Medicamento> MedicamentosList
         {
             get { return medicamentosList; }
@@ -30,7 +34,7 @@ namespace Dados
 
         public void AdicionarMedicamento(Medicamento medicamento)
         {
-            medicamentosList.Add(medicamento); // Adicionando o medicamento à lista
+            medicamentosList.Add(medicamento); 
         }
 
         public bool RemoverMedicamento(int codigo)

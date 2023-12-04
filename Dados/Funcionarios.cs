@@ -8,6 +8,7 @@
 
 using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters.Binary;
+using Excecao;
 using ObjetosdeNegocio;
 
 namespace Dados
@@ -17,73 +18,132 @@ namespace Dados
     /// </summary>
     public class Funcionarios
     {
-        private List<Funcionario> funcionariosList; // Utilizando List<Funcionario> em vez de Funcionario[]
+        private static List<Funcionario> funcionariosList; 
+
+        static Funcionarios()
+        {
+            funcionariosList = new List<Funcionario>(); 
+        }
 
         public Funcionarios()
-        {
-            funcionariosList = new List<Funcionario>(); // Inicializando a lista vazia
+        { 
+        
         }
 
-        public List<Funcionario> FuncionariosList
+        /// <summary>
+        /// Método estático para inserir um novo funcionario na lista estática compartilhada.
+        /// </summary>
+        /// <param name="novofunc">O funcionario a ser inserido na lista.</param>
+        /// <returns>True se a inserção for bem-sucedida, False caso contrário.</returns>
+        public static bool InsereFuncionarioLista(Funcionario novofunc)
         {
-            get { return funcionariosList; }
-        }
 
-        public bool AdicionarFuncionario(Funcionario funcionario)
-        {
-            funcionariosList.Add(funcionario); // Adicionando o funcionário à lista
-            return true; // Sempre pode adicionar, não há um limite fixo
-        }
 
-        public bool RemoverFuncionario(int nif)
-        {
-            Funcionario funcionarioParaRemover = funcionariosList.Find(f => f.Nif == nif);
-            if (funcionarioParaRemover != null)
+            foreach (Funcionario aux in funcionariosList)
             {
-                funcionariosList.Remove(funcionarioParaRemover); // Removendo o funcionário da lista
+                if (aux.Equals(novofunc))
+                {
+                    throw new FuncionarioException("Já existe este funcionario na lista.");
+                }
+            }
+
+            funcionariosList.Add(novofunc);
+            return true;
+
+        }
+
+        /// <summary>
+        /// Verifica se um funcionario com o código especificado existe na lista estática compartilhada.
+        /// </summary>
+        /// <param name="codigofunc">O código do funcionario a ser verificado.</param>
+        /// <returns>True se o auxiliar existir na lista, False caso contrário.</returns>
+        public bool ExisteFuncionario(int codigofunc)
+        {
+            return funcionariosList.Any(a => a.Codigo == codigofunc);
+        }
+
+
+        /// <summary>
+        /// Remove um funcionario com base no seu código.
+        /// </summary>
+        /// <param name="cod">O código do funcionario a ser removido.</param>
+        /// <returns>True se o funcionario foi removido com sucesso, False caso contrário.</returns>
+        public bool RemoveFunc(int cod)
+        {
+            Funcionario funcionario = funcionariosList.Find(a => a.Codigo == cod);
+            if (funcionario != null)
+            {
+                funcionariosList.Remove(funcionario);
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
+
 
         /// <summary>
         /// Metodo que lê um ficheiro e guarda numa lista a informação
         /// </summary>
         /// <returns></returns>
-        public bool LeFuncionarios()
+        public bool LerFuncionario(string nomeFicheiro)
         {
-            if (!(File.Exists("Funcionarios.bin"))) return false;
-            Stream s = File.Open("Funcionarios.bin", FileMode.Open, FileAccess.Read);
-            BinaryFormatter b = new BinaryFormatter();
-            funcionariosList = (List<Funcionario>)b.Deserialize(s);
-            s.Close();
-            return true;
+            try
+            {
+                if (!File.Exists(nomeFicheiro))
+                    return false;
+
+                using (Stream ficheiro = File.Open(nomeFicheiro, FileMode.Open))
+                {
+                    BinaryFormatter b = new BinaryFormatter();
+                    funcionariosList = (List<Funcionario>)b.Deserialize(ficheiro);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new LeituraFicheiroFuncionarioException("Erro ao ler o ficheiro de funcionarios: " + ex.Message);
+            }
         }
 
         /// <summary>
         /// Metodo que guarda as informações de uma lista num ficheiro
         /// </summary>
         /// <returns></returns>
-        public bool GuardaFuncionario()
+        public bool GravarFuncionarios(string nomeFicheiro)
         {
-            if (!(File.Exists("Funcionarios.bin"))) return false;
-            Stream s = File.Open("Funcionarios.bin", FileMode.Open, FileAccess.Write);
-            BinaryFormatter b = new BinaryFormatter();
-            b.Serialize(s, funcionariosList);
-            s.Close();
+            try
+            {
+                using (Stream ficheiro = File.Open(nomeFicheiro, FileMode.Create))
+                {
+                    BinaryFormatter b = new BinaryFormatter();
+                    b.Serialize(ficheiro, funcionariosList);
+                    ficheiro.Close();
+                }
+            }
+            catch (EscritaFicheiroFuncionariosException e)
+            {
+                throw new EscritaFicheiroFuncionariosException("Erro ao gravar o ficheiro." + e.Message);
+            }
+
             return true;
         }
-        public List<Funcionario> ListarFuncionarios()
+
+        /// <summary>
+        /// Método estático que retorna uma cópia da lista estática compartilhada de funcionarios.
+        /// </summary>
+        /// <returns>Uma lista contendo todos os funcionarios.</returns>
+        public static List<Funcionario> EnviarTodosFuncionarios()
         {
-            return new List<Funcionario>(funcionariosList); // Retorna uma nova lista com os funcionários
+            return funcionariosList.ToList();
         }
 
-        public int ContaFuncionarios()
+        /// <summary>
+        /// Retorna o número total de funcionarios na lista.
+        /// </summary>
+        /// <returns>O número total de funcionarios.</returns>
+        public int Contafunc()
         {
-            return funcionariosList.Count; // Contando o número de funcionários na lista
+            return funcionariosList.Count;
         }
+
     }
 }

@@ -33,19 +33,9 @@ namespace ObjetosdeNegocio
             condicao = "";
         }
 
-        /// <summary>
-        /// Construtor parametrizado para a classe Enfermeiro.
-        /// Inicializa CodigoEnfermeiro e Condicao com os valores fornecidos.
-        /// </summary>
-        /// <param name="codigoEnfermeiro">O código único atribuído ao Enfermeiro.</param>
-        /// <param name="condicao">A condição/estado do Enfermeiro.</param>
-        /// <param name="nome">Nome do Enfermeiro.</param>
-        /// <param name="apelido">Apelido do Enfermeiro.</param>
-        /// <param name="idade">Idade do Enfermeiro.</param>
-        /// <param name="nif">NIF (Número de Identificação Fiscal) do Enfermeiro.</param>
-        /// <param name="sns">Número do SNS (Serviço Nacional de Saúde) do Enfermeiro.</param>
-        /// <param name="contacto">Número de contato do Enfermeiro.</param>
-        public Enfermeiro(int codigoEnfermeiro, string condicao, string nome, string apelido, int idade, int nif, int sns, int contacto, string Nome, string Apelido,int Idade, int NIF, int SNS,int Contacto)
+      
+        public Enfermeiro(int codigoEnfermeiro, string condicao, int codigo, string dataentrada, string cargo, int contacto)
+            : base(codigo, dataentrada, cargo, contacto)
         {
             this.codigoenfermeiro = codigoEnfermeiro;
             this.condicao = condicao;

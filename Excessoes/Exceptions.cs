@@ -137,6 +137,11 @@ namespace Excecao
     }
 
 
+    public class LeituraFicheiroFuncionarioException : Exception
+    {
+        public LeituraFicheiroFuncionarioException(string message) : base(message) { }
+    }
+
     /// <summary>
     /// Exceção genérica para Utentes.
     /// </summary>

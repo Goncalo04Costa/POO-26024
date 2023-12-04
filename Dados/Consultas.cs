@@ -41,6 +41,27 @@ namespace Dados
             return ConsultasList.Count; 
         }
 
+        /// <summary>
+        /// Método estático para inserir uma nova consuulta na lista estática compartilhada.
+        /// </summary>
+        /// <param name="novoAuxiliar">Consulta a ser inserido na lista.</param>
+        /// <returns>True se a inserção for bem-sucedida, False caso contrário.</returns>
+        public static bool InsereConsultaLista(Consulta novoConsulta)
+        {
+
+
+            foreach (Consulta aux in ConsultasList)
+            {
+                if (aux.Equals(novoConsulta))
+                {
+                    throw new AuxiliarException("Já existe esta consulta na lista.");
+                }
+            }
+
+            ConsultasList.Add(novoConsulta);
+            return true;
+
+        }
 
         /// <summary>
         /// Metodo que lê um ficheiro e guarda numa lista a informação
