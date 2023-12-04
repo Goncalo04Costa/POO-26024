@@ -10,30 +10,15 @@ namespace RegrasdeNegocio
 {
     public class UtentesRn
     {
-        #region Atributos
-        #endregion
-
-        #region Metodos
-
-        #region Construtores
-        
-        #endregion
-
-        #region Propriedades
-        #endregion
-
-        #region Operadores
-        #endregion
-
-        #region Overrides
-   
-        #endregion
-
-        #region Destruidores
-        #endregion
-
-        #endregion
-
+      /*
+       * So medicos de Clinica Geral
+       * Utentes de Estado 0 ou 1
+       * Utente de estado 2 desaparecem da lista
+       * Codigo de fornecedor tem de ser entre 100 e 199
+       * Maxima distancia para consulta são 250km
+       * Codigo medico consulta != codigo medico ucci
+       * Codigo SNS de utente == Codigo Utente consulta
+       * */
 
 
     }
