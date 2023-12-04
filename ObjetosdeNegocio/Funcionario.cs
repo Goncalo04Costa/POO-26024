@@ -44,12 +44,21 @@ namespace ObjetosdeNegocio
         /// <param name="codigo">O código do funcionário.</param>
         /// <param name="dataentrada">A data de entrada do funcionário.</param>
         /// <param name="cargo">O cargo do funcionário.</param>
-        public Funcionario(int codigo, string dataentrada, string cargo, int contacto)
+        public Funcionario(int codigo, string dataentrada, string cargo, int contacto, string nome, string apelido, int idade, int NIF, int SNS )
+           : base(nome, apelido, idade, NIF, SNS) 
         {
             this.codigo = codigo;
             this.dataentrada = dataentrada;
             this.cargo = cargo;
            this.contacto = contacto;
+        }
+
+        public Funcionario(int codigo, string dataentrada, string cargo, int contacto)
+        {
+            this.codigo = codigo;
+            this.dataentrada = dataentrada;
+            this.cargo = cargo;
+            this.contacto = contacto;
         }
 
         #endregion

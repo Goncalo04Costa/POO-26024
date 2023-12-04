@@ -38,6 +38,15 @@ namespace ObjetosdeNegocio
             NIF = 0;
             SNS = 0;
         }
+
+        public Pessoa(string nome, string apelido, int idade, int nIF, int sNS)
+        {
+            this.nome = nome;
+            this.apelido = apelido;
+            this.idade = idade;
+            NIF = nIF;
+            SNS = sNS;
+        }
         #endregion
 
         #region Propriedades

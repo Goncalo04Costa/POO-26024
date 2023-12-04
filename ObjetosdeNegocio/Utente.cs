@@ -31,6 +31,32 @@ namespace ObjetosdeNegocio
             estado = 0;
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="contactoFamiliar"></param>
+        /// <param name="dataEntrada"></param>
+        /// <param name="avaliacaomedica"></param>
+        /// <param name="estado"></param>
+        /// <param name="nome"></param>
+        /// <param name="apelido"></param>
+        /// <param name="idade"></param>
+        /// <param name="NIF"></param>
+        /// <param name="SNS"></param>
+
+        public Utente(int contactoFamiliar, string dataEntrada, string avaliacaomedica, int estado, string nome, string apelido, int idade, int NIF, int SNS)
+           : base(nome, apelido, idade, NIF, SNS)
+        {
+            this.ContactoFamiliar = contactoFamiliar;
+            this.DataEntrada = dataEntrada;
+            this.avaliacaomedica = avaliacaomedica;
+            this.Estado = estado;
+        
+        }
+
+
+
         /// <summary>
         /// Propriedade para obter ou definir o contato familiar do Utente.
         /// </summary>
