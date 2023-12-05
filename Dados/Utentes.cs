@@ -161,5 +161,18 @@ namespace Dados
         {
             return utentesList.Count; 
         }
+
+        public bool VerificarUtentesSemContactoFamiliar()
+        {
+            var utentesSemContactoFamiliar = utentesList.Where(u => u.ContactoFamiliarProperty == 0).ToList();
+
+            if (utentesSemContactoFamiliar.Any())
+            {
+                throw new SemContactoFamiliarException("Existem utentes sem contacto familiar.");
+            }
+
+            return true; 
+        }
+
     }
 }

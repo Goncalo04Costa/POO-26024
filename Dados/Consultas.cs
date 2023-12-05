@@ -110,21 +110,6 @@ namespace Dados
             return true;
         }
 
-        /// <summary>
-        /// Verificar os clientes que precisam de transporte
-        /// </summary>
-        /// <param name="snsConsulta"></param>
-        /// <param name="listaDeUtentes"></param>
-        /// <returns></returns>
-        public bool VerificarContactoFamiliarPorSNS(int snsConsulta, Utentes listaDeUtentes)
-        {
-            Utente utenteEncontrado = listaDeUtentes.UtentesList.Find(u => u.Nif == snsConsulta);
 
-            if (utenteEncontrado != null)
-            {
-                return utenteEncontrado.ContactoFamiliarProperty == 0;
-            }
-            return false;
-        }
     }
 }

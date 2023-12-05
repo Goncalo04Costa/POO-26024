@@ -11,6 +11,7 @@ namespace ObjetosdeNegocio
         int SNSUTENTE;
         int codigomedico;
         string hospital;
+        int distancia;
         #endregion
 
         #region Metodos
@@ -23,6 +24,7 @@ namespace ObjetosdeNegocio
             SNSUTENTE = 0;
             codigomedico = 0;
             hospital = "";
+            distancia = 0;
         }
         #endregion
 
@@ -59,6 +61,11 @@ namespace ObjetosdeNegocio
             get { return hospital; }
         }
 
+        public int Distancia
+        {
+            set { distancia = value; }
+            get { return distancia; }
+        }
         #endregion
 
         #region Operadores
@@ -90,7 +97,7 @@ namespace ObjetosdeNegocio
         /// </summary>
         public override string ToString()
         {
-            return String.Format("Numero de consulta: {0} - Data: {1} - Utente: {2} - Medico: {3} - Hospiral: {4}", consultaid.ToString(), data.ToString(), SNSUTENTE.ToString(), codigomedico.ToString(), hospital);
+            return String.Format("Numero de consulta: {0} - Data: {1} - Utente: {2} - Medico: {3} - Hospiral: {4} - Distancia: {5}", consultaid.ToString(), data.ToString(), SNSUTENTE.ToString(), codigomedico.ToString(), hospital, distancia.ToString());
         }
 
         /// <summary>

@@ -359,5 +359,23 @@ namespace Excecao
 
         public FuncionarioException(string message) : base(message) { }
     }
-  
+
+
+
+
+
+
+
+
+
+
+    /// <summary>
+    /// Exceção oara utentes sem contacto familiar
+    /// </summary>
+    public class SemContactoFamiliarException : Exception
+    {
+        public SemContactoFamiliarException() { }
+
+        public SemContactoFamiliarException(string message) : base(message) { }
+    }
 }
