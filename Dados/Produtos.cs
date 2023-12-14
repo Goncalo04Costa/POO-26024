@@ -77,11 +77,21 @@ namespace Dados
         }
 
 
+        /// <summary>
+        /// Apresenta todos os produtos
+        /// </summary>
+        /// <returns></returns>
+
         public List<Produto> ListarProdutos()
         {
             return new List<Produto>(produtosList); 
         }
 
+
+        /// <summary>
+        /// Numero de produtos
+        /// </summary>
+        /// <returns></returns>
         public int ContarProdutos()
         {
             return produtosList.Count; 

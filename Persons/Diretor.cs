@@ -6,7 +6,7 @@
  * Professor: Luis Ferreira
  */
 
-namespace ObjetosdeNegocio
+namespace Persons
 {
     /// <summary>
     /// Representa um Diretor que é um tipo de Funcionário.
@@ -83,8 +83,8 @@ namespace ObjetosdeNegocio
         {
             if (obj is Diretor)
             {
-                Diretor d = (Diretor)obj;
-                return this == d;
+                Diretor other = (Diretor)obj;
+                return base.Equals(obj) && this.codigochefe == other.codigochefe && this.Gabinete == other.Gabinete;
             }
             return false;
         }
