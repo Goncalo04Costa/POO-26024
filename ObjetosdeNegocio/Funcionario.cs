@@ -53,13 +53,7 @@ namespace ObjetosdeNegocio
            this.contacto = contacto;
         }
 
-        public Funcionario(int codigo, string dataentrada, string cargo, int contacto)
-        {
-            this.codigo = codigo;
-            this.dataentrada = dataentrada;
-            this.cargo = cargo;
-            this.contacto = contacto;
-        }
+        
 
         #endregion
 
@@ -150,15 +144,6 @@ namespace ObjetosdeNegocio
                 }
             }
             return false;
-        }
-
-
-        /// <summary>
-        /// Obtém um código hash para a pessoa.
-        /// </summary>
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
         }
 
 

@@ -16,7 +16,6 @@ namespace ObjetosdeNegocio
         #region Atributos
         int codigomedicamento;
         string marca;
-        int quantidade;
         #endregion
 
         #region Métodos
@@ -29,18 +28,16 @@ namespace ObjetosdeNegocio
         {
             codigomedicamento = 0;
             marca = "";
-            quantidade = 0;
         }
 
         /// <summary>
         /// Construtor que permite definir um Medicamento com código e marca específicos.
         /// </summary>
-        public Medicamento(int codigomedicamento, string marca, int quantidade, int codigo, string nome, int fornecedor)
-      : base(codigo, nome, fornecedor)
+        public Medicamento(int codigomedicamento, string marca,  int codigo, string nome, int fornecedor, int stock)
+      : base(codigo, nome, fornecedor, stock)
         {
             this.codigomedicamento = codigomedicamento;
             this.marca = marca;
-            this.quantidade = quantidade;
         }
         #endregion
 
@@ -64,14 +61,7 @@ namespace ObjetosdeNegocio
             set { marca = value; }
         }
 
-        /// <summary>
-        /// Obtem ou define stock do medicamento
-        /// </summary>
-        public int Quantidade
-        {
-            get { return quantidade; }
-            set { quantidade = value; }
-        }
+      
         #endregion
 
         #region Operadores
@@ -104,7 +94,7 @@ namespace ObjetosdeNegocio
         /// </summary>
         public override string ToString()
         {
-            return String.Format("Nome: {0} - Codigo: {1} - CodigoMedicamento: {2} - Fornecedor: {3} - Stock: {4}", Nome, Codigo.ToString(), codigomedicamento.ToString(), marca, quantidade.ToString());
+            return String.Format("Nome: {0} - Codigo: {1} - CodigoMedicamento: {2} - Fornecedor: {3} - Stock: {4}", Nome, Codigo.ToString(), codigomedicamento.ToString(), marca, Stock.ToString());
         }
 
         /// <summary>

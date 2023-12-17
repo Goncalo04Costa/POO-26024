@@ -46,12 +46,12 @@ namespace Dados
 
             if (medicamentoExistente != null)
             {
-                medicamentoExistente.Quantidade++; // Aumenta a quantidade do medicamento existente
+                medicamentoExistente.Stock++; 
             }
             else
             {
-                novoMedicamento.Quantidade = 1; // Define a quantidade como 1 para o novo medicamento
-                medicamentosList.Add(novoMedicamento); // Adiciona o novo medicamento à lista
+                novoMedicamento.Stock = 1; 
+                medicamentosList.Add(novoMedicamento);
             }
 
             return true;
@@ -61,11 +61,11 @@ namespace Dados
             Medicamento medicamentoParaRemover = medicamentosList.Find(m => m.Codigo == codigo);
             if (medicamentoParaRemover != null)
             {
-                // Reduz a quantidade do medicamento
-                medicamentoParaRemover.Quantidade--;
+          
+                medicamentoParaRemover.Stock--;
 
-                // Se a quantidade se tornar zero, remove o medicamento da lista
-                if (medicamentoParaRemover.Quantidade == 0)
+               
+                if (medicamentoParaRemover.Stock == 0)
                 {
                     medicamentosList.Remove(medicamentoParaRemover);
                 }

@@ -6,6 +6,9 @@
  * Professor: Luis Ferreira
  */
 
+using static System.Net.Mime.MediaTypeNames;
+using System.Net;
+
 namespace ObjetosdeNegocio
 {
     /// <summary>
@@ -33,8 +36,8 @@ namespace ObjetosdeNegocio
         /// <summary>
         /// Construtor parametrizado para a classe Medico.
         /// </summary>
-        public Medico(int codigoMedico, string especialidade, int codigo, string dataentrada, string cargo, int contacto)
-                : base(codigo, dataentrada, cargo, contacto)
+        public Medico(int codigoMedico, string especialidade, int codigo, string dataentrada, string cargo, int contacto, string nome, string apelido, int idade, int NIF, int SNS)
+                 : base(codigo, dataentrada, cargo, contacto, nome, apelido, idade, NIF, SNS)
         {
             this.codigoMedico = codigoMedico;
             this.especialidade = especialidade;

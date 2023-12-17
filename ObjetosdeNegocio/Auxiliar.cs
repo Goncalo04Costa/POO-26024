@@ -39,8 +39,8 @@ namespace ObjetosdeNegocio
         /// </summary>
         /// <param name="codigoAuxiliar">O código do Auxiliar.</param>
         /// <param name="condicao">A condição do Auxiliar.</param>
-        public Auxiliar(int codigo, string dataentrada, string cargo, int contacto, int codigoAuxiliar, string condicao)
-    : base(codigo, dataentrada, cargo, contacto)
+        public Auxiliar(int codigo, string dataentrada, string cargo, int contacto, int codigoAuxiliar, string condicao, string nome, string apelido, int idade, int NIF, int SNS)
+    : base(codigo, dataentrada, cargo, contacto, nome, apelido, idade, NIF, SNS)
         {
             this.codigoAuxiliar = codigoAuxiliar;
             this.condicao = condicao;

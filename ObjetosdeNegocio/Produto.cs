@@ -9,7 +9,7 @@
 namespace ObjetosdeNegocio
 {
     /// <summary>
-    /// Classe base para representar um Produto genérico.
+    /// Classe base para representar um Produto .
     /// </summary>
     public class Produto
     {
@@ -18,6 +18,7 @@ namespace ObjetosdeNegocio
         string nome;
         int codigo;
         int fornecedor;
+        int stock;
 
         #endregion
 
@@ -32,16 +33,18 @@ namespace ObjetosdeNegocio
             codigo = 0;
             nome = "";
             fornecedor = 0;
+            stock = 0;
         }
 
         /// <summary>
         /// Construtor que recebe código, nome e fornecedor do produto.
         /// </summary>
-        public Produto(int codigo, string nome, int fornecedor)
+        public Produto(int codigo, string nome, int fornecedor, int stock)
         {
             this.codigo = codigo;
             this.nome = nome;
             this.fornecedor = fornecedor;
+            this.stock = stock;
         }
 
 
@@ -75,6 +78,16 @@ namespace ObjetosdeNegocio
             get { return fornecedor; }
             set { fornecedor = value; }
         }
+
+
+        /// <summary>
+        /// obtem ou define o stock do produto
+        /// </summary>
+        public int Stock
+        {
+            set {  stock = value; }
+            get { return stock; }
+        }
         #endregion
 
         #region Operadores
@@ -87,7 +100,7 @@ namespace ObjetosdeNegocio
         /// <returns>True se os produtos forem iguais, False caso contrário.</returns>
         public static bool operator ==(Produto p1, Produto p2)
         {
-            if ((p1.Nome == p2.Nome) && (p1.Codigo == p2.Codigo) && (p1.fornecedor == p2.fornecedor))
+            if ((p1.Nome == p2.Nome) && (p1.Codigo == p2.Codigo) && (p1.fornecedor == p2.fornecedor) && (p1.stock == p2.stock))
                 return true;
             return false;
         }
@@ -115,7 +128,7 @@ namespace ObjetosdeNegocio
         /// <returns>Uma string contendo informações sobre o Produto.</returns>
         public override string ToString()
         {
-            return String.Format("Nome: {0} - Codigo: {1} - Forncedor: {2}: ", nome, codigo.ToString(), fornecedor.ToString());
+            return String.Format("Nome: {0} - Codigo: {1} - Forncedor: {2} - Stock: {3} .", nome, codigo.ToString(), fornecedor.ToString(), stock.ToString());
         }
 
         /// <summary>
@@ -134,14 +147,6 @@ namespace ObjetosdeNegocio
                 }
             }
             return false;
-        }
-
-        /// <summary>
-        /// Sobrescrita do método GetHashCode para geração do código hash.
-        /// </summary>
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
         }
         #endregion
         #endregion

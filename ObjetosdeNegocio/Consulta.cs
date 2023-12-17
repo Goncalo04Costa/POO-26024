@@ -3,7 +3,7 @@
 namespace ObjetosdeNegocio
 {
     [Serializable]
-    public class Consulta
+    public class Consulta  : IComparable<Consulta>
     {
         #region Atributos
         int consultaid;
@@ -25,6 +25,17 @@ namespace ObjetosdeNegocio
             codigomedico = 0;
             hospital = "";
             distancia = 0;
+        }
+
+
+        public Consulta(int id, DateTime dataConsulta, int snsUtente, int codigoMedico, string nomeHospital, int distanciaConsulta)
+        {
+            this.consultaid = id;
+            this.data = dataConsulta;
+            this.SNSUTENTE = snsUtente;
+            this.codigomedico = codigoMedico;
+           this.hospital = nomeHospital;
+            this.distancia = distanciaConsulta;
         }
         #endregion
 
@@ -113,13 +124,15 @@ namespace ObjetosdeNegocio
             return false;
         }
 
-        /// <summary>
-        /// Sobrescrita do método GetHashCode para geração do código hash.
-        /// </summary>
-        public override int GetHashCode()
+
+
+        public int CompareTo(Consulta other)
         {
-            return base.GetHashCode();
+            if (other == null) return 1;
+            return this.distancia.CompareTo(other.distancia);
         }
+
+
         #endregion
 
         #region Destruidores

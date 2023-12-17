@@ -13,11 +13,11 @@ namespace Dados
 {
     public class Limpezas
     {
-        private List<Limpeza> limpezasList; // Utilizando List<Limpeza> em vez de Limpeza[]
+        private List<Limpeza> limpezasList; 
 
         public Limpezas()
         {
-            limpezasList = new List<Limpeza>(); // Inicializando a lista vazia
+            limpezasList = new List<Limpeza>(); 
         }
 
         public List<Limpeza> LimpezasList
@@ -36,7 +36,7 @@ namespace Dados
             Limpeza produtoLimpezaParaRemover = limpezasList.Find(p => p.Codigo == codigo);
             if (produtoLimpezaParaRemover != null)
             {
-                limpezasList.Remove(produtoLimpezaParaRemover); // Removendo o produto de limpeza da lista
+                limpezasList.Remove(produtoLimpezaParaRemover); 
                 return true;
             }
             else
@@ -47,12 +47,12 @@ namespace Dados
 
         public List<Limpeza> ListarProdutosLimpeza()
         {
-            return new List<Limpeza>(limpezasList); // Retorna uma nova lista com os produtos de limpeza
+            return new List<Limpeza>(limpezasList); 
         }
 
         public int ContarProdutoLimpeza()
         {
-            return limpezasList.Count; // Contando o número de produtos de limpeza na lista
+            return limpezasList.Count; 
         }
     }
 }

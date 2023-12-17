@@ -6,6 +6,9 @@
  * Professor: Luis Ferreira
  */
 
+using static System.Net.Mime.MediaTypeNames;
+using System.Net;
+
 namespace ObjetosdeNegocio
 {
     /// <summary>
@@ -34,8 +37,22 @@ namespace ObjetosdeNegocio
         }
 
       
-        public Enfermeiro(int codigoEnfermeiro, string condicao, int codigo, string dataentrada, string cargo, int contacto)
-            : base(codigo, dataentrada, cargo, contacto)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="codigoEnfermeiro"></param>
+        /// <param name="condicao"></param>
+        /// <param name="codigo"></param>
+        /// <param name="dataentrada"></param>
+        /// <param name="cargo"></param>
+        /// <param name="contacto"></param>
+        /// <param name="nome"></param>
+        /// <param name="apelido"></param>
+        /// <param name="idade"></param>
+        /// <param name="NIF"></param>
+        /// <param name="SNS"></param>
+        public Enfermeiro(int codigoEnfermeiro, string condicao, int codigo, string dataentrada, string cargo, int contacto, string nome, string apelido, int idade, int NIF, int SNS)
+           : base(codigo, dataentrada, cargo, contacto, nome, apelido, idade, NIF, SNS)
         {
             this.codigoenfermeiro = codigoEnfermeiro;
             this.condicao = condicao;

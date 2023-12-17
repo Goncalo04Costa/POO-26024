@@ -132,7 +132,6 @@ namespace ObjetosdeNegocio
         /// <summary>
         /// Determina se a pessoa é igual a outro objeto.
         /// </summary>
-   
         public override bool Equals(object obj)
         {
             if (obj is Pessoa)
@@ -144,13 +143,6 @@ namespace ObjetosdeNegocio
                 }
             }
             return false;
-        }
-        /// <summary>
-        /// Obtém um código hash para a pessoa.
-        /// </summary>
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
         }
          
 

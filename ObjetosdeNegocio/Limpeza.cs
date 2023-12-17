@@ -13,9 +13,15 @@ namespace ObjetosdeNegocio
     /// </summary>
     public class Limpeza : Produto
     {
+        #region Atributos
         int referencia;
         string descricao;
+        #endregion
 
+
+        #region metodos
+
+        #region Construtores
         /// <summary>
         /// Construtor padrão da classe Limpeza.
         /// </summary>
@@ -25,6 +31,17 @@ namespace ObjetosdeNegocio
             descricao = "";
         }
 
+        public Limpeza(int referencia, string descricao, string nome,int codigo,int fornecedor, int stock)
+         : base(codigo ,nome, fornecedor, stock)
+        {
+            this.referencia = referencia;
+            this.descricao = descricao;
+        }
+
+
+        #endregion
+
+        #region Propriedades
         /// <summary>
         /// Propriedade para obter ou definir a referência do produto de limpeza.
         /// </summary>
@@ -43,6 +60,9 @@ namespace ObjetosdeNegocio
             set { descricao = value; }
         }
 
+        #endregion
+
+        #region Operadores
         /// <summary>
         /// Sobrecarga do operador de igualdade para comparar produtos de limpeza.
         /// </summary>
@@ -62,6 +82,9 @@ namespace ObjetosdeNegocio
                 return false;
             return true;
         }
+        #endregion
+
+        #region OutrosMetodos
 
         /// <summary>
         /// Sobrescrita do método ToString para representação em string do objeto de Limpeza.
@@ -83,13 +106,8 @@ namespace ObjetosdeNegocio
             }
             return false;
         }
+        #endregion
+#endregion
 
-        /// <summary>
-        /// Sobrescrita do método GetHashCode para geração do código hash.
-        /// </summary>
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
     }
 }

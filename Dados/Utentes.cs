@@ -63,7 +63,7 @@ namespace Dados
         /// </summary>
         /// <param name="Nif">O NIF do utente a ser removido.</param>
         /// <returns>True se o utente foi removido com sucesso, False caso contrário.</returns>
-        public bool RemoveFunc(int Nif)
+        public bool RemoveUtente(int Nif)
         {
             Utente utente = utentesList.Find(a => a.Nif == Nif);
             if (utente != null)
@@ -104,7 +104,7 @@ namespace Dados
         /// Metodo que guarda as informações de uma lista num ficheiro
         /// </summary>
         /// <returns></returns>
-        public bool GravarFuncionarios(string nomeFicheiro)
+        public bool GravarUtentes(string nomeFicheiro)
         {
             try
             {
@@ -122,34 +122,50 @@ namespace Dados
 
             return true;
         }
+
+
+        public Utente  EncontraUtente(int nif)
+        {
+            foreach (Utente u in utentesList)
+            {
+                if (u.Nif == nif)
+                {
+                    return u;
+                }
+            }
+            return null;
+        }
+
         public bool DarAltaUtente(int nif)
         {
-            Utente utenteParaDarAlta = utentesList.Find(u => u.Nif == nif);
+            Utente utenteParaDarAlta = EncontraUtente(nif);
             if (utenteParaDarAlta != null)
             {
-                utenteParaDarAlta.Estado = 2; 
+                utenteParaDarAlta.Estado = 2;
                 utentesList.Remove(utenteParaDarAlta);
                 return true;
             }
             else
             {
-                return false; 
+                return false;
             }
         }
 
-      
 
-        public bool AtualizarInformacoesUtente(Utente utente)
+        public List<Utente> ObterUtentesSemContactoFamiliar()
         {
-            int index = utentesList.FindIndex(u => u.Nif == utente.Nif);
-            if (index != -1)
-            {
-                utentesList[index] = utente;
-                return true;
-            }
-            return false;
-        }
+            List<Utente> utentesSemContactoFamiliar = new List<Utente>();
 
+            foreach (Utente utente in utentesList)
+            {
+                if (utente.Contactofamiliar == 0)
+                {
+                    utentesSemContactoFamiliar.Add(utente);
+                }
+            }
+
+            return utentesSemContactoFamiliar;
+        }
 
 
         public List<Utente> ListarUtentes()
@@ -162,17 +178,7 @@ namespace Dados
             return utentesList.Count; 
         }
 
-        public bool VerificarUtentesSemContactoFamiliar()
-        {
-            var utentesSemContactoFamiliar = utentesList.Where(u => u.ContactoFamiliarProperty == 0).ToList();
-
-            if (utentesSemContactoFamiliar.Any())
-            {
-                throw new SemContactoFamiliarException("Existem utentes sem contacto familiar.");
-            }
-
-            return true; 
-        }
+      
 
     }
 }

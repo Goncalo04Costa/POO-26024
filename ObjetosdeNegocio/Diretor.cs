@@ -6,11 +6,14 @@
  * Professor: Luis Ferreira
  */
 
+using System.Net;
+
 namespace ObjetosdeNegocio
 {
     /// <summary>
     /// Representa um Diretor que é um tipo de Funcionário.
     /// </summary>
+    [Serializable]
     public class Diretor : Funcionario
     {
         #region Atributos
@@ -40,7 +43,8 @@ namespace ObjetosdeNegocio
         /// <param name="nif">O NIF do Diretor.</param>
         /// <param name="sns">O SNS do Diretor.</param>
         /// <param name="contacto">O contacto do Diretor.</param>
-        public Diretor(int gab, int codf, string nome, string apelido, int idade, int nif, int sns, int contacto)
+        public Diretor(int gab, int codf, int codigo, string dataentrada, string cargo, int contacto, string nome, string apelido, int idade, int NIF, int SNS)
+             : base(codigo, dataentrada, cargo, contacto, nome, apelido, idade, NIF, SNS)
         {
             this.Gabinete = gab;
             this.codigochefe = codf;

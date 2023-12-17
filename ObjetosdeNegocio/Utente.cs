@@ -60,7 +60,7 @@ namespace ObjetosdeNegocio
         /// <summary>
         /// Propriedade para obter ou definir o contato familiar do Utente.
         /// </summary>
-        public int ContactoFamiliarProperty
+        public int Contactofamiliar
         {
             get { return ContactoFamiliar; }
             set { ContactoFamiliar = value; }
@@ -69,7 +69,7 @@ namespace ObjetosdeNegocio
         /// <summary>
         /// Propriedade para obter ou definir a data de entrada do Utente.
         /// </summary>
-        public string DataEntradaProperty
+        public string DatadeEntrada
         {
             get { return DataEntrada; }
             set { DataEntrada = value; }
@@ -97,17 +97,9 @@ namespace ObjetosdeNegocio
         /// </summary>
         public static bool operator ==(Utente u1, Utente u2)
         {
-            if (ReferenceEquals(u1, null) || ReferenceEquals(u2, null))
-            {
-                return false; 
-            }
-
-            if ((u1.Nome == u2.Nome) && (u1.Nif == u2.Nif) && (u1.Apelido == u2.Apelido))
-            {
-                return true; 
-            }
-
-            return false; 
+            if ((u1.Nome == u2.Nome) && (u1.Apelido == u2.Apelido) && (u1.Idade == u2.Idade) && (u1.Sns == u2.Sns) && (u1.avaliacaomedica == u2.avaliacaomedica) && (u1.ContactoFamiliar == u2.ContactoFamiliar) && (u1.avaliacaomedica == u2.avaliacaomedica))
+                return true;
+            return false;
         }
 
 
@@ -138,14 +130,6 @@ namespace ObjetosdeNegocio
                 return this == u;
             }
             return false;
-        }
-
-        /// <summary>
-        /// Sobrescrita do método GetHashCode para geração do código hash.
-        /// </summary>
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
         }
 
     }

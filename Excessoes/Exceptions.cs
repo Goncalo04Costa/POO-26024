@@ -87,6 +87,18 @@ namespace Excecao
 
 
     /// <summary>
+    /// Exceção para escrita de Diretor.
+    /// </summary>
+    /// <seealso cref="System.Exception" />
+    public class EscritaFicheiroDiretorException : Exception
+    {
+        public EscritaFicheiroDiretorException() { }
+
+        public EscritaFicheiroDiretorException(string message) : base(message) { }
+    }
+
+
+    /// <summary>
     /// Exceção para escrita de Utentes.
     /// </summary>
     /// <seealso cref="System.Exception" />

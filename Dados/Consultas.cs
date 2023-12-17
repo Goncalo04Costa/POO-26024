@@ -111,5 +111,14 @@ namespace Dados
         }
 
 
+        /// <summary>
+        /// apresentar as consultas  por ordem
+        /// </summary>
+        public void OrdenarConsultasPorData()
+        {
+            ConsultasList.Sort();
+        }
+
+
     }
 }

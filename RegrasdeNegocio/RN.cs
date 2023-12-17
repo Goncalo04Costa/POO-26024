@@ -10,7 +10,7 @@ namespace RegrasdeNegocio
 {
     public class RN
     {
-     
+
 
         public bool InsereMedico(Medico medico)
         {
@@ -28,6 +28,30 @@ namespace RegrasdeNegocio
                 throw new MedicoException("Falha de Regras de Negocio " + "-" + e.Message);
             }
         }
+
+
+        public bool RemoveMedico(int idMedico)
+        {
+            Medicos medicosInstance = new Medicos();
+            if (medicosInstance.ContarMedicos() > 1)
+            {
+                try
+                {
+                    return medicosInstance.RemoverMedico(idMedico);
+                }
+                catch (MedicoException e)
+                {
+                    throw new MedicoException("Falha de Regras de Negócio " + "-" + e.Message);
+                }
+            }
+            else
+            {
+                
+                throw new MedicoException("Não é permitido remover o último médico da lista.");
+            }
+        }
+
+
 
 
 
@@ -51,7 +75,8 @@ namespace RegrasdeNegocio
         }
 
 
-        /*public bool AltaaUtente(Utente utente)
+
+        public bool AltaaUtente(Utente utente)
         {
             if(utente.Estado !=2)
             {
@@ -70,8 +95,9 @@ namespace RegrasdeNegocio
 
             }
 
-        }*/
-}
+        }
+
+
 
 
 
@@ -86,5 +112,5 @@ namespace RegrasdeNegocio
 
     }
 
-
+}
  
