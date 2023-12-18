@@ -5,10 +5,9 @@ namespace Interfaces
 {
     public interface IProdutos
     {
-        bool InsereProdutoLista(Produto novoProduto);
-        bool ExisteFuncionario(int codigo);
-        bool RemoveProd(int codigo);
-        List<Produto> ListarProdutos();
-        int ContarProdutos();
+        bool InsereMedicamentoLista(Medicamento novoMedicamento);
+        bool RemoverMedicamento(int codigo);
+        bool LerMedicamento(string nomeFicheiro);
+        bool GravarMedicamentos(string nomeFicheiro);
     }
 }

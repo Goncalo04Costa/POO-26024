@@ -5,13 +5,15 @@ namespace Dados
 {
     public interface IUtentes
     {
-        bool InsereUtenteLista(Utente novoutente);
-        bool ExisteUtente(int Nif);
-        bool RemoveFunc(int Nif);
+        bool InsereUtenteLista(Utente novoUtente);
+        bool ExisteUtente(int Sns);
+        bool RemoveUtente(int Nif);
         bool LerUtente(string nomeFicheiro);
-        bool GravarFuncionarios(string nomeFicheiro);
+        bool GravarUtentes(string nomeFicheiro);
+        Utente EncontraUtente(int nif);
         bool DarAltaUtente(int nif);
-        bool AtualizarInformacoesUtente(Utente utente);
+        bool TransferirUtente(int nif);
+        List<Utente> ObterUtentesSemContactoFamiliar();
         List<Utente> ListarUtentes();
         int ContarUtentes();
     }

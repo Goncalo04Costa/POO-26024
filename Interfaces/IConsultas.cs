@@ -6,10 +6,10 @@ namespace Interfaces
 {
     public interface IConsultas
     {
-
-        public  bool InsereConsultaLista(Consulta novoConsulta);
-        public bool LerConsultas(string nomeFicheiro);
-        public bool GravarConsultas(string nomeFicheiro);
-        public bool VerificarContactoFamiliarPorSNS(int snsConsulta, Utentes listaDeUtentes);
+        int ContaConsultas();
+        bool InsereConsultaLista(Consulta novoConsulta);
+        bool LerConsultas(string nomeFicheiro);
+        bool GravarConsultas(string nomeFicheiro);
+        void OrdenarConsultasPorData();
     }
 }
