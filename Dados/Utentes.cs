@@ -50,11 +50,11 @@ namespace Dados
         /// <summary>
         /// Verifica se um utente com o código especificado existe na lista estática compartilhada.
         /// </summary>
-        /// <param name="Nif">O NIF a ser verificado.</param>
+        /// <param name="Sns">O SNS a ser verificado.</param>
         /// <returns>True se o auxiliar existir na lista, False caso contrário.</returns>
-        public bool ExisteUtente(int Nif)
+        public bool ExisteUtente(int Sns)
         {
-            return utentesList.Any(a => a.Nif == Nif);
+            return utentesList.Any(a => a.Sns == Sns);
         }
 
 
@@ -150,6 +150,23 @@ namespace Dados
                 return false;
             }
         }
+
+
+        public bool TransferirUtente(int nif)
+        {
+            Utente utenteparatrasnferir = EncontraUtente(nif);
+            if (utenteparatrasnferir != null)
+            {
+                utenteparatrasnferir.Estado = 3;
+                utentesList.Remove(utenteparatrasnferir);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
 
 
         public List<Utente> ObterUtentesSemContactoFamiliar()

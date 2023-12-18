@@ -6,8 +6,8 @@
  * Professor: Luis Ferreira
  */
 
-using static System.Net.Mime.MediaTypeNames;
-using System.Net;
+
+
 
 namespace ObjetosdeNegocio
 {
@@ -109,13 +109,6 @@ namespace ObjetosdeNegocio
 
 
 
-        /// <summary>
-        /// Obtém um código hash para a pessoa.
-        /// </summary>
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
 
         #endregion
 

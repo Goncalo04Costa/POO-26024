@@ -54,7 +54,7 @@ namespace Dados
             {
                 if (aux.Equals(novoConsulta))
                 {
-                    throw new AuxiliarException("Já existe esta consulta na lista.");
+                    throw new ConsultaException("Já existe esta consulta na lista.");
                 }
             }
 

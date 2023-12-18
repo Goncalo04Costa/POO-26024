@@ -17,6 +17,9 @@ namespace ObjetosdeNegocio
         #region Metodos
 
         #region Construtores
+        /// <summary>
+        /// Construtor padrao
+        /// </summary>
         public Consulta()
         {
             consultaid = 0;
@@ -28,6 +31,15 @@ namespace ObjetosdeNegocio
         }
 
 
+        /// <summary>
+        /// Construtor por parametros
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="dataConsulta"></param>
+        /// <param name="snsUtente"></param>
+        /// <param name="codigoMedico"></param>
+        /// <param name="nomeHospital"></param>
+        /// <param name="distanciaConsulta"></param>
         public Consulta(int id, DateTime dataConsulta, int snsUtente, int codigoMedico, string nomeHospital, int distanciaConsulta)
         {
             this.consultaid = id;
@@ -40,38 +52,57 @@ namespace ObjetosdeNegocio
         #endregion
 
         #region Propriedades
+
+        /// <summary>
+        /// Prorpriedade para id da consulta
+        /// </summary>
         public int Consultaid
         {
             set { consultaid = value; }
             get { return consultaid; }
         }
 
+
+        /// <summary>
+        /// Propriedade para a data da consulta
+        /// </summary>
         public DateTime Data
         {
             set { data = value; }
             get { return data; }
         }
 
-
+        /// <summary>
+        /// Propriedade para o SNS do utente
+        /// </summary>
         public int SNSutente
         {
             set { SNSUTENTE = value; }
             get { return SNSUTENTE; }
         }
 
-
+        /// <summary>
+        /// Prorpietario do codigo de medico da consulta
+        /// </summary>
         public int codmed
         {
             set { codigomedico = value; }
             get { return codigomedico; }
         }
 
+
+        /// <summary>
+        /// propriedade para o hospital onde a consulta vai ocorrer
+        /// </summary>
         public string Hospital
         {
             set { hospital = value; }
             get { return hospital; }
         }
 
+        /// <summary>
+        /// Propriedade para a distancia na viagem ate ao hospital
+        /// </summary>
         public int Distancia
         {
             set { distancia = value; }
@@ -81,7 +112,7 @@ namespace ObjetosdeNegocio
 
         #region Operadores
         /// <summary>
-        /// 
+        ///  Compara dois objetos Consulta para igualdade.
         /// </summary>
         /// <param name="a"></param>
         /// <param name="b"></param>
@@ -94,6 +125,12 @@ namespace ObjetosdeNegocio
             return false;
         }
 
+        /// <summary>
+        /// Compara dois objetos Consulta para desigualdade
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns></returns>
         public static bool  operator !=( Consulta a, Consulta b )
         {  
             return !(a == b); 
@@ -126,10 +163,15 @@ namespace ObjetosdeNegocio
 
 
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
         public int CompareTo(Consulta other)
         {
             if (other == null) return 1;
-            return this.distancia.CompareTo(other.distancia);
+            return this.data.CompareTo(other.data);
         }
 
 

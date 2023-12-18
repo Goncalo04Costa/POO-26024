@@ -7,17 +7,23 @@
  * */
 
 using System.Collections.Generic;
+using Excecao;
 using ObjetosdeNegocio;
 
 namespace Dados
 {
     public class Limpezas
     {
-        private List<Limpeza> limpezasList; 
+        private static List<Limpeza> limpezasList; 
 
+        static  Limpezas()
+        {
+            limpezasList = new List<Limpeza>();
+        }
+        
         public Limpezas()
         {
-            limpezasList = new List<Limpeza>(); 
+           
         }
 
         public List<Limpeza> LimpezasList
@@ -25,18 +31,48 @@ namespace Dados
             get { return limpezasList; }
         }
 
-        public bool AdicionarProdutoLimpeza(Limpeza limpeza)
+
+        /// <summary>
+        /// Método estático para inserir um novo produto de limpeza na lista estática compartilhada.
+        /// </summary>
+        /// <param name="novofunc">O produto de limpeza a ser inserido na lista.</param>
+        /// <returns>True se a inserção for bem-sucedida, False caso contrário.</returns>
+        public static bool InsereProdLimpezaLista(Limpeza novoProdLimpeza)
         {
-          limpezasList.Add(limpeza);
+            Limpeza limpezaexistente = limpezasList.Find(m => m.Codigo == novoProdLimpeza.Codigo);
+
+            if (limpezaexistente != null)
+            {
+                limpezaexistente.Stock++;
+            }
+            else
+            {
+                novoProdLimpeza.Stock = 1;
+                limpezasList.Add(novoProdLimpeza);
+            }
+
             return true;
         }
 
-        public bool RemoverProdutoLimpeza(int codigo)
+        /// <summary>
+        /// Metodo estatico para remover um produto de limpeza
+        /// </summary>
+        /// <param name="codigo"></param>
+        /// <returns></returns>
+        public bool RemoverProdLimpeza(int codigo)
         {
-            Limpeza produtoLimpezaParaRemover = limpezasList.Find(p => p.Codigo == codigo);
-            if (produtoLimpezaParaRemover != null)
+            Limpeza limpezaARemover = limpezasList.Find(m => m.Codigo == codigo);
+            if (limpezaARemover != null)
             {
-                limpezasList.Remove(produtoLimpezaParaRemover); 
+
+                limpezaARemover.Stock--;
+
+
+                if (limpezaARemover.Stock == 0)
+                {
+                    limpezasList.Remove(limpezaARemover);
+                }
+
                 return true;
             }
             else
@@ -44,6 +80,7 @@ namespace Dados
                 return false;
             }
         }
+
 
         public List<Limpeza> ListarProdutosLimpeza()
         {

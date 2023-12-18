@@ -54,7 +54,7 @@ namespace Dados
         /// </summary>
         /// <param name="codigop">O código do produto a ser verificado.</param>
         /// <returns>True se o produto existir na lista, False caso contrário.</returns>
-        public bool ExisteFuncionario(int codigop)
+        public bool ExisteProduto(int codigop)
         {
             return produtosList.Any(a => a.Codigo == codigop);
         }

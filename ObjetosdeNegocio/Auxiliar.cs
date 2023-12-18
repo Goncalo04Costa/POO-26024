@@ -11,7 +11,7 @@ namespace ObjetosdeNegocio
     /// Representa um Auxiliar que é um tipo de Funcionário.
     /// </summary>
     [Serializable]
-    public class Auxiliar : Funcionario
+    public class Auxiliar : Funcionario , IComparable<Auxiliar>
     {
         #region Atributos
 
@@ -127,11 +127,14 @@ namespace ObjetosdeNegocio
 
 
         /// <summary>
-        /// Obtém um código hash para a pessoa.
+        /// 
         /// </summary>
-        public override int GetHashCode()
+        /// <param name="other"></param>
+        /// <returns></returns>
+        public int CompareTo(Auxiliar other)
         {
-            return base.GetHashCode();
+            if (other == null) return 1;
+            return this.DataEntrada.CompareTo(other.DataEntrada);
         }
 
 

@@ -301,6 +301,26 @@ namespace Excecao
     }
 
 
+
+
+
+    /// <summary>
+    /// Exceção genérica para Produto de limpeza.
+    /// </summary>
+    /// <seealso cref="System.Exception" />
+    public class LimpezaException : Exception
+    {
+        public LimpezaException() { }
+
+        public LimpezaException(string message) : base(message) { }
+    }
+
+
+
+
+
+
+
     /// <summary>
     /// Exceção genérica para Medicamento.
     /// </summary>
@@ -376,6 +396,7 @@ namespace Excecao
 
 
 
+    
 
 
 

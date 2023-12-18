@@ -111,13 +111,7 @@ namespace ObjetosdeNegocio
         }
 
         
-         ///<summary>
-        /// Sobrescrita do método GetHashCode para geração do código hash.
-        /// </summary>
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
+  
         #endregion
 
         #endregion
