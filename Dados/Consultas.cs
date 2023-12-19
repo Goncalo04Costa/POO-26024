@@ -64,7 +64,7 @@ namespace Dados
         /// <summary>
         /// Método estático para inserir uma nova consuulta na lista estática compartilhada.
         /// </summary>
-        /// <param name="novoAuxiliar">Consulta a ser inserido na lista.</param>
+        /// <param name="novoAuxiliar">Consulta a ser inserida na lista.</param>
         /// <returns>True se a inserção for bem-sucedida, False caso contrário.</returns>
         public static bool InsereConsultaLista(Consulta novoConsulta)
         {
@@ -103,7 +103,7 @@ namespace Dados
             }
             catch (Exception ex)
             {
-                throw new LeituraFicheiroConsultaException("Erro ao ler o ficheiro de consultas: " + ex.Message);
+                throw new LeituraFicheiroException("Erro ao ler o ficheiro de consultas: " + ex.Message);
             }
         }
 
@@ -122,9 +122,9 @@ namespace Dados
                     ficheiro.Close();
                 }
             }
-            catch (EscritaFicheiroConsultasException e)
+            catch (EscritaFicheiro e)
             {
-                throw new EscritaFicheiroConsultasException("Erro ao gravar o ficheiro." + e.Message);
+                throw new EscritaFicheiro("Erro ao gravar o ficheiro." + e.Message);
             }
 
             return true;
@@ -139,6 +139,31 @@ namespace Dados
             ConsultasList.Sort();
         }
 
+
+
+        /// <summary>
+        /// Retorna a próxima consulta tendo em conta a sua data  .
+        /// </summary>
+        /// <param name="consultas">A lista de consultas.</param>
+        /// <returns>A próxima consulta </returns>
+        public static Consulta ProximaConsulta(List<Consulta> consultas)
+        {
+            DateTime dataAtual = DateTime.Today;
+            Consulta proximaConsulta = null;
+            TimeSpan menorDiferenca = TimeSpan.MaxValue;
+
+            foreach (Consulta consulta in consultas)
+            {
+                TimeSpan diferenca = consulta.Data - dataAtual;
+                if (diferenca > TimeSpan.Zero && diferenca < menorDiferenca)
+                {
+                    menorDiferenca = diferenca;
+                    proximaConsulta = consulta;
+                }
+            }
+
+            return proximaConsulta;
+        }
 
     }
 }

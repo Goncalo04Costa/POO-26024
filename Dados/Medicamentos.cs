@@ -56,6 +56,12 @@ namespace Dados
 
             return true;
         }
+
+        /// <summary>
+        /// Função para remover um medicamento da lista
+        /// </summary>
+        /// <param name="codigo">Medicamento a remover</param>
+        /// <returns>True se a remoçao foi bem feita, false o contrario</returns>
         public bool RemoverMedicamento(int codigo)
         {
             Medicamento medicamentoParaRemover = medicamentosList.Find(m => m.Codigo == codigo);
@@ -83,7 +89,7 @@ namespace Dados
         /// Metodo que lê um ficheiro e guarda numa lista a informação
         /// </summary>
         /// <returns></returns>
-        public bool LerMedicamento(string nomeFicheiro)
+        public static bool LerMedicamento(string nomeFicheiro)
         {
             try
             {
@@ -99,7 +105,7 @@ namespace Dados
             }
             catch (Exception ex)
             {
-                throw new LeituraFicheiroMedicamentoException("Erro ao ler o ficheiro de medicamentos: " + ex.Message);
+                throw new LeituraFicheiroException("Erro ao ler o ficheiro de medicamentos: " + ex.Message);
             }
         }
 
@@ -107,7 +113,7 @@ namespace Dados
         /// Metodo que guarda as informações de uma lista num ficheiro
         /// </summary>
         /// <returns></returns>
-        public bool GravarMedicamentos(string nomeFicheiro)
+        public static bool GravarMedicamentos(string nomeFicheiro)
         {
             try
             {
@@ -118,9 +124,9 @@ namespace Dados
                     ficheiro.Close();
                 }
             }
-            catch (EscritaFicheiroMedicamentoException e)
+            catch (EscritaFicheiro e)
             {
-                throw new EscritaFicheiroMedicamentoException("Erro ao gravar o ficheiro." + e.Message);
+                throw new EscritaFicheiro("Erro ao gravar o ficheiro." + e.Message);
             }
 
             return true;

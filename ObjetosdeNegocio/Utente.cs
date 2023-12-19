@@ -12,7 +12,7 @@ namespace ObjetosdeNegocio
     /// Classe que representa um Utente, derivada da classe Pessoa.
     /// </summary>
     [Serializable]
-    public class Utente : Pessoa
+    public class Utente : Pessoa, IComparable<Utente>
     {
         int ContactoFamiliar;
         string DataEntrada;
@@ -131,6 +131,22 @@ namespace ObjetosdeNegocio
             }
             return false;
         }
+
+
+        /// <summary>
+        /// Método para comparar utentes com base na data.
+        /// </summary>
+        /// <param name="other">Outro Utente a ser comparada.</param>
+        /// <returns>Um valor inteiro que indica a relação entre as datas.</returns>
+        public int CompareTo(Utente other)
+        {
+            // Verifica se o objeto other é nulo
+            if (other == null) return 1;
+
+            // Comparação das datas
+            return this.DataEntrada.CompareTo(other.DataEntrada);
+        }
+
 
     }
 }

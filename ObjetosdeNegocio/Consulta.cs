@@ -164,15 +164,19 @@ namespace ObjetosdeNegocio
 
 
         /// <summary>
-        /// 
+        /// Método para comparar Consultas com base na data.
         /// </summary>
-        /// <param name="other"></param>
-        /// <returns></returns>
+        /// <param name="other">Outra Consulta a ser comparada.</param>
+        /// <returns>Um valor inteiro que indica a relação entre as datas.</returns>
         public int CompareTo(Consulta other)
         {
+            // Verifica se o objeto other é nulo
             if (other == null) return 1;
+
+            // Comparação das datas
             return this.data.CompareTo(other.data);
         }
+
 
 
         #endregion

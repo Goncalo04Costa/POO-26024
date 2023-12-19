@@ -250,9 +250,9 @@ namespace Dados
                     ficheiro.Close();
                 }
             }
-            catch (EscritaFicheiroMedicosException e)
+            catch (EscritaFicheiro e)
             {
-                throw new EscritaFicheiroMedicosException("Erro ao gravar o ficheiro." + e.Message);
+                throw new EscritaFicheiro("Erro ao gravar o ficheiro." + e.Message);
             }
 
             return true;
@@ -273,9 +273,9 @@ namespace Dados
                     ficheiro.Close();
                 }
             }
-            catch (EscritaFicheiroEnfermeirosException e)
+            catch (EscritaFicheiro e)
             {
-                throw new EscritaFicheiroEnfermeirosException("Erro ao gravar o ficheiro." + e.Message);
+                throw new EscritaFicheiro("Erro ao gravar o ficheiro." + e.Message);
             }
 
             return true;
@@ -299,9 +299,9 @@ namespace Dados
                     ficheiro.Close();
                 }
             }
-            catch (EscritaFicheiroAuxiliaresException e)
+            catch (EscritaFicheiro e)
             {
-                throw new EscritaFicheiroAuxiliaresException("Erro ao gravar o ficheiro." + e.Message);
+                throw new EscritaFicheiro("Erro ao gravar o ficheiro." + e.Message);
             }
 
             return true;
@@ -332,7 +332,7 @@ namespace Dados
             }
             catch (Exception ex)
             {
-                throw new LeituraFicheiroMedicoException("Erro ao ler o ficheiro de medicos: " + ex.Message);
+                throw new LeituraFicheiroException("Erro ao ler o ficheiro de medicos: " + ex.Message);
             }
         }
 
@@ -358,7 +358,7 @@ namespace Dados
             }
             catch (Exception ex)
             {
-                throw new LeituraFicheiroEnfermeiroException("Erro ao ler o ficheiro de enfermeiros: " + ex.Message);
+                throw new LeituraFicheiroException("Erro ao ler o ficheiro de enfermeiros: " + ex.Message);
             }
         }
 
@@ -384,7 +384,7 @@ namespace Dados
             }
             catch (Exception ex)
             {
-                throw new LeituraFicheiroAuxiliarException("Erro ao ler o ficheiro de auxiliares: " + ex.Message);
+                throw new LeituraFicheiroException("Erro ao ler o ficheiro de auxiliares: " + ex.Message);
             }
         }
 

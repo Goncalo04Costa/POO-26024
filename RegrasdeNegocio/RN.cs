@@ -12,7 +12,7 @@ namespace RegrasdeNegocio
     {
 
         /// <summary>
-        /// 
+        /// Insere um novo medico, mas so pode ser de clinica geral
         /// </summary>
         /// <param name="medico"></param>
         /// <returns></returns>
@@ -35,7 +35,7 @@ namespace RegrasdeNegocio
         }
 
         /// <summary>
-        /// 
+        /// Insere um novo enfermeiro, mas so pode ser de geral
         /// </summary>
         /// <param name="enfermeiro"></param>
         /// <returns></returns>
@@ -59,7 +59,7 @@ namespace RegrasdeNegocio
 
 
         /// <summary>
-        /// 
+        /// Insere um novo auxiliar, mas so pode ser de Copa
         /// </summary>
         /// <param name="auxiliar"></param>
         /// <returns></returns>
@@ -97,9 +97,9 @@ namespace RegrasdeNegocio
                 Funcionarios.GravarAuxiliares(nomeFicheiro);
                 return true;
             }
-            catch (EscritaFicheiroAuxiliaresException e)
+            catch (EscritaFicheiro e)
             {
-                throw new EscritaFicheiroAuxiliaresException(e.Message + " - " + "Erro ao gravar ficheiro");
+                throw new EscritaFicheiro(e.Message + " - " + "Erro ao gravar ficheiro");
             }
         }
 
@@ -118,9 +118,9 @@ namespace RegrasdeNegocio
                 Funcionarios.GravarMedicos(nomeFicheiro);
                 return true;
             }
-            catch (EscritaFicheiroMedicosException e)
+            catch (EscritaFicheiro e)
             {
-                throw new EscritaFicheiroMedicosException(e.Message + " - " + "Erro ao gravar ficheiro");
+                throw new EscritaFicheiro(e.Message + " - " + "Erro ao gravar ficheiro");
             }
         }
 
@@ -137,11 +137,32 @@ namespace RegrasdeNegocio
                 Funcionarios.GravarEnfermeiros(nomeFicheiro);
                 return true;
             }
-            catch (EscritaFicheiroEnfermeirosException e)
+            catch (EscritaFicheiro e)
             {
-                throw new EscritaFicheiroEnfermeirosException(e.Message + " - " + "Erro ao gravar ficheiro");
+                throw new EscritaFicheiro(e.Message + " - " + "Erro ao gravar ficheiro");
             }
         }
+
+
+        /// <summary>
+        /// Grava toda a informação acerca dos medicamentos.
+        /// </summary>
+        /// <param name="nomeFicheiro">The nome ficheiro.</param>
+        /// <returns></returns>
+        /// <exception cref="EscritaFicheiro"></exception>
+        public static bool GravarFicheiroMedicamentos(string nomeFicheiro)
+        {
+            try
+            {
+                Medicamentos.GravarMedicamentos(nomeFicheiro);
+                return true;
+            }
+            catch (EscritaFicheiro e)
+            {
+                throw new EscritaFicheiro(e.Message + " - " + "Erro ao gravar ficheiro");
+            }
+        }
+
 
         /// <summary>
         /// Lê toda a informação guardada em ficheiro, acerca dos medicos.
@@ -156,11 +177,33 @@ namespace RegrasdeNegocio
                 Funcionarios.LerMedicos(nomeFicheiro);
                 return true;
             }
-            catch (LeituraFicheiroMedicoException e)
+            catch (LeituraFicheiroException e)
             {
-                throw new LeituraFicheiroMedicoException(e.Message + " - " + " Erro ao ler o ficheiro.");
+                throw new LeituraFicheiroException(e.Message + " - " + " Erro ao ler o ficheiro.");
             }
         }
+
+
+        /// <summary>
+        /// Lê toda a informação guardada em ficheiro, acerca dos medicamentos.
+        /// </summary>
+        /// <param name="nomeFicheiro">The nome ficheiro.</param>
+        /// <returns></returns>
+        /// <exception cref="LeituraFicheiroException"></exception>
+        public static bool LerFicheiroMedicamentos(string nomeFicheiro)
+        {
+            try
+            {
+                Medicamentos.LerMedicamento(nomeFicheiro);
+                return true;
+            }
+            catch (LeituraFicheiroException e)
+            {
+                throw new LeituraFicheiroException(e.Message + " - " + " Erro ao ler o ficheiro.");
+            }
+        }
+
+
 
         /// <summary>
         /// Lê toda a informação guardada em ficheiro, acerca dos enfermeiros.
@@ -175,9 +218,9 @@ namespace RegrasdeNegocio
                 Funcionarios.LerEnfermeiros(nomeFicheiro);
                 return true;
             }
-            catch (LeituraFicheiroEnfermeiroException e)
+            catch (LeituraFicheiroException e)
             {
-                throw new LeituraFicheiroEnfermeiroException(e.Message + " - " + " Erro ao ler o ficheiro.");
+                throw new LeituraFicheiroException(e.Message + " - " + " Erro ao ler o ficheiro.");
             }
         }
 
@@ -195,14 +238,14 @@ namespace RegrasdeNegocio
                 Funcionarios.LerAuxiliares(nomeFicheiro);
                 return true;
             }
-            catch (LeituraFicheiroAuxiliarException e)
+            catch (LeituraFicheiroException e)
             {
-                throw new LeituraFicheiroAuxiliarException(e.Message + " - " + " Erro ao ler o ficheiro.");
+                throw new LeituraFicheiroException(e.Message + " - " + " Erro ao ler o ficheiro.");
             }
         }
 
         /// <summary>
-        /// 
+        /// Novo utente, tendo em conta que so será inserido pelo seu estado
         /// </summary>
         /// <param name="utente"></param>
         /// <returns></returns>
@@ -228,11 +271,11 @@ namespace RegrasdeNegocio
 
 
         /// <summary>
-        /// 
+        /// Remove um utente da lista com base no seu estado.
         /// </summary>
-        /// <param name="utente"></param>
-        /// <returns></returns>
-        /// <exception cref="UtenteException"></exception>
+        /// <param name="utente">O utente a ser removido.</param>
+        /// <returns>True se o utente foi removido com sucesso, False caso contrário.</returns>
+        /// <exception cref="UtenteException">Exceção relacionada com a remoção do utente.</exception>
         public bool AltaaUtente(Utente utente)
         {
             if (utente.Estado != 2)
@@ -242,8 +285,7 @@ namespace RegrasdeNegocio
 
             try
             {
-                Utentes utentesInstance = new Utentes(); 
-                utentesInstance.DarAltaUtente(utente.Nif);
+                Utentes.RemoveUtente(utente.Nif);
                 return true;
             }
             catch (UtenteException e)
@@ -253,33 +295,11 @@ namespace RegrasdeNegocio
         }
 
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="utente"></param>
-        /// <returns></returns>
-        /// <exception cref="UtenteException"></exception>
-        public bool UtenteTransferido(Utente utente)
-        {
-            if (utente.Estado != 3)
-            {
-                return false;
-            }
 
-            try
-            {
-                Utentes utentesInstance = new Utentes();
-                utentesInstance.TransferirUtente(utente.Nif);
-                return true;
-            }
-            catch (UtenteException e)
-            {
-                throw new UtenteException("Falha de Regras de Negocio - " + e.Message);
-            }
-        }
+
 
         /// <summary>
-        /// 
+        /// Insere uma nova consulta
         /// </summary>
         /// <param name="consulta"></param>
         /// <returns></returns>
@@ -296,16 +316,6 @@ namespace RegrasdeNegocio
                 return false; 
             }
 
-            int SNSutenteConsulta = consulta.SNSutente;
-            Utentes utentesInstance = new Utentes(); 
-
-            bool utenteNaLista = utentesInstance.ExisteUtente(SNSutenteConsulta); 
-
-            if (!utenteNaLista)
-            {
-                return false; 
-            }
-
             try
             {
                 Consultas.InsereConsultaLista(consulta); 
@@ -316,33 +326,9 @@ namespace RegrasdeNegocio
                 throw new ConsultaException("Falha de Regras de Negócio - " + e.Message);
             }
         }
-         
 
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="limpeza"></param>
-        /// <returns></returns>
-        /// <exception cref="LimpezaException"></exception>
-        public bool NovoProdLimpeza(Limpeza limpeza)
-        {
-            if (limpeza.Fornecedor < 200 && limpeza.Fornecedor > 100)
-            {
-                return false;
-            }
 
-            try
-            {
-                Limpezas.InsereProdLimpezaLista(limpeza);
-                return true;
-            }
-            catch (LimpezaException e)
-            {
-                throw new LimpezaException("Falha de Regras de Negocio - " + e.Message);
-            }
-
-        }
 
 
 

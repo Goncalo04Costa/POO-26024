@@ -52,7 +52,7 @@ namespace Dados
         /// </summary>
         /// <param name="Sns">O SNS a ser verificado.</param>
         /// <returns>True se o auxiliar existir na lista, False caso contrário.</returns>
-        public bool ExisteUtente(int Sns)
+        public static bool ExisteUtente(int Sns)
         {
             return utentesList.Any(a => a.Sns == Sns);
         }
@@ -63,7 +63,7 @@ namespace Dados
         /// </summary>
         /// <param name="Nif">O NIF do utente a ser removido.</param>
         /// <returns>True se o utente foi removido com sucesso, False caso contrário.</returns>
-        public bool RemoveUtente(int Nif)
+        public static bool RemoveUtente(int Nif)
         {
             Utente utente = utentesList.Find(a => a.Nif == Nif);
             if (utente != null)
@@ -80,7 +80,7 @@ namespace Dados
         /// Metodo que lê um ficheiro e guarda numa lista a informação
         /// </summary>
         /// <returns></returns>
-        public bool LerUtente(string nomeFicheiro)
+        public static bool LerUtente(string nomeFicheiro)
         {
             try
             {
@@ -96,7 +96,7 @@ namespace Dados
             }
             catch (Exception ex)
             {
-                throw new LeituraFicheiroUtenteException("Erro ao ler o ficheiro de utentes: " + ex.Message);
+                throw new LeituraFicheiroException("Erro ao ler o ficheiro de utentes: " + ex.Message);
             }
         }
 
@@ -104,7 +104,7 @@ namespace Dados
         /// Metodo que guarda as informações de uma lista num ficheiro
         /// </summary>
         /// <returns></returns>
-        public bool GravarUtentes(string nomeFicheiro)
+        public static bool GravarUtentes(string nomeFicheiro)
         {
             try
             {
@@ -115,9 +115,9 @@ namespace Dados
                     ficheiro.Close();
                 }
             }
-            catch (EscritaFicheiroUtenteException e)
+            catch (EscritaFicheiro e)
             {
-                throw new EscritaFicheiroUtenteException("Erro ao gravar o ficheiro." + e.Message);
+                throw new EscritaFicheiro("Erro ao gravar o ficheiro." + e.Message);
             }
 
             return true;
@@ -134,7 +134,12 @@ namespace Dados
         }
 
 
-        public Utente  EncontraUtente(int nif)
+        /// <summary>
+        /// Procura e devolve um utente na lista com base no (NIF).
+        /// </summary>
+        /// <param name="nif">O número de identificação fiscal a ser procurado.</param>
+        /// <returns>O utente correspondente ao NIF fornecido ou null se não for encontrado.</returns>
+        public static Utente EncontraUtente(int nif)
         {
             foreach (Utente u in utentesList)
             {
@@ -146,7 +151,14 @@ namespace Dados
             return null;
         }
 
-        public bool DarAltaUtente(int nif)
+
+
+        /// <summary>
+        /// Metodo para dar alta a um utente
+        /// </summary>
+        /// <param name="nif">O nif a ser procurado</param>
+        /// <returns></returns>
+        public static bool DarAltaUtente(int nif)
         {
             Utente utenteParaDarAlta = EncontraUtente(nif);
             if (utenteParaDarAlta != null)
@@ -161,25 +173,14 @@ namespace Dados
             }
         }
 
-
-        public bool TransferirUtente(int nif)
-        {
-            Utente utenteparatrasnferir = EncontraUtente(nif);
-            if (utenteparatrasnferir != null)
-            {
-                utenteparatrasnferir.Estado = 3;
-                utentesList.Remove(utenteparatrasnferir);
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+       
 
 
-
-        public List<Utente> ObterUtentesSemContactoFamiliar()
+        /// <summary>
+        /// Mostra todos os utentes sem contacto familiar
+        /// </summary>
+        /// <returns>Lista de utentes sem contacto familiar</returns>
+        public  List<Utente> ObterUtentesSemContactoFamiliar()
         {
             List<Utente> utentesSemContactoFamiliar = new List<Utente>();
 
@@ -194,18 +195,33 @@ namespace Dados
             return utentesSemContactoFamiliar;
         }
 
-
+        /// <summary>
+        /// Retorna a lista de utentes.
+        /// </summary>
+        /// <returns>Uma lista com os utentes.</returns>
         public List<Utente> ListarUtentes()
         {
-            return new List<Utente>(utentesList); 
+            return new List<Utente>(utentesList);
         }
 
+        /// <summary>
+        /// Conta o número total de utentes na lista.
+        /// </summary>
+        /// <returns>O número total de utentes.</returns>
         public int ContarUtentes()
         {
-            return utentesList.Count; 
+            return utentesList.Count;
         }
 
-      
+
+        /// <summary>
+        /// apresentar as utentes  por data entrada
+        /// </summary>
+        public void OrdenarConsultasPorData()
+        {
+            utentesList.Sort();
+        }
+
 
     }
 }

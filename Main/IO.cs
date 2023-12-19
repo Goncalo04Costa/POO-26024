@@ -6,12 +6,5 @@ using System.Collections.Generic;
 
 namespace Main
 {
-    class IO
-    {
-        static void Main(string[] args)
-        {
-            
-        }
-    }
 }
 
