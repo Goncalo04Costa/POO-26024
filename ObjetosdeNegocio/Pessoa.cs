@@ -13,6 +13,8 @@ namespace ObjetosdeNegocio
     /// <summary>
     /// Classe base que representa uma pessoa genérica.
     /// </summary>
+
+    [Serializable]
     public class Pessoa
     {
         #region Atributos

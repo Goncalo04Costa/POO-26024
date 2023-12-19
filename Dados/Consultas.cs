@@ -93,6 +93,37 @@ namespace Dados
 
         }
 
+
+
+        /// <summary>
+        /// Remove uma consulta com base no seu código de id.
+        /// </summary>
+        /// <param name="cod">O código da consutla a ser removida.</param>
+        /// <returns>True se a consulta foi removido com sucesso, False caso contrário.</returns>
+        public static bool RemoverConsulta(int cod)
+        {
+            Consulta consulta  = ConsultasList.Find(a => a.Consultaid == cod);
+            if (consulta != null)
+            {
+                ConsultasList.Remove(consulta);
+                return true;
+            }
+            return false;
+        }
+
+
+        /// <summary>
+        /// Remove todas as consultas da lista de consultas.
+        /// </summary>
+        /// <returns></returns>
+        public static bool RemoverConsultas()
+        {
+            ConsultasList.Clear();
+            return true;
+        }
+
+
+
         /// <summary>
         /// Metodo que lê um ficheiro e guarda numa lista a informação
         /// </summary>

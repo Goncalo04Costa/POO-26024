@@ -9,6 +9,7 @@
 
 using System.Collections.Generic;
 using ObjetosdeNegocio;
+using Dados;
 
 namespace Dados
 {
@@ -19,11 +20,12 @@ namespace Dados
         bool RemoveUtente(int Nif);
         bool LerUtente(string nomeFicheiro);
         bool GravarUtentes(string nomeFicheiro);
+        bool RemoverUtentes();
         Utente EncontraUtente(int nif);
         bool DarAltaUtente(int nif);
-        bool TransferirUtente(int nif);
         List<Utente> ObterUtentesSemContactoFamiliar();
         List<Utente> ListarUtentes();
         int ContarUtentes();
+        void OrdenarConsultasPorData();
     }
 }

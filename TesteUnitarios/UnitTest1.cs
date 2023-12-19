@@ -57,10 +57,10 @@ namespace TesteUnitarios
         [TestMethod]
         public void InsereUtente()
         {
-            Utente utente1 = new Utente(924070650, "21/01/2021", "Estavel", 1, "Joao", "Ferreira", 65, 123456789, 1001);
-            Utente utente2 = new Utente(924070650, "21/01/2021", "Estavel", 1, "Joao", "Ferreira", 65, 123456789, 1001);
-            Utente utente3 = new Utente(924070650, "21/01/2021", "Estavel", 1, "Joao", "Ferreira", 65, 123456789, 1001);
-            Utente utente4 = new Utente(924070650, "21/01/2021", "Estavel", 1, "Joao", "Ferreira", 65, 123456789, 1001);
+            Utente utente1 = new Utente(924070650, new DateTime(2023,2,20), "Estavel", 1, "Joao", "Ferreira", 65, 123456789, 1001);
+            Utente utente2 = new Utente(924070650, new DateTime(2023, 2, 20), "Estavel", 1, "Joao", "Ferreira", 65, 123456789, 1001);
+            Utente utente3 = new Utente(924070650, new DateTime(2023, 2, 20), "Estavel", 1, "Joao", "Ferreira", 65, 123456789, 1001);
+            Utente utente4 = new Utente(924070650, new DateTime(2023, 2, 20), "Estavel", 1, "Joao", "Ferreira", 65, 123456789, 1001);
             Utente copiaUtente1 = utente1;
             bool resultado;
             try
@@ -78,6 +78,34 @@ namespace TesteUnitarios
             catch (Exception ) 
             {
             Assert.Fail("ERRO");
+            }
+        }
+
+
+        public void InsereConsultas()
+        {
+            Consulta consulta1 = new Consulta(1,  new DateTime(2023, 12, 21), 123456789, 987654321, "Hospital Regional", 20 );
+            Consulta consulta2 = new Consulta(1, new DateTime(2023, 12, 21), 123456789, 987654321, "Hospital Regional", 20);
+            Consulta consulta3 = new Consulta(1, new DateTime(2023, 12, 21), 123456789, 987654321, "Hospital Regional", 20);
+            Consulta consulta4 = new Consulta(1, new DateTime(2023, 12, 21), 123456789, 987654321, "Hospital Regional", 20);
+            Consulta copiaConsulta1 = consulta1;
+
+            bool resultado;
+            try
+            {
+                bool resultado1 = Consultas.InsereConsultaLista(consulta1);
+                bool resultado2 = Consultas.InsereConsultaLista(consulta2);
+                bool resultado3 = Consultas.InsereConsultaLista(consulta3);
+                bool resultado4 = Consultas.InsereConsultaLista(consulta4);
+                bool copiaresultado1 = Consultas.InsereConsultaLista(copiaConsulta1);
+
+                bool remocao = Consultas.RemoverConsultas();
+
+                Assert.IsTrue(remocao);
+            }
+            catch (Exception)
+            {
+                Assert.Fail("ERRO");
             }
         }
 

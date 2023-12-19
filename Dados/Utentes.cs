@@ -19,7 +19,7 @@ namespace Dados
     /// Classe responsável por gerenciar um conjunto de Utentes.
     /// </summary>
     public class Utentes
-    {
+    { 
         private static List<Utente> utentesList; 
 
         static Utentes()

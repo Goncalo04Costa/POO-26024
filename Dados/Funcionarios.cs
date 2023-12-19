@@ -435,6 +435,15 @@ namespace Dados
 
 
         /// <summary>
+        /// Método estático que retorna uma cópia da lista estática compartilhada de enfermeiros.
+        /// </summary>
+        /// <returns>Uma lista contendo todos os enfermeiros.</returns>
+        public static List<Medico> EnviarTodosMedicos()
+        {
+            return medicoslist.ToList();
+        }
+
+        /// <summary>
         /// Método estático que retorna uma cópia da lista estática compartilhada de medicos.
         /// </summary>
         /// <returns>Uma lista contendo todos os medicos.</returns>

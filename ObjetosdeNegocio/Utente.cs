@@ -17,7 +17,7 @@ namespace ObjetosdeNegocio
     public class Utente : Pessoa, IComparable<Utente>
     {
         int ContactoFamiliar;
-        string DataEntrada;
+        DateTime DataEntrada;
         string avaliacaomedica;
         int estado;
 
@@ -28,7 +28,7 @@ namespace ObjetosdeNegocio
         public Utente()
         {
             ContactoFamiliar = 0;
-            DataEntrada = "";
+            DataEntrada = DateTime.Now;
             avaliacaomedica = "";
             estado = 0;
         }
@@ -47,7 +47,7 @@ namespace ObjetosdeNegocio
         /// <param name="NIF"></param>
         /// <param name="SNS"></param>
 
-        public Utente(int contactoFamiliar, string dataEntrada, string avaliacaomedica, int estado, string nome, string apelido, int idade, int NIF, int SNS)
+        public Utente(int contactoFamiliar, DateTime dataEntrada, string avaliacaomedica, int estado, string nome, string apelido, int idade, int NIF, int SNS)
            : base(nome, apelido, idade, NIF, SNS)
         {
             this.ContactoFamiliar = contactoFamiliar;
@@ -71,7 +71,7 @@ namespace ObjetosdeNegocio
         /// <summary>
         /// Propriedade para obter ou definir a data de entrada do Utente.
         /// </summary>
-        public string DatadeEntrada
+        public DateTime DatadeEntrada
         {
             get { return DataEntrada; }
             set { DataEntrada = value; }
