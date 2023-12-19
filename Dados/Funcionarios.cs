@@ -111,19 +111,36 @@ namespace Dados
         /// </summary>
         /// <param name="codigom">O código do medico a ser verificado.</param>
         /// <returns>True se o auxiliar existir na lista, False caso contrário.</returns>
-        public bool ExisteMedico(int codigom)
+        public static bool ExisteMedico(int codigoMedico, out Medico m)
         {
-            return medicoslist.Any(a => a.CodigoMedico == codigom);
+            foreach (Medico b in medicoslist)
+            {
+                if (b.Codigo == codigoMedico)
+                {
+                    m = b;
+                    return true;
+                }
+            }
+            m = null;
+            return false;
         }
-
         /// <summary>
         /// Verifica se um enfermeiro com o código especificado existe na lista estática compartilhada.
         /// </summary>
-        /// <param name="codigoAuxiliar">O código do auxiliar a ser verificado.</param>
+        /// <param name="codigoEnfermeiro">O código do auxiliar a ser verificado.</param>
         /// <returns>True se o auxiliar existir na lista, False caso contrário.</returns>
-        public bool ExisteEnfermeiro(int codigoenfermeiro)
+        public static bool ExisteEnfermeiro(int codigoEnfermeiro, out Enfermeiro e)
         {
-            return enfermeirosList.Any(a => a.CodigoEnfermeiro == codigoenfermeiro);
+            foreach (Enfermeiro b in enfermeirosList)
+            {
+                if (b.Codigo == codigoEnfermeiro)
+                {
+                    e = b;
+                    return true;
+                }
+            }
+            e = null;
+            return false;
         }
 
 
@@ -133,9 +150,18 @@ namespace Dados
         /// </summary>
         /// <param name="codigoAuxiliar">O código do auxiliar a ser verificado.</param>
         /// <returns>True se o auxiliar existir na lista, False caso contrário.</returns>
-        public static bool ExisteAuxiliar(int codigoAuxiliar)
+        public static bool ExisteAuxiliar(int codigoAuxiliar, out Auxiliar a)
         {
-            return auxiliaresList.Any(a => a.CodigoAuxiliar == codigoAuxiliar);
+            foreach (Auxiliar b in auxiliaresList)
+            {
+                if (b.Codigo == codigoAuxiliar)
+                {
+                    a = b;
+                    return true;
+                }
+            }
+            a = null;
+            return false;
         }
 
 

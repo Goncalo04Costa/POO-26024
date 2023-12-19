@@ -24,19 +24,18 @@ namespace TesteUnitarios
                 bool resultado2 = Funcionarios.InsereAuxiliarLista(auxiliar2);
                 bool resultado3 = Funcionarios.InsereAuxiliarLista(auxiliar3);
                 bool resultado4 = Funcionarios.InsereAuxiliarLista(auxiliar4);
-                bool resultadoCopia = Funcionarios.InsereAuxiliarLista(copiaAuxiliar1); // Isto deve retornar false
+                bool resultadoCopia = Funcionarios.InsereAuxiliarLista(copiaAuxiliar1); 
 
-                // Verifica se a inserção ocorreu com sucesso
+               
                 Assert.IsTrue(resultado1);
                 Assert.IsTrue(resultado2);
                 Assert.IsTrue(resultado3);
                 Assert.IsTrue(resultado4);
-                Assert.IsFalse(resultadoCopia); // A cópia não deve ser inserida
+                Assert.IsFalse(resultadoCopia); 
 
-                 //Remove todos os auxiliares
                 bool remocao = Funcionarios.RemoverAuxiliares();
 
-                // Verifica se a remoção ocorreu com sucesso
+             
                 Assert.IsTrue(remocao);
             }
             catch (Exception)

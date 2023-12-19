@@ -10,32 +10,52 @@ namespace Dados
     public class Consultas
     {
         private static List<Consulta> ConsultasList; 
-        private static Utentes listaUtentes; 
+        
       
+
+
+        /// <summary>
+        /// Inicialização da lista de consultas
+        /// </summary>
         static Consultas()
         {
             ConsultasList = new List<Consulta>(); 
         }
 
-       
+
+        /// <summary>
+        /// Construtor por defeito.
+        /// </summary
         public Consultas()
         {
 
         }
 
-  
-        public List<Consulta> Consultaslist
+
+
+        #region Propriedade
+        /// <summary>
+        /// Devolve uma copia da lista de consultas.
+        /// </summary>
+        /// <value>
+        /// The todas assistencias.
+        /// </value>
+        public List<Consulta> ObterConsultas
         {
-            get { return ConsultasList; }
+            get
+            {
+                return ConsultasList.ToList();
+            }
         }
+        #endregion
 
 
-        public List<Consulta> ListaConsultas()
-        {
-            return new List<Consulta>(ConsultasList); 
-        }
+     
 
-       
+       /// <summary>
+       /// Apresenta o  numero de consultas
+       /// </summary>
+       /// <returns></returns>
         public int ContaConsultas()
         {
             return ConsultasList.Count; 

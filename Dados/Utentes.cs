@@ -132,6 +132,8 @@ namespace Dados
             utentesList.Clear();
             return true;
         }
+
+
         public Utente  EncontraUtente(int nif)
         {
             foreach (Utente u in utentesList)
