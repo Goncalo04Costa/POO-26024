@@ -1,13 +1,23 @@
-﻿using System;
+﻿/*
+*	<copyright file="Consultas" company="IPCA">
+*	</copyright>
+* 	<author>Gonçalo Costa</author>
+*	<contact>a26024@alunos.ipca.pt</contact>
+*   <date>2023 27/11/2023 17:57:35</date>
+*	<description></description>
+**/
+
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using ObjetosdeNegocio;
 using Excecao;
+using Interfaces;
 
 namespace Dados
 {
-    public class Consultas
+    public class Consultas 
     {
         private static List<Consulta> ConsultasList; 
         

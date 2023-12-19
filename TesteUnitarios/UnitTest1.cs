@@ -1,4 +1,13 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿/*
+*	<copyright file="UnitTest01" company="IPCA">
+*	</copyright>
+* 	<author>Gonçalo Costa</author>
+*	<contact>a26024@alunos.ipca.pt</contact>
+*   <date>2023 16/12/2023 12:34:23</date>
+*	<description></description>
+**/
+
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using Dados;
 using ObjetosdeNegocio;

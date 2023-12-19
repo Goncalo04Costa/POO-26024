@@ -1,10 +1,12 @@
 ﻿/*
- *Gonçalo Cardoso Ferreira da Costa 
- * a26024@alunos.ipca.pt
- * POO
- * LESI
- * Professor:Luis Ferreira
- * */
+*	<copyright file="Funcionarios" company="IPCA">
+*	</copyright>
+* 	<author>Gonçalo Costa</author>
+*	<contact>a26024@alunos.ipca.pt</contact>
+*   <date>2023 04/12/2023 09:07:27</date>
+*	<description></description>
+**/
+
 
 using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters.Binary;

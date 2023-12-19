@@ -1,10 +1,12 @@
 ﻿/*
- * Gonçalo Cardoso Ferreira da Costa
- * a26024@alunos.ipca.pt
- * POO
- * LESI
- * Professor: Luis Ferreira
- */
+*	<copyright file="Enfermeiro" company="IPCA">
+*	</copyright>
+* 	<author>Gonçalo Costa</author>
+*	<contact>a26024@alunos.ipca.pt</contact>
+*   <date>2023 25/10/2023 17:31:32</date>
+*	<description></description>
+**/
+
 
 using static System.Net.Mime.MediaTypeNames;
 using System.Net;

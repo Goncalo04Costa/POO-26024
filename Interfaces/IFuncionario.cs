@@ -1,4 +1,13 @@
-﻿using ObjetosdeNegocio;
+﻿/*
+*	<copyright file="IFuncionarios" company="IPCA">
+*	</copyright>
+* 	<author>Gonçalo Costa</author>
+*	<contact>a26024@alunos.ipca.pt</contact>
+*   <date>2023 12/11/2023 13:26:28</date>
+*	<description></description>
+**/
+
+using ObjetosdeNegocio;
 using System.Collections.Generic;
 
 namespace Interfaces

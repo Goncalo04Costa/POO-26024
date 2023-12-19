@@ -1,4 +1,14 @@
-﻿using System;
+﻿/*
+*	<copyright file="Exceptions" company="IPCA">
+*	</copyright>
+* 	<author>Gonçalo Costa</author>
+*	<contact>a26024@alunos.ipca.pt</contact>
+*   <date>2023 19/11/2023 21:47:15</date>
+*	<description></description>
+**/
+
+
+using System;
 
 namespace Excecao
 {

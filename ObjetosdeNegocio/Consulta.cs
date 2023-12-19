@@ -1,9 +1,19 @@
-﻿using static System.Net.Mime.MediaTypeNames;
+﻿/*
+*	<copyright file="Consulta" company="IPCA">
+*	</copyright>
+* 	<author>Gonçalo Costa</author>
+*	<contact>a26024@alunos.ipca.pt</contact>
+*   <date>2023 27/11/2023 13:14:49</date>
+*	<description></description>
+**/
+
+using Interfaces;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ObjetosdeNegocio
 {
     [Serializable]
-    public class Consulta  : IComparable<Consulta>
+    public class Consulta  : IComparable<Consulta> 
     {
         #region Atributos
         int consultaid;

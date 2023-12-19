@@ -1,10 +1,12 @@
 ﻿/*
- * Gonçalo Cardoso Ferreira da Costa 
- * a26024@alunos.ipca.pt
- * POO
- * LESI
- * Professor: Luis Ferreira
- */
+*	<copyright file="Pessoa" company="IPCA">
+*	</copyright>
+* 	<author>Gonçalo Costa</author>
+*	<contact>a26024@alunos.ipca.pt</contact>
+*   <date>2023 29/10/2023 11:32:53</date>
+*	<description></description>
+**/
+
 
 namespace ObjetosdeNegocio
 {

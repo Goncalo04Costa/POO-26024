@@ -1,4 +1,13 @@
-﻿using Dados;
+﻿/*
+*	<copyright file="RN" company="IPCA">
+*	</copyright>
+* 	<author>Gonçalo Costa</author>
+*	<contact>a26024@alunos.ipca.pt</contact>
+*   <date>2023 02/12/2023 10:34:03</date>
+*	<description></description>
+**/
+
+using Dados;
 using ObjetosdeNegocio;
 using Excecao;
 using System;

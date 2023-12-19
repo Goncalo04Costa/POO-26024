@@ -1,4 +1,13 @@
-﻿using System.Collections.Generic;
+﻿/*
+*	<copyright file="IUtentes" company="IPCA">
+*	</copyright>
+* 	<author>Gonçalo Costa</author>
+*	<contact>a26024@alunos.ipca.pt</contact>
+*   <date>2023 12/11/2023 13:22:23</date>
+*	<description></description>
+**/
+
+using System.Collections.Generic;
 using ObjetosdeNegocio;
 
 namespace Dados
