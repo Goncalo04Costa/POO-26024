@@ -23,13 +23,13 @@ namespace Dados
         private static List<Auxiliar> auxiliaresList;
 
 
-
         static Funcionarios()
-            {
-             medicoslist = new List<Medico>();
+        {
+            medicoslist = new List<Medico>();
             enfermeirosList = new List<Enfermeiro>();
-            auxiliaresList  = new List<Auxiliar>();
-            }
+            auxiliaresList = new List<Auxiliar>();
+        }
+
 
         public Funcionarios() { }
 
@@ -133,7 +133,7 @@ namespace Dados
         /// </summary>
         /// <param name="codigoAuxiliar">O código do auxiliar a ser verificado.</param>
         /// <returns>True se o auxiliar existir na lista, False caso contrário.</returns>
-        public bool ExisteAuxiliar(int codigoAuxiliar)
+        public static bool ExisteAuxiliar(int codigoAuxiliar)
         {
             return auxiliaresList.Any(a => a.CodigoAuxiliar == codigoAuxiliar);
         }
@@ -185,7 +185,7 @@ namespace Dados
         /// </summary>
         /// <param name="codigoAuxiliar">O código do auxiliar a ser removido.</param>
         /// <returns>True se o auxiliar foi removido com sucesso, False caso contrário.</returns>
-        public bool RemoverAuxiliar(int codigoAuxiliar)
+        public  static bool RemoverAuxiliar(int codigoAuxiliar)
         {
             Auxiliar auxiliar = auxiliaresList.Find(a => a.CodigoAuxiliar == codigoAuxiliar);
             if (auxiliar != null)
@@ -196,6 +196,16 @@ namespace Dados
             return false;
         }
 
+
+        /// <summary>
+        /// Remove todas os auxiliares da lista de assitencias.
+        /// </summary>
+        /// <returns></returns>
+        public static bool RemoverAuxiliares()
+        {
+            auxiliaresList.Clear();
+            return true;
+        }
         //Guardar em ficheiro
 
 
@@ -203,7 +213,7 @@ namespace Dados
         /// Metodo que guarda as informações de uma lista num ficheiro
         /// </summary>
         /// <returns></returns>
-        public bool GravarFuncionarios(string nomeFicheiro)
+        public static bool GravarMedicos(string nomeFicheiro)
         {
             try
             {
@@ -226,7 +236,7 @@ namespace Dados
         /// Metodo que guarda as informações de uma lista num ficheiro
         /// </summary>
         /// <returns></returns>
-        public bool GravarEnfermeiros(string nomeFicheiro)
+        public static bool GravarEnfermeiros(string nomeFicheiro)
         {
             try
             {
@@ -252,7 +262,7 @@ namespace Dados
         /// Metodo que guarda as informações de uma lista num ficheiro
         /// </summary>
         /// <returns></returns>
-        public bool GravarAuxiliares(string nomeFicheiro)
+        public static bool GravarAuxiliares(string nomeFicheiro)
         {
             try
             {
@@ -280,7 +290,7 @@ namespace Dados
         /// Metodo que lê um ficheiro e guarda numa lista a informação
         /// </summary>
         /// <returns></returns>
-        public bool LerMedicos(string nomeFicheiro)
+        public static bool LerMedicos(string nomeFicheiro)
         {
             try
             {
@@ -306,7 +316,7 @@ namespace Dados
         /// Metodo que lê um ficheiro e guarda numa lista a informação
         /// </summary>
         /// <returns></returns>
-        public bool LerEnfermeiros(string nomeFicheiro)
+        public static bool LerEnfermeiros(string nomeFicheiro)
         {
             try
             {
@@ -332,7 +342,7 @@ namespace Dados
         /// Metodo que lê um ficheiro e guarda numa lista a informação
         /// </summary>
         /// <returns></returns>
-        public bool LerAuxiliares(string nomeFicheiro)
+        public static bool LerAuxiliares(string nomeFicheiro)
         {
             try
             {

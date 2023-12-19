@@ -85,87 +85,121 @@ namespace RegrasdeNegocio
 
 
         /// <summary>
-        /// 
+        /// Grava toda a informação acerca dos auxiliares.
         /// </summary>
-        /// <param name="idMedico"></param>
+        /// <param name="nomeFicheiro">The nome ficheiro.</param>
         /// <returns></returns>
-        /// <exception cref="MedicoException"></exception>
-        public bool RemoveMedico(int idMedico)
+        /// <exception cref="EscritaFicheiroAuxiliaresException"></exception>
+        public static bool GravarFicheiroAuxiliares(string nomeFicheiro)
         {
-            Funcionarios medicosInstance = new Funcionarios();
-            if (medicosInstance.ContarMedicos() > 1)
+            try
             {
-                try
-                {
-                    return medicosInstance.RemoverMedico(idMedico);
-                }
-                catch (MedicoException e)
-                {
-                    throw new MedicoException("Falha de Regras de Negócio " + "-" + e.Message);
-                }
+                Funcionarios.GravarAuxiliares(nomeFicheiro);
+                return true;
             }
-            else
+            catch (EscritaFicheiroAuxiliaresException e)
             {
-                
-                throw new MedicoException("Não é permitido remover o último médico da lista.");
+                throw new EscritaFicheiroAuxiliaresException(e.Message + " - " + "Erro ao gravar ficheiro");
+            }
+        }
+
+
+
+        /// <summary>
+        /// Grava toda a informação acerca dos medicos.
+        /// </summary>
+        /// <param name="nomeFicheiro">The nome ficheiro.</param>
+        /// <returns></returns>
+        /// <exception cref="EscritaFicheiroMedicosException"></exception>
+        public static bool GravarFicheiroMedicos(string nomeFicheiro)
+        {
+            try
+            {
+                Funcionarios.GravarMedicos(nomeFicheiro);
+                return true;
+            }
+            catch (EscritaFicheiroMedicosException e)
+            {
+                throw new EscritaFicheiroMedicosException(e.Message + " - " + "Erro ao gravar ficheiro");
             }
         }
 
         /// <summary>
-        /// 
+        /// Grava toda a informação acerca dos enfermeiros.
         /// </summary>
-        /// <param name="idenfermeiro"></param>
+        /// <param name="nomeFicheiro">The nome ficheiro.</param>
         /// <returns></returns>
-        /// <exception cref="EnfermeiroException"></exception>
-        public bool RemoveEnfermeiro(int idenfermeiro)
+        /// <exception cref="EscritaFicheiroEnfermeirosException"></exception>
+        public static bool GravarFicheiroEnfermeiros(string nomeFicheiro)
         {
-            Funcionarios enfermeirosInstance = new Funcionarios();
-            if (enfermeirosInstance.ContaEnfermeiros() > 2)
+            try
             {
-                try
-                {
-                    return enfermeirosInstance.RemoveEnfermeiro(idenfermeiro);
-                }
-                catch (EnfermeiroException e)
-                {
-                    throw new EnfermeiroException("Falha de Regras de Negócio " + "-" + e.Message);
-                }
+                Funcionarios.GravarEnfermeiros(nomeFicheiro);
+                return true;
             }
-            else
+            catch (EscritaFicheiroEnfermeirosException e)
             {
+                throw new EscritaFicheiroEnfermeirosException(e.Message + " - " + "Erro ao gravar ficheiro");
+            }
+        }
 
-                throw new EnfermeiroException("Não é permitido remover o último enfermeiro da lista.");
+        /// <summary>
+        /// Lê toda a informação guardada em ficheiro, acerca dos medicos.
+        /// </summary>
+        /// <param name="nomeFicheiro">The nome ficheiro.</param>
+        /// <returns></returns>
+        /// <exception cref="LeituraFicheiroMedicoException"></exception>
+        public static bool LerFicheiroMedicos(string nomeFicheiro)
+        {
+            try
+            {
+                Funcionarios.LerMedicos(nomeFicheiro);
+                return true;
+            }
+            catch (LeituraFicheiroMedicoException e)
+            {
+                throw new LeituraFicheiroMedicoException(e.Message + " - " + " Erro ao ler o ficheiro.");
+            }
+        }
+
+        /// <summary>
+        /// Lê toda a informação guardada em ficheiro, acerca dos enfermeiros.
+        /// </summary>
+        /// <param name="nomeFicheiro">The nome ficheiro.</param>
+        /// <returns></returns>
+        /// <exception cref="LeituraFicheiroEnfermeiroException"></exception>
+        public static bool LerFicheiroEnfermeiros(string nomeFicheiro)
+        {
+            try
+            {
+                Funcionarios.LerEnfermeiros(nomeFicheiro);
+                return true;
+            }
+            catch (LeituraFicheiroEnfermeiroException e)
+            {
+                throw new LeituraFicheiroEnfermeiroException(e.Message + " - " + " Erro ao ler o ficheiro.");
             }
         }
 
 
         /// <summary>
-        /// 
+        /// Lê toda a informação guardada em ficheiro, acerca dos auxiliares.
         /// </summary>
-        /// <param name="idAuxiliar"></param>
+        /// <param name="nomeFicheiro">The nome ficheiro.</param>
         /// <returns></returns>
-        /// <exception cref="AuxiliarException"></exception>
-        public bool RemoveAuxiliar(int idAuxiliar)
+        /// <exception cref="LeituraFicheiroAuxiliarException"></exception>
+        public static bool LerFicheiroAuxiliares(string nomeFicheiro)
         {
-            Funcionarios auxilaresInstance = new Funcionarios();
-            if (auxilaresInstance.ContaAuxiliares() > 6)
+            try
             {
-                try
-                {
-                    return auxilaresInstance.RemoverAuxiliar(idAuxiliar);
-                }
-                catch (AuxiliarException e)
-                {
-                    throw new AuxiliarException("Falha de Regras de Negócio " + "-" + e.Message);
-                }
+                Funcionarios.LerAuxiliares(nomeFicheiro);
+                return true;
             }
-            else
+            catch (LeituraFicheiroAuxiliarException e)
             {
-
-                throw new AuxiliarException("Não é permitido remover o/a auxiliar da lista.");
+                throw new LeituraFicheiroAuxiliarException(e.Message + " - " + " Erro ao ler o ficheiro.");
             }
         }
-
 
         /// <summary>
         /// 

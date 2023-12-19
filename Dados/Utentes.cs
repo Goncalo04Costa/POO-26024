@@ -123,7 +123,15 @@ namespace Dados
             return true;
         }
 
-
+        /// <summary>
+        /// Remove todas os utentes da lista de assitencias.
+        /// </summary>
+        /// <returns></returns>
+        public static bool RemoverUtentes()
+        {
+            utentesList.Clear();
+            return true;
+        }
         public Utente  EncontraUtente(int nif)
         {
             foreach (Utente u in utentesList)
