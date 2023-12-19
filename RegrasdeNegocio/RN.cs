@@ -304,7 +304,21 @@ namespace RegrasdeNegocio
         }
 
 
-
+        /// <summary>
+        /// Metodo que verifica se pode enviar a lista de consultas
+        /// </summary>
+        /// <returns>Lista de campanhas</returns>
+        public static List<Consulta> ListaConsultas()
+        {
+            try
+            {
+                return Consultas.ObterConsultas;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
 
 
         /// <summary>
@@ -337,10 +351,109 @@ namespace RegrasdeNegocio
         }
 
 
+        /// <summary>
+        /// Procura ver se é possivel remover consulta
+        /// </summary>
+        /// <param name="consulta"></param>
+        /// <returns></returns>
+        /// <exception cref="ConsultaException"></exception>
+        public bool RemoveConsulta(Consulta consulta)
+        {
+            DateTime dataLimite = DateTime.Today.AddDays(5);
+            if (consulta.Data < dataLimite)
+            {
+                return false;
+            }
+
+            try
+            {
+                Consultas.RemoverConsulta(consulta.Consultaid);
+                return true;
+            }
+            catch (ConsultaException e)
+            {
+                throw new ConsultaException("Falha de Regras de Negócio - " + e.Message);
+            }
+        }
+
+        /// <summary>
+        /// Procura ver se é possível remover auxiliar
+        /// </summary>
+        /// <param name="auxiliar"></param>
+        /// <returns></returns>
+        /// <exception cref="AuxiliarException"></exception>
+        public bool RemoveAuxiliar(Auxiliar auxiliar)
+        {
+            Funcionarios funcionarios = new Funcionarios();
+
+            if (funcionarios.ContaAuxiliares() < 6)
+            {
+                return false;
+            }
+
+            try
+            {
+                Funcionarios.RemoverAuxiliar(auxiliar.Codigo);
+                return true;
+            }
+            catch (AuxiliarException e)
+            {
+                throw new AuxiliarException("Falha de Regras de Negócio - " + e.Message);
+            }
+        }
+
+        /// <summary>
+        /// Procura ver se é possível remover medico
+        /// </summary>
+        /// <param name="medico"></param>
+        /// <returns></returns>
+        /// <exception cref="MedicoException"></exception>
+        public bool RemoveMedico(Medico medico)
+        {
+            Funcionarios funcionarios = new Funcionarios();
+
+            if (funcionarios.ContarMedicos() < 2)
+            {
+                return false;
+            }
+
+            try
+            {
+                Funcionarios.RemoverMedico(medico.Codigo);
+                return true;
+            }
+            catch (AuxiliarException e)
+            {
+                throw new AuxiliarException("Falha de Regras de Negócio - " + e.Message);
+            }
+        }
 
 
+        /// <summary>
+        /// Procura ver se é possível remover enfermeiro
+        /// </summary>
+        /// <param name="enfermeiro"></param>
+        /// <returns></returns>
+        /// <exception cref="EnfermeiroException"></exception>
+        public bool RemoveEnfermeiro(Enfermeiro enfermeiro)
+        {
+            Funcionarios funcionarios = new Funcionarios();
 
+            if (funcionarios.ContaEnfermeiros() < 4)
+            {
+                return false;
+            }
 
+            try
+            {
+                Funcionarios.RemoveEnfermeiro(enfermeiro.Codigo);
+                return true;
+            }
+            catch (EnfermeiroException e)
+            {
+                throw new EnfermeiroException("Falha de Regras de Negócio - " + e.Message);
+            }
+        }
     }
 
 }

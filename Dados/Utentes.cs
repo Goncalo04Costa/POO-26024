@@ -126,7 +126,7 @@ namespace Dados
         }
 
         /// <summary>
-        /// Remove todas os utentes da lista de assitencias.
+        /// Remove todas os utentes da lista de utentes.
         /// </summary>
         /// <returns></returns>
         public static bool RemoverUtentes()

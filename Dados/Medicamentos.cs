@@ -32,6 +32,10 @@ namespace Dados
         {
 
         }
+
+        /// <summary>
+        /// Obtem a lista de medicamentos
+        /// </summary>
         public List<Medicamento> MedicamentosList
         {
             get { return medicamentosList; }

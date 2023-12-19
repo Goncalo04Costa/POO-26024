@@ -36,8 +36,7 @@ namespace Dados
         public Funcionarios() { }
 
 
-        // funções de inserir
-
+     
 
         /// <summary>
         /// Método estático para inserir um novo auxiliar na lista estática compartilhada.
@@ -106,7 +105,7 @@ namespace Dados
         }
 
 
-        // existe 
+        
 
         /// <summary>
         /// Verifica se um medico com o código especificado existe na lista estática compartilhada.
@@ -168,7 +167,7 @@ namespace Dados
 
 
 
-        // funções de remover
+        
 
 
         /// <summary>
@@ -176,7 +175,7 @@ namespace Dados
         /// </summary>
         /// <param name="cod">O código do medico a ser removido.</param>
         /// <returns>True se o medico foi removido com sucesso, False caso contrário.</returns>
-        public bool RemoverMedico(int cod)
+        public static bool RemoverMedico(int cod)
         {
             Medico medico = medicoslist.Find(a => a.CodigoMedico == cod);
             if (medico != null)
@@ -195,7 +194,7 @@ namespace Dados
         /// </summary>
         /// <param name="codigoAuxiliar">O código do auxiliar a ser removido.</param>
         /// <returns>True se o auxiliar foi removido com sucesso, False caso contrário.</returns>
-        public bool RemoveEnfermeiro(int codigoenfermeiro)
+        public static bool RemoveEnfermeiro(int codigoenfermeiro)
         {
             Enfermeiro enfermeiro = enfermeirosList.Find(a => a.CodigoEnfermeiro == codigoenfermeiro);
             if (enfermeiro != null)
@@ -226,7 +225,7 @@ namespace Dados
 
 
         /// <summary>
-        /// Remove todas os auxiliares da lista de assitencias.
+        /// Remove todas os auxiliares da lista de auxiliares.
         /// </summary>
         /// <returns></returns>
         public static bool RemoverAuxiliares()
@@ -234,7 +233,27 @@ namespace Dados
             auxiliaresList.Clear();
             return true;
         }
-        //Guardar em ficheiro
+
+        /// <summary>
+        /// Remove todas os medicos da lista de medicos.
+        /// </summary>
+        /// <returns></returns>
+        public static bool RemoverMedicos()
+        {
+            medicoslist.Clear();
+            return true;
+        }
+
+        /// <summary>
+        /// Remove todas os enfermeiros da lista de medicos.
+        /// </summary>
+        /// <returns></returns>
+        public static bool RemoverEnfermeiros()
+        {
+            enfermeirosList.Clear();
+            return true;
+        }
+
 
 
         /// <summary>
@@ -312,7 +331,7 @@ namespace Dados
 
 
 
-        // Ler de ficheiro
+       
 
         /// <summary>
         /// Metodo que lê um ficheiro e guarda numa lista a informação
@@ -412,6 +431,13 @@ namespace Dados
             return auxiliaresList.Count;
         }
 
+        /// <summary>
+        /// apresentar os auxiliares  por ordem de entrada
+        /// </summary>
+        public void OrdenarConsultasPorData()
+        {
+            auxiliaresList.Sort();
+        }
 
 
         /// <summary>

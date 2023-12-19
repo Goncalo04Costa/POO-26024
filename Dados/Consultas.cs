@@ -43,29 +43,28 @@ namespace Dados
 
 
 
-        #region Propriedade
+        
         /// <summary>
         /// Devolve uma copia da lista de consultas.
         /// </summary>
         /// <value>
         /// The todas assistencias.
         /// </value>
-        public List<Consulta> ObterConsultas
+        public static List<Consulta> ObterConsultas
         {
             get
             {
                 return ConsultasList.ToList();
             }
         }
-        #endregion
-
+        
 
      
 
        /// <summary>
        /// Apresenta o  numero de consultas
        /// </summary>
-       /// <returns></returns>
+       /// <returns> o numero de consultas</returns>
         public int ContaConsultas()
         {
             return ConsultasList.Count; 
@@ -115,7 +114,7 @@ namespace Dados
         /// <summary>
         /// Remove todas as consultas da lista de consultas.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>true se limpou</returns>
         public static bool RemoverConsultas()
         {
             ConsultasList.Clear();
@@ -127,7 +126,7 @@ namespace Dados
         /// <summary>
         /// Metodo que lê um ficheiro e guarda numa lista a informação
         /// </summary>
-        /// <returns></returns>
+        /// <returns>true se deu e false o contrario</returns>
         public bool LerConsultas(string nomeFicheiro)
         {
             try
@@ -151,7 +150,7 @@ namespace Dados
         /// <summary>
         /// Metodo que guarda as informações de uma lista num ficheiro
         /// </summary>
-        /// <returns></returns>
+        /// <returns> true se gravou e false caso contrario</returns>
         public bool GravarConsultas(string nomeFicheiro)
         {
             try

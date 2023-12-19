@@ -122,7 +122,7 @@ namespace ObjetosdeNegocio
 
 
         /// <summary>
-        /// 
+        ///  Metodo para comparar os auxiliares pela sua data de entrada
         /// </summary>
         /// <param name="other"></param>
         /// <returns></returns>
