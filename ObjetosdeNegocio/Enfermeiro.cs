@@ -84,7 +84,7 @@ namespace ObjetosdeNegocio
         /// </summary>
         public static bool operator ==(Enfermeiro e1, Enfermeiro e2)
         {
-            if ((e1.Nome == e2.Nome) && (e1.CodigoEnfermeiro == e2.CodigoEnfermeiro) && (e1.Sns == e2.Sns) && (e1.Nif == e2.Nif))
+            if (  (e1.CodigoEnfermeiro == e2.CodigoEnfermeiro) && (e1.Sns == e2.Sns) && (e1.Nif == e2.Nif))
                 return true;
 
             return false;

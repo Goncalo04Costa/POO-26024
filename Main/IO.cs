@@ -14,7 +14,7 @@ namespace Main
         {
             try
             {
-                // Código para inserir auxiliares e manipular seus dados
+                
                 Auxiliar auxiliar1 = new Auxiliar(234, "21/11/2022", "Copa", 123456789, 1001, "Funcional", "Jose", "Pedro", 30, 123456789, 924070650);
                 Auxiliar auxiliar2 = new Auxiliar(124, "12/01/2021", "Copa", 987654321, 0110, "Funcional", "Maria", "Pedrosa", 23, 98765431, 932120650);
                 Auxiliar auxiliar3 = new Auxiliar(345, "29-11-2023", "Copa", 823738273, 8912, "Funcional", "Pedro", "Malheiro", 39, 128389, 232313);
@@ -33,9 +33,8 @@ namespace Main
                 {
                     Console.WriteLine("Não foi possível inserir todos os auxiliares.");
                 }
-
-
-                // Manipulação e gravação de auxiliares em ficheiro
+              
+                
                 List<Auxiliar> listaAuxiliares = Funcionarios.EnviarTodosAuxiliares();
 
                 Console.WriteLine("\nLista de Auxiliares:");
@@ -112,7 +111,117 @@ namespace Main
                     Console.WriteLine($"Data: {consulta.Data}, Utente: {consulta.SNSutente}, Local: {consulta.Hospital}");
                 }
 
-                // Código para inserir utentes e manipular seus dados
+
+                Enfermeiro enfermeiro1 = new Enfermeiro(123, "Ativo", 1001, "21/01/2023", "Enfermeiro Geral", 987654321, "Maria", "Silva", 30, 123456789, 387654321);
+                Enfermeiro enfermeiro2 = new Enfermeiro(321, "Baixa", 3001, "11/01/2023", "Teste", 923454321, "Julia", "Pinheiro", 50, 923456789, 887674321);
+                Enfermeiro enfermeiro4 = new Enfermeiro(321, "Ativo", 2001, "21/01/2023", "Enfermeiro Geral", 987654312, "Pedro", "Silva", 80, 1234767889, 987654721);
+                Enfermeiro enfermeiro3 = new Enfermeiro(122, "Ativo", 3001, "21/01/2023", "Enfermeiro Geral", 987654321, "Luis", "Silva", 20, 124456789, 647654321);
+                Enfermeiro enfermeiro5 = new Enfermeiro(2222, "Ativo", 7001, "21/01/2023", "Enfermeiro Geral", 087654321, "Gonçalo", "Silva", 20, 122456789, 473354321);
+                bool inseridoEnfermeiro1 = regrasNegocio.InsereEnfermeiro(enfermeiro1);
+                bool inseridoEnfermeiro2 = regrasNegocio.InsereEnfermeiro(enfermeiro2);
+                bool inseridoEnfermeiro3 = regrasNegocio.InsereEnfermeiro(enfermeiro3);
+                bool inseridoEnfermeiro4 = regrasNegocio.InsereEnfermeiro(enfermeiro4);
+                bool inseridoEnfermeiro5 = regrasNegocio.InsereEnfermeiro(enfermeiro5);
+                if (inseridoEnfermeiro1 && inseridoEnfermeiro2 && inseridoEnfermeiro3 && inseridoEnfermeiro4 && inseridoEnfermeiro5)
+                {
+                    Console.WriteLine("Enfermeiros inseridos com sucesso!");
+                }
+                else
+                {
+                    Console.WriteLine("Não foi possível inserir todos os enfermeiros.");
+                }
+
+
+                List<Enfermeiro> enfermeiros = Funcionarios.EnviarTodosEnfermeiros();
+                Console.WriteLine("\nLista de Enfermeiros:");
+                foreach (var enfermeiro in enfermeiros)
+                {
+                    Console.WriteLine($"Nome: {enfermeiro.Nome}, Contacto: {enfermeiro.Contacto}, Cargo: {enfermeiro.Cargo}");
+                }
+
+
+                string filenameEnfermeiros = "enfermeiros.dat";
+                bool sucessoGravacaoEnfermeiros = RN.GravarFicheiroEnfermeiros(filenameEnfermeiros);
+
+                if (sucessoGravacaoEnfermeiros)
+                {
+                    Console.WriteLine("Informações dos enfermeiros gravadas com sucesso!");
+                }
+                else
+                {
+                    Console.WriteLine("Não foi possível gravar as informações dos enfermeiros.");
+                }
+
+                string filenamedosEnfermeiros = "enfermeiros.dat";
+                bool sucessoLeituraEnfermeiros = RN.LerFicheiroEnfermeiros(filenamedosEnfermeiros);
+
+                if (sucessoLeituraEnfermeiros)
+                {
+                    List<Enfermeiro> listaEnfermeirosLidos = Funcionarios.EnviarTodosEnfermeiros();
+
+                    Console.WriteLine("\nLista de Enfermeiros Lidos do Ficheiro:");
+                    foreach (var enfermeiro in listaEnfermeirosLidos)
+                    {
+                        Console.WriteLine($"Nome: {enfermeiro.Nome}, Contacto: {enfermeiro.Contacto}, Cargo: {enfermeiro.Cargo}");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Não foi possível ler as informações dos enfermeiros do arquivo.");
+                }
+
+
+
+
+
+                Medico medico1 = new Medico(1234, "Clínica Geral", 1001, "21/01/2023", "Médico", 987654321, "Maria", "Silva", 35, 123456789, 387654321);
+                Medico medico2 = new Medico(3455, "Clínica Geral", 9982, "18/10/2021", "Médico", 1213133, "Pedro", "Figueiredo", 45, 2424124, 2414);
+               
+                bool inseridoMedico1 = regrasNegocio.InsereMedico(medico1);
+                bool inseridoMedico2 = regrasNegocio.InsereMedico(medico2);
+                if (inseridoMedico1 && inseridoMedico2)
+                {
+                    Console.WriteLine("Médicos inseridos com sucesso!");
+                }
+                else
+                {
+                    Console.WriteLine("Não foi possível inserir os médicos.");
+                }
+
+
+                string filenameMedicos = "medicos.dat";
+                bool sucessoGravacaoMedicos = RN.GravarFicheiroMedicos(filenameMedicos);
+
+                if (sucessoGravacaoMedicos)
+                {
+                    Console.WriteLine("Informações dos médicos gravadas com sucesso!");
+                }
+                else
+                {
+                    Console.WriteLine("Não foi possível gravar as informações dos médicos.");
+                }
+
+
+                string filenamedeMedicos = "medicos.dat";
+                bool sucessoLeituraMedicos = RN.LerFicheiroMedicos(filenamedeMedicos);
+
+                if (sucessoLeituraMedicos)
+                {
+                    List<Medico> listaMedicosLidos = Funcionarios.EnviarTodosMedicos();
+
+                    Console.WriteLine("\nLista de Médicos Lidos do Ficheiro:");
+                    foreach (var medico in listaMedicosLidos)
+                    {
+                        Console.WriteLine($"Nome: {medico.Nome}, Especialidade: {medico.Especialidade}, Contacto: {medico.Contacto}");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Não foi possível ler as informações dos médicos do arquivo.");
+                }
+
+
+
                 Utente utente1 = new Utente(924070650, new DateTime(2023, 2, 20), "Estavel", 1, "Joao", "Ferreira", 65, 123456789, 1001);
                 Utente utente2 = new Utente(923444444, new DateTime(2021, 12, 20), "Estavel", 0, "Joana", "Costa", 35, 987654321, 0110);
 

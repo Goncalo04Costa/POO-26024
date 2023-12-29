@@ -197,7 +197,7 @@ namespace Dados
         public static bool RemoveEnfermeiro(int codigoenfermeiro)
         {
             Enfermeiro enfermeiro = enfermeirosList.Find(a => a.CodigoEnfermeiro == codigoenfermeiro);
-            if (enfermeiro != null)
+            if (enfermeiro != null) 
             {
                 enfermeirosList.Remove(enfermeiro);
                 return true;
@@ -207,12 +207,13 @@ namespace Dados
 
 
 
+
         /// <summary>
         /// Remove um auxiliar com base no seu código.
         /// </summary>
         /// <param name="codigoAuxiliar">O código do auxiliar a ser removido.</param>
         /// <returns>True se o auxiliar foi removido com sucesso, False caso contrário.</returns>
-        public  static bool RemoverAuxiliar(int codigoAuxiliar)
+        public static bool RemoverAuxiliar(int codigoAuxiliar)
         {
             Auxiliar auxiliar = auxiliaresList.Find(a => a.CodigoAuxiliar == codigoAuxiliar);
             if (auxiliar != null)
