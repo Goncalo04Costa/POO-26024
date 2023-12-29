@@ -85,11 +85,9 @@ namespace Main
 
 
 
-
-
                 // Consultas
-                Consulta consulta1 = new Consulta(1, new DateTime(2023, 12, 21), 123456789, 987654321, "Hospital Porto", 124);
-                Consulta consulta2 = new Consulta(1, new DateTime(2023, 12, 29), 1121313, 244224244, "Hospital  Coimbra", 220);
+                Consulta consulta1 = new Consulta(1, new DateTime(2023, 12, 31), 123456789, 987654321, "Hospital Porto", 124);
+                Consulta consulta2 = new Consulta(1, new DateTime(2024, 01, 10), 1121313, 244224244, "Hospital  Coimbra", 220);
 
 
                 bool inseridaConsulta1 = regrasNegocio.NovaConsulta(consulta1);
@@ -110,6 +108,17 @@ namespace Main
                 {
                     Console.WriteLine($"Data: {consulta.Data}, Utente: {consulta.SNSutente}, Local: {consulta.Hospital}");
                 }
+
+
+                Consultas.OrdenarConsultasPorData();
+
+                // Agora você pode exibir as consultas ordenadas
+                Console.WriteLine("\nConsultas Por data:");
+                foreach (var consulta in consultas)
+                {
+                    Console.WriteLine($"Data: {consulta.Data}, Utente: {consulta.SNSutente}, Hospital: {consulta.Hospital}");
+                }
+
 
 
                 Enfermeiro enfermeiro1 = new Enfermeiro(123, "Ativo", 1001, "21/01/2023", "Enfermeiro Geral", 987654321, "Maria", "Silva", 30, 123456789, 387654321);

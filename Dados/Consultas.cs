@@ -174,9 +174,9 @@ namespace Dados
         /// <summary>
         /// apresentar as consultas  por ordem
         /// </summary>
-        public void OrdenarConsultasPorData()
+        public static void OrdenarConsultasPorData()
         {
-            ConsultasList.Sort();
+            ConsultasList.Sort((c1, c2) => c1.Data.CompareTo(c2.Data));
         }
 
 

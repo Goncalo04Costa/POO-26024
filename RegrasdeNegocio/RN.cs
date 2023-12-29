@@ -369,7 +369,7 @@ namespace RegrasdeNegocio
         /// <exception cref="ConsultaException"></exception>
         public bool NovaConsulta(Consulta consulta)
         {
-            if(consulta.Data > DateTime.Now)
+            if(consulta.Data < DateTime.Now)
             {
                 return false;
             }
