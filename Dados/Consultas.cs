@@ -73,7 +73,7 @@ namespace Dados
         /// <summary>
         /// Método estático para inserir uma nova consuulta na lista estática compartilhada.
         /// </summary>
-        /// <param name="novoAuxiliar">Consulta a ser inserida na lista.</param>
+        /// <param name="novoConsulta">Consulta a ser inserida na lista.</param>
         /// <returns>True se a inserção for bem-sucedida, False caso contrário.</returns>
         public static bool InsereConsultaLista(Consulta novoConsulta)
         {

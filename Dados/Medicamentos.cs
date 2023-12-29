@@ -23,11 +23,17 @@ namespace Dados
     {
         private static List<Medicamento> medicamentosList; 
 
+        /// <summary>
+        /// Inicialização da lista de medicamentos
+        /// </summary>
         static Medicamentos()
         {
             medicamentosList = new List<Medicamento>(); 
         }
 
+        /// <summary>
+        /// Construtor por omissão
+        /// </summary>
         public Medicamentos()
         {
 
@@ -44,7 +50,7 @@ namespace Dados
         /// <summary>
         /// Método estático para inserir um novo medicamento na lista estática compartilhada.
         /// </summary>
-        /// <param name="novofunc">O medicamento a ser inserido na lista.</param>
+        /// <param name="novoMedicamento">O medicamento a ser inserido na lista.</param>
         /// <returns>True se a inserção for bem-sucedida, False caso contrário.</returns>
         public static bool InsereMedicamentoLista(Medicamento novoMedicamento)
         {

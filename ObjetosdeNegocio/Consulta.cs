@@ -180,10 +180,9 @@ namespace ObjetosdeNegocio
         /// <returns>Um valor inteiro que indica a relação entre as datas.</returns>
         public int CompareTo(Consulta other)
         {
-            // Verifica se o objeto other é nulo
+      
             if (other == null) return 1;
 
-            // Comparação das datas
             return this.data.CompareTo(other.data);
         }
 

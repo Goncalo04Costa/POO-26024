@@ -14,7 +14,7 @@ namespace Main
         {
             try
             {
-                
+                Console.WriteLine("-----AUXILIARES-----");
                 Auxiliar auxiliar1 = new Auxiliar(234, "21/11/2022", "Copa", 123456789, 1001, "Funcional", "Jose", "Pedro", 30, 123456789, 924070650);
                 Auxiliar auxiliar2 = new Auxiliar(124, "12/01/2021", "Copa", 987654321, 0110, "Funcional", "Maria", "Pedrosa", 23, 98765431, 932120650);
                 Auxiliar auxiliar3 = new Auxiliar(345, "29-11-2023", "Copa", 823738273, 8912, "Funcional", "Pedro", "Malheiro", 39, 128389, 232313);
@@ -85,7 +85,7 @@ namespace Main
 
 
 
-                // Consultas
+                Console.WriteLine("-----CONSULTAS-----");
                 Consulta consulta1 = new Consulta(1, new DateTime(2023, 12, 31), 123456789, 987654321, "Hospital Porto", 124);
                 Consulta consulta2 = new Consulta(1, new DateTime(2024, 01, 10), 1121313, 244224244, "Hospital  Coimbra", 220);
 
@@ -120,7 +120,7 @@ namespace Main
                 }
 
 
-
+                Console.WriteLine("-----ENFERMEIROS-----");
                 Enfermeiro enfermeiro1 = new Enfermeiro(123, "Ativo", 1001, "21/01/2023", "Enfermeiro Geral", 987654321, "Maria", "Silva", 30, 123456789, 387654321);
                 Enfermeiro enfermeiro2 = new Enfermeiro(321, "Baixa", 3001, "11/01/2023", "Teste", 923454321, "Julia", "Pinheiro", 50, 923456789, 887674321);
                 Enfermeiro enfermeiro4 = new Enfermeiro(321, "Ativo", 2001, "21/01/2023", "Enfermeiro Geral", 987654312, "Pedro", "Silva", 80, 1234767889, 987654721);
@@ -182,7 +182,7 @@ namespace Main
 
 
 
-
+                Console.WriteLine("-----MEDICOS-----");
                 Medico medico1 = new Medico(1234, "Clínica Geral", 1001, "21/01/2023", "Médico", 987654321, "Maria", "Silva", 35, 123456789, 387654321);
                 Medico medico2 = new Medico(3455, "Clínica Geral", 9982, "18/10/2021", "Médico", 1213133, "Pedro", "Figueiredo", 45, 2424124, 2414);
                
@@ -230,7 +230,7 @@ namespace Main
                 }
 
 
-
+                Console.WriteLine("-----UTENTES-----");
                 Utente utente1 = new Utente(924070650, new DateTime(2023, 2, 20), "Estavel", 1, "Joao", "Ferreira", 65, 123456789, 1001);
                 Utente utente2 = new Utente(923444444, new DateTime(2021, 12, 20), "Estavel", 0, "Joana", "Costa", 35, 987654321, 0110);
 

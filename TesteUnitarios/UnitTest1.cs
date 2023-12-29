@@ -17,6 +17,11 @@ namespace TesteUnitarios
     [TestClass]
     public class UnitTest1
     {
+
+        /// <summary>
+        /// Alguns testes unitários realizados
+        /// </summary>
+        
         [TestMethod]
         public void InsereAuxiliar()
         {

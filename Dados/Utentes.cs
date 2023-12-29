@@ -22,11 +22,21 @@ namespace Dados
     { 
         private static List<Utente> utentesList; 
 
+        /// <summary>
+        /// Inicialização da lista de utentes
+        /// </summary>
         static Utentes()
         {
             utentesList = new List<Utente>(); 
         }
 
+        /// <summary>
+        /// Construtor por omissão
+        /// </summary>
+        public Utentes()
+        {
+
+        }
         /// <summary>
         /// Método estático para inserir um novo utente na lista estática compartilhada.
         /// </summary>
@@ -52,13 +62,21 @@ namespace Dados
         /// <summary>
         /// Verifica se um utente com o código especificado existe na lista estática compartilhada.
         /// </summary>
-        /// <param name="Sns">O SNS a ser verificado.</param>
-        /// <returns>True se o auxiliar existir na lista, False caso contrário.</returns>
-        public static bool ExisteUtente(int Sns)
+        /// <param name="codigoutente">O código do utente a ser verificado.</param>
+        /// <returns>True se o medicamento existir na lista, False caso contrário.</returns>
+        public static bool ExisteUtente(int codigoutente, out Utente u)
         {
-            return utentesList.Any(a => a.Sns == Sns);
+            foreach (Utente b in utentesList)
+            {
+                if (b.Nif == codigoutente)
+                {
+                    u = b;
+                    return true;
+                }
+            }
+            u = null;
+            return false;
         }
-
 
         /// <summary>
         /// Remove um utente com base no seu código.

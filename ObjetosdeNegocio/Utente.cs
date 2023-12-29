@@ -35,7 +35,7 @@ namespace ObjetosdeNegocio
 
 
         /// <summary>
-        /// 
+        /// Construtor por parametros
         /// </summary>
         /// <param name="contactoFamiliar"></param>
         /// <param name="dataEntrada"></param>
@@ -46,7 +46,6 @@ namespace ObjetosdeNegocio
         /// <param name="idade"></param>
         /// <param name="NIF"></param>
         /// <param name="SNS"></param>
-
         public Utente(int contactoFamiliar, DateTime dataEntrada, string avaliacaomedica, int estado, string nome, string apelido, int idade, int NIF, int SNS)
            : base(nome, apelido, idade, NIF, SNS)
         {
@@ -142,10 +141,8 @@ namespace ObjetosdeNegocio
         /// <returns>Um valor inteiro que indica a relação entre as datas.</returns>
         public int CompareTo(Utente other)
         {
-            // Verifica se o objeto other é nulo
+            
             if (other == null) return 1;
-
-            // Comparação das datas
             return this.DataEntrada.CompareTo(other.DataEntrada);
         }
 

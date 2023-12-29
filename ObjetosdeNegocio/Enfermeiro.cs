@@ -30,7 +30,6 @@ namespace ObjetosdeNegocio
 
         /// <summary>
         /// Construtor padrão para a classe Enfermeiro.
-        /// Inicializa CodigoEnfermeiro para 0 e Condicao para uma string vazia.
         /// </summary>
         public Enfermeiro()
         {
@@ -40,7 +39,7 @@ namespace ObjetosdeNegocio
 
       
         /// <summary>
-        /// 
+        /// Construtor por parametros
         /// </summary>
         /// <param name="codigoEnfermeiro"></param>
         /// <param name="condicao"></param>
@@ -61,6 +60,9 @@ namespace ObjetosdeNegocio
         }
 
 
+        /// <summary>
+        /// Obtem ou define o codigo de enfermeiro
+        /// </summary>
         public int CodigoEnfermeiro
         {
             get { return codigoenfermeiro; }
@@ -68,7 +70,7 @@ namespace ObjetosdeNegocio
         }
 
         /// <summary>
-        /// Obtém ou define a condição do Médico.
+        /// Obtém ou define a condição de enfermreiro.
         /// </summary>
         public string Condicao
         {

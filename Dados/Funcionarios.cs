@@ -25,6 +25,9 @@ namespace Dados
         private static List<Auxiliar> auxiliaresList;
 
 
+        /// <summary>
+        /// Inicialização das listas de funcionarios
+        /// </summary>
         static Funcionarios()
         {
             medicoslist = new List<Medico>();
@@ -32,8 +35,12 @@ namespace Dados
             auxiliaresList = new List<Auxiliar>();
         }
 
-
-        public Funcionarios() { }
+        /// <summary>
+        /// Construtor por omissão
+        /// </summary>
+        public Funcionarios() 
+        {
+        }
 
 
      
@@ -61,9 +68,9 @@ namespace Dados
         }
 
         /// <summary>
-        /// Método estático para inserir um novo auxiliar na lista estática compartilhada.
+        /// Método estático para inserir um novo enfermeiro na lista estática compartilhada.
         /// </summary>
-        /// <param name="novoAuxiliar">O auxiliar a ser inserido na lista.</param>
+        /// <param name="novoEnfermeiro">O auxiliar a ser inserido na lista.</param>
         /// <returns>True se a inserção for bem-sucedida, False caso contrário.</returns>
         public static bool InsereEnfermeiroLista(Enfermeiro novoEnfermeiro)
         {
@@ -85,7 +92,7 @@ namespace Dados
         /// <summary>
         /// Método estático para inserir um novo medico na lista estática compartilhada.
         /// </summary>
-        /// <param name="novofunc">O medico a ser inserido na lista.</param>
+        /// <param name="novomedico">O medico a ser inserido na lista.</param>
         /// <returns>True se a inserção for bem-sucedida, False caso contrário.</returns>
         public static bool InsereMedicoLista(Medico novomedico)
         {
@@ -110,8 +117,8 @@ namespace Dados
         /// <summary>
         /// Verifica se um medico com o código especificado existe na lista estática compartilhada.
         /// </summary>
-        /// <param name="codigom">O código do medico a ser verificado.</param>
-        /// <returns>True se o auxiliar existir na lista, False caso contrário.</returns>
+        /// <param name="codigoMedico">O código do medico a ser verificado.</param>
+        /// <returns>True se o medico existir na lista, False caso contrário.</returns>
         public static bool ExisteMedico(int codigoMedico, out Medico m)
         {
             foreach (Medico b in medicoslist)
@@ -128,8 +135,8 @@ namespace Dados
         /// <summary>
         /// Verifica se um enfermeiro com o código especificado existe na lista estática compartilhada.
         /// </summary>
-        /// <param name="codigoEnfermeiro">O código do auxiliar a ser verificado.</param>
-        /// <returns>True se o auxiliar existir na lista, False caso contrário.</returns>
+        /// <param name="codigoEnfermeiro">O código do utente a ser verificado.</param>
+        /// <returns>True se o utente existir na lista, False caso contrário.</returns>
         public static bool ExisteEnfermeiro(int codigoEnfermeiro, out Enfermeiro e)
         {
             foreach (Enfermeiro b in enfermeirosList)
@@ -190,10 +197,10 @@ namespace Dados
 
 
         /// <summary>
-        /// Remove um auxiliar com base no seu código.
+        /// Remove um enfermeiro com base no seu código.
         /// </summary>
-        /// <param name="codigoAuxiliar">O código do auxiliar a ser removido.</param>
-        /// <returns>True se o auxiliar foi removido com sucesso, False caso contrário.</returns>
+        /// <param name="codigoenfermeiro">O código do enfermeiro a ser removido.</param>
+        /// <returns>True se o enfermeiro foi removido com sucesso, False caso contrário.</returns>
         public static bool RemoveEnfermeiro(int codigoenfermeiro)
         {
             Enfermeiro enfermeiro = enfermeirosList.Find(a => a.CodigoEnfermeiro == codigoenfermeiro);

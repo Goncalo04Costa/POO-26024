@@ -24,7 +24,7 @@ namespace ObjetosdeNegocio
 
         #region Construtores
         /// <summary>
-        /// Construtor padrão que inicializa um Medicamento com código e marca padrão.
+        /// Construtor por omissão
         /// </summary>
         public Medicamento()
         {
@@ -33,7 +33,7 @@ namespace ObjetosdeNegocio
         }
 
         /// <summary>
-        /// Construtor que permite definir um Medicamento com código e marca específicos.
+        /// Construtor por parametros
         /// </summary>
         public Medicamento(int codigomedicamento, string marca,  int codigo, string nome, int fornecedor, int stock)
       : base(codigo, nome, fornecedor, stock)
@@ -55,7 +55,7 @@ namespace ObjetosdeNegocio
         }
 
         /// <summary>
-        /// Obtém ou define o fornecedor/marca do Medicamento.
+        /// Obtém ou define a marca do Medicamento.
         /// </summary>
         public string Marca
         {
@@ -69,7 +69,6 @@ namespace ObjetosdeNegocio
         #region Operadores
         /// <summary>
         /// Sobrecarga do operador de igualdade para Medicamentos.
-        /// Compara o código e a marca dos Medicamentos para determinar igualdade.
         /// </summary>
         public static bool operator ==(Medicamento m1, Medicamento m2)
         {
@@ -80,7 +79,6 @@ namespace ObjetosdeNegocio
 
         /// <summary>
         /// Sobrecarga do operador de desigualdade para Medicamentos.
-        /// Compara o código e a marca dos Medicamentos para determinar desigualdade.
         /// </summary>
         public static bool operator !=(Medicamento m1, Medicamento m2)
         {

@@ -31,8 +31,8 @@ namespace ObjetosdeNegocio
         #region Construtores
 
         /// <summary>
-        /// Construtor padrão sem parâmetros para a classe Pessoa.
-        /// Inicializa os atributos com valores padrão.
+        /// Construtor padrão 
+        
         /// </summary>
         public Pessoa()
         {
@@ -43,6 +43,14 @@ namespace ObjetosdeNegocio
             SNS = 0;
         }
 
+        /// <summary>
+        /// Construtor por parametros
+        /// </summary>
+        /// <param name="nome"></param>
+        /// <param name="apelido"></param>
+        /// <param name="idade"></param>
+        /// <param name="nIF"></param>
+        /// <param name="sNS"></param>
         public Pessoa(string nome, string apelido, int idade, int nIF, int sNS)
         {
             this.nome = nome;
