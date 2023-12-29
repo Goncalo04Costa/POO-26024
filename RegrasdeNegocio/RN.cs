@@ -154,6 +154,26 @@ namespace RegrasdeNegocio
 
 
         /// <summary>
+        /// Grava toda a informação acerca dos utentes.
+        /// </summary>
+        /// <param name="nomeFicheiro">The nome ficheiro.</param>
+        /// <returns></returns>
+        /// <exception cref="EscritaFicheiro"></exception>
+        public static bool GravarFicheiroUtentes(string nomeFicheiro)
+        {
+            try
+            {
+                Utentes.GravarUtentes(nomeFicheiro);
+                return true;
+            }
+            catch (EscritaFicheiro e)
+            {
+                throw new EscritaFicheiro(e.Message + " - " + "Erro ao gravar ficheiro");
+            }
+        }
+
+
+        /// <summary>
         /// Grava toda a informação acerca dos medicamentos.
         /// </summary>
         /// <param name="nomeFicheiro">The nome ficheiro.</param>
@@ -184,6 +204,26 @@ namespace RegrasdeNegocio
             try
             {
                 Funcionarios.LerMedicos(nomeFicheiro);
+                return true;
+            }
+            catch (LeituraFicheiroException e)
+            {
+                throw new LeituraFicheiroException(e.Message + " - " + " Erro ao ler o ficheiro.");
+            }
+        }
+
+
+        /// <summary>
+        /// Lê toda a informação guardada em ficheiro, acerca dos utentes.
+        /// </summary>
+        /// <param name="nomeFicheiro">The nome ficheiro.</param>
+        /// <returns></returns>
+        /// <exception cref="LeituraFicheiroException"></exception>
+        public static bool LerFicheiroUtentes(string nomeFicheiro)
+        {
+            try
+            {
+                Utentes.LerUtente(nomeFicheiro);
                 return true;
             }
             catch (LeituraFicheiroException e)

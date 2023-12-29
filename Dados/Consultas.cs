@@ -205,5 +205,16 @@ namespace Dados
             return proximaConsulta;
         }
 
+
+        /// <summary>
+        /// Método estático que retorna uma cópia da lista estática compartilhada de consultas.
+        /// </summary>
+        /// <returns>Uma lista contendo todas as consultas.</returns>
+        public static List<Consulta> EnviarCOnsultas()
+        {
+            return ConsultasList.ToList();
+        }
+
+
     }
 }

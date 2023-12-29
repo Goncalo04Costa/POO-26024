@@ -215,11 +215,20 @@ namespace Dados
             return utentesList.Count;
         }
 
+        /// <summary>
+        /// Método estático que retorna uma cópia da lista estática compartilhada de enfermeiros.
+        /// </summary>
+        /// <returns>Uma lista contendo todos os enfermeiros.</returns>
+        public static List<Utente> EnviarTodosUtentes()
+        {
+            return utentesList.ToList();
+        }
+
 
         /// <summary>
         /// apresentar as utentes  por data entrada
         /// </summary>
-        public void OrdenarConsultasPorData()
+        public void OrdenarUtentespordata()
         {
             utentesList.Sort();
         }
