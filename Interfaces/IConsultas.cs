@@ -21,4 +21,5 @@ namespace Interfaces
         bool GravarConsultas(string nomeFicheiro);
         void OrdenarConsultasPorData();
     }
+
 }

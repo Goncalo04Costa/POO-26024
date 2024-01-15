@@ -86,7 +86,7 @@ namespace TesteUnitarios
             }
         }
 
-
+     
         public void InsereConsultas()
         {
             Consulta consulta1 = new Consulta(1,  new DateTime(2023, 12, 21), 123456789, 987654321, "Hospital Regional", 20 );

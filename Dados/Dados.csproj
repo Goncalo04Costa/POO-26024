@@ -15,7 +15,7 @@
       <HintPath>..\Excessoes\bin\Debug\net6.0\Excecao.dll</HintPath>
     </Reference>
     <Reference Include="Interfaces">
-      <HintPath>..\Interfaces\bin\Debug\net6.0\Interfaces.dll</HintPath>
+      <HintPath>..\..\..\..\Trab_Pratico_POO_LESI_Fase2_26024  (2)\Trab_Pratico_POO_LESI_Fase2_26024\POO-projeto-26024\POO\Interfaces\bin\Debug\net6.0\Interfaces.dll</HintPath>
     </Reference>
     <Reference Include="ObjetosdeNegocio">
       <HintPath>..\ObjetosdeNegocio\bin\Debug\net6.0\ObjetosdeNegocio.dll</HintPath>
